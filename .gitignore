@@ -35,3 +35,15 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+node_modules/
+bower_components/
+plugins/
+
+SCM/node_modules
+SCM/platforms/
+SCM/plugins/
+SCM/res/
+SCM/resources/
+
+

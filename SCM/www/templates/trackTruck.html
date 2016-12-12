@@ -1,0 +1,18 @@
+<ion-view view-title="Track Truck" ng-init="centerOnMe()">
+    <ion-content>
+        <div class="card">
+            <button class="button button-block button-positive" ui-sref="app.agency_location">
+                Update Map Location
+            </button>
+            <button class="button button-block button-positive" ui-sref="app.take_photo">
+                Navigate To Address
+            </button>
+            <div class="mapWrap" data-tap-disabled="true">
+                <map center="{{lat}},{{lng}}" zoom="15">
+                    <marker ng-repeat="pos in positions" position="{{lat}},{{lng}}"></marker>
+                </map>
+            </div>
+        </div>
+        </div>
+    </ion-content>
+</ion-view>

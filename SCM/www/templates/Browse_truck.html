@@ -1,0 +1,16 @@
+<ion-view view-title="Agency List">
+  <ion-content>
+    <div class="row header">
+          <div class="col">Status </div>
+          <div class="col">CUstomer Name</div>
+          <div class="col">Job Id</div>
+        </div>
+        <div class="row" ng-repeat="job in job_list" >
+         
+          <div class="col">{{job.Status}}</div>
+           <div class="col" >{{job.CustomerName}}</div>
+          <div class="col" ng-click="showDetails(data.Id);">{{job.JobVehicleId}}</div>
+         
+        </div>
+  </ion-content>
+</ion-view>

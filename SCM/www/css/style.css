@@ -1,0 +1,38 @@
+/* Empty. Add your own CSS if you like */
+.bar.bar-dark {
+    /*border-color:  #5c7e0e;
+    background-color:  #5c7e0e;*/
+}
+.header .col {
+    background-color:lightgrey;
+}
+
+.col {
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+}
+
+.col:last-child {
+    border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+    border-bottom: solid 1px grey;
+}
+
+
+
+.item-icon-left ion-spinner {
+  float: left;
+  margin-left: -3.2em;
+  margin-right: 1em;
+  margin-top: -0.2em;
+ }
+
+.spinner svg {
+  width: 70px;
+  height: 28px;
+  stroke: #999;
+  fill: #999;
+}
