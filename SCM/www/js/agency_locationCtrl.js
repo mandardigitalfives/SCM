@@ -1,25 +1,23 @@
-angular.module('starter.controllers').controller('agency_location', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store','$cordovaGeolocation','$ionicLoading', function($scope, $rootScope, $http, $state, $stateParams, store, $cordovaGeolocation,$ionicLoading) {
-	
-    $scope.positions = [];
-    var posOptions = { maximumAge:600000, timeout:7000, enableHighAccuracy: true };
-    $cordovaGeolocation
-        .getCurrentPosition(posOptions)
+angular.module('starter.controllers').controller('agency_location', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$cordovaGeolocation', '$ionicLoading', function($scope, $rootScope, $http, $state, $stateParams, store, $cordovaGeolocation, $ionicLoading) {
 
-    .then(function(position) {
+    $scope.positions = [];
+    var posOptions = { maximumAge: 600000, timeout: 7000, enableHighAccuracy: true };
+
+    $cordovaGeolocation.getCurrentPosition(posOptions).then(function(position) {
         $scope.lat = position.coords.latitude
         $scope.lng = position.coords.longitude
-        $scope.positions= {
+        $scope.positions = {
             lat: $scope.lat,
             lng: $scope.lng
         }
-        console.log($scope.positions)
+        console.log($scope.positions);
         $ionicLoading.hide();
     }, function(err) {
         console.log(err)
     });
 
 
-    var watchOptions = { maximumAge:600000, timeout:7000, enableHighAccuracy: true };
+    var watchOptions = { maximumAge: 600000, timeout: 7000, enableHighAccuracy: true };
 
     var watch = $cordovaGeolocation.watchPosition(watchOptions);
 
@@ -36,7 +34,7 @@ angular.module('starter.controllers').controller('agency_location', ['$scope', '
                 lat: $scope.lat,
                 lng: $scope.lng
             }
-            
+
 
         });
 
@@ -48,5 +46,19 @@ angular.module('starter.controllers').controller('agency_location', ['$scope', '
             template: 'Loading...'
         });
     };
+
+
+
+    // var socketURL = "http://localhost:9999";
+    // var newgigisadded = io(socketURL + '/newgig');
+    // newgigisadded.on('newgig', function(data) {
+    //     console.log(data);
+    //     $scope.lat = position.coords.latitude
+    //     $scope.lng = position.coords.longitude
+    //     $scope.positions = {
+    //         lat: $scope.lat,
+    //         lng: $scope.lng
+    //     }
+    // });
 
 }]);
