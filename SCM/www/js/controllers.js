@@ -49,12 +49,17 @@ angular.module('starter.controllers', ['ionic-toast'])
                     user_login: true,
                     user_id: response.Uid,
                     email: response.UserId,
+                    type : response.type,
                 }
                 store.set('userdata', userdata);
                 $rootScope.islogin = store.get('userdata');
                 $ionicNavBarDelegate.showBackButton(false);
                 $ionicLoading.hide();
-                $state.go('app.browse');
+                if(store.get('userdata').type == 'truck'){
+                  $state.go('app.browse');
+            }else if(store.get('userdata').type == 'agency'){
+                  $state.go('app.Browse_truck');
+              };
             } else {
                 $scope.errMsgLogin = response.message;
             }
