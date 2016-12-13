@@ -90,17 +90,55 @@ var connection = env.Dbconnection;
 var CronJob = require('cron').CronJob;
 
 
-var i = 0;
+var lat = 18.539956999999998;
+var lng = 73.90657689999999
+    
+    var data = { 
+            lat : lat,
+            lng : lng
+    }
 
+function generateRandomPoints(center, radius, count) {
+  var points = [];
+  for (var i=0; i<count; i++) {
+    points.push(generateRandomPoint(center, radius));
+  }
+  return points;
+}
+
+function generateRandomPoint(center, radius) {
+  var x0 = center.lng;
+  var y0 = center.lat;
+  // Convert Radius from meters to degrees.
+  var rd = radius/111300;
+
+  var u = Math.random();
+  var v = Math.random();
+
+  var w = rd * Math.sqrt(u);
+  var t = 2 * Math.PI * v;
+  var x = w * Math.cos(t);
+  var y = w * Math.sin(t);
+
+  var xp = x/Math.cos(y0);
+
+  // Resulting point.
+  return {'lat': y+y0, 'lng': xp+x0};
+}
+
+
+// Usage Example.
+// Generates 100 points that is in a 1km radius from the given lat and lng point.
+var randomGeoPoints = generateRandomPoints({'lat':18.539956999999998, 'lng':73.90657689999999}, 1000, 1);
+
+console.log(randomGeoPoints);
 
 var job = new CronJob({
     cronTime: '*/5 * * * * *',
     onTick: function() {
         var io = require("../socket");
 
-
-        io.of('/newgig').emit('newgig', i);
-        i++;
+        io.of('/newgig').emit('newgig', randomGeoPoints);
         //   var gcm = require('node-gcm');
         //   var sender = new gcm.Sender('AIzaSyAJ9kNU7h4VSK2oiqrD5EatNVvzBD6zsxw');
         //   var message = new gcm.Message(); 

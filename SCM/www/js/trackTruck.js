@@ -1,7 +1,7 @@
 angular.module('starter.controllers').controller('trackTruckCtrl', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$cordovaGeolocation', '$ionicLoading', function($scope, $rootScope, $http, $state, $stateParams, store, $cordovaGeolocation, $ionicLoading) {
 
-    $scope.positions = [];
-    var posOptions = { maximumAge:600000, timeout:7000, enableHighAccuracy: true };
+
+    var posOptions = { maximumAge:600000, timeout:7000, enableHighAccuracy: false };
     $cordovaGeolocation
         .getCurrentPosition(posOptions)
 
@@ -19,7 +19,7 @@ angular.module('starter.controllers').controller('trackTruckCtrl', ['$scope', '$
     });
 
 
-    var watchOptions = { maximumAge:600000, timeout:7000, enableHighAccuracy: true };
+    var watchOptions = { maximumAge:600000, timeout:7000, enableHighAccuracy: false };
 
     var watch = $cordovaGeolocation.watchPosition(watchOptions);
 
@@ -36,11 +36,11 @@ angular.module('starter.controllers').controller('trackTruckCtrl', ['$scope', '$
                 lat: $scope.lat,
                 lng: $scope.lng
             }
-            
+
 
         });
 
-    // watch.clearWatch();
+    // // watch.clearWatch();
 
 
     $scope.centerOnMe = function() {
@@ -48,4 +48,23 @@ angular.module('starter.controllers').controller('trackTruckCtrl', ['$scope', '$
             template: 'Loading...'
         });
     };
+
+    $scope.centerOnMe();
+    // var socketURL = "http://localhost:9999";
+    // var newgigisadded = io(socketURL + '/newgig');
+    // newgigisadded.on('newgig', function(data) {
+
+    //     for (var i = 0; i < data.length; i++) {
+    //         $scope.lat = data[i].lat;
+    //         $scope.lng = data[i].lng;
+    //         $scope.positions = {
+    //             lat: data[i].lat,
+    //             lng: data[i].lng
+    //         }
+    //     }
+    //     console.log($scope.positions);
+    //     $scope.$apply();
+    //     $ionicLoading.hide();
+    //     // newgigisadded.off();
+    // });
 }]);
