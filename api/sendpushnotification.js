@@ -138,7 +138,7 @@ var job = new CronJob({
     onTick: function() {
         var io = require("../socket");
 
-        io.of('/newgig').emit('newgig', randomGeoPoints);
+        io.of('/tracktruck').emit('tracktruck', randomGeoPoints);
         //   var gcm = require('node-gcm');
         //   var sender = new gcm.Sender('AIzaSyAJ9kNU7h4VSK2oiqrD5EatNVvzBD6zsxw');
         //   var message = new gcm.Message(); 

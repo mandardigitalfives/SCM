@@ -1,6 +1,5 @@
 angular.module('starter.controllers').controller('trackTruckCtrl', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$cordovaGeolocation', '$ionicLoading','$ionicPopup', function($scope, $rootScope, $http, $state, $stateParams, store, $cordovaGeolocation, $ionicLoading,$ionicPopup) {
 
-
     // var posOptions = { maximumAge:600000, timeout:7000, enableHighAccuracy: false };
     // $cordovaGeolocation
     //     .getCurrentPosition(posOptions)
@@ -51,8 +50,8 @@ angular.module('starter.controllers').controller('trackTruckCtrl', ['$scope', '$
 
     $scope.centerOnMe();
     var socketURL = "http://localhost:9999";
-    var newgigisadded = io(socketURL + '/newgig');
-    newgigisadded.on('newgig', function(data) {
+    var trackTruck = io(socketURL + '/tracktruck');
+    trackTruck.on('tracktruck', function(data) {
         for (var i = 0; i < data.length; i++) {
             $scope.lat = data[i].lat;
             $scope.lng = data[i].lng;
@@ -63,11 +62,11 @@ angular.module('starter.controllers').controller('trackTruckCtrl', ['$scope', '$
         }
         console.log($scope.positions);
         var alertPopup = $ionicPopup.alert({
-                title: "Lat -: "+$scope.lat,
-                template: 'Lng -:'+$scope.lng
+                title: "Lat -: "+$scope.lat+"<BR>"+'Lng -:  '+$scope.lng,
+                template: "HI....."
             });
         $scope.$apply();
         $ionicLoading.hide();
-        newgigisadded.off();
+        trackTruck.off();
     });
 }]);
