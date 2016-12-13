@@ -4,8 +4,8 @@ io.on('connection', function (socket) {
 	console.log('Connected');
 });
 
-io.of('/newgig').on('connection',function(socket){
-	console.log('new user connected in newgig');
+io.of('/tracktruck').on('connection',function(socket){
+	console.log('new user connected in tracktruck');
 });
 
 module.exports = io;

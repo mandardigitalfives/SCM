@@ -41,19 +41,14 @@ angular.module('starter.controllers', ['ionic-toast'])
 
     $scope.login = function(user) {
         $scope.showLoader();
-        var data = {
-            email: user.email,
-            password: user.password
-        }
-
-        $http.post("http://digitalfives-apps.org/android_database_Connect/login.php", data).success(function(response, request) {
+        $http.post("http://digitalfives-apps.org/android_database_Connect/login.php", user).success(function(response, request) {
 
             if (response.isLogin == true) {
+                console.log(response);
                 userdata = {
                     user_login: true,
-                    user_id: user._id,
-                    email: user.email,
-                    password: user.password
+                    user_id: response.Uid,
+                    email: response.UserId,
                 }
                 store.set('userdata', userdata);
                 $rootScope.islogin = store.get('userdata');
