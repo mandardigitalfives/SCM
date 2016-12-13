@@ -5,6 +5,10 @@ var env = require('./environment');
 var connection = env.Dbconnection;
 var userCRUD = CRUD(connection,'user');
 
+var io      = require( "../socket" );
+
+io.of('/newgig').emit('newgig', "resdata");
+
 exports.login = function(req,res){
   	  var email = req.body.user_email;
       var password = req.body.user_password;
