@@ -1,40 +1,52 @@
-angular.module('starter.controllers').controller('agency_location', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store','$cordovaGeolocation', function($scope, $rootScope, $http, $state, $stateParams, store, $cordovaGeolocation) {
-	console.log("agency_location");
-
-	 var posOptions = {timeout: 10000, enableHighAccuracy: false};
-	 $cordovaGeolocation
-   .getCurrentPosition(posOptions)
+angular.module('starter.controllers').controller('agency_location', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store','$cordovaGeolocation','$ionicLoading', function($scope, $rootScope, $http, $state, $stateParams, store, $cordovaGeolocation,$ionicLoading) {
 	
-   .then(function (position) {
-      var lat  = position.coords.latitude
-      var long = position.coords.longitude
-      console.log(lat + '   ' + long);
-      $scope.lat = lat;
-      $scope.long = long;
-   }, function(err) {
-      console.log(err)
-   });
+    $scope.positions = [];
+    var posOptions = { maximumAge:600000, timeout:7000, enableHighAccuracy: true };
+    $cordovaGeolocation
+        .getCurrentPosition(posOptions)
+
+    .then(function(position) {
+        $scope.lat = position.coords.latitude
+        $scope.lng = position.coords.longitude
+        $scope.positions= {
+            lat: $scope.lat,
+            lng: $scope.lng
+        }
+        console.log($scope.positions)
+        $ionicLoading.hide();
+    }, function(err) {
+        console.log(err)
+    });
 
 
-   var watchOptions = {timeout : 100, enableHighAccuracy: false};
-   var watch = $cordovaGeolocation.watchPosition(watchOptions);
-	
-   watch.then(
-      null,
-		
-      function(err) {
-         console.log(err)
-      },
-		
-      function(position) {
-         var lat  = position.coords.latitude
-         var long = position.coords.longitude
-         console.log(lat + '' + long)
-         $scope.lat = lat;
-      	 $scope.long = long;
-      }
-   );
+    var watchOptions = { maximumAge:600000, timeout:7000, enableHighAccuracy: true };
 
-   watch.clearWatch();
+    var watch = $cordovaGeolocation.watchPosition(watchOptions);
+
+    watch.then(
+        null,
+        function(err) {
+            console.log(err)
+        },
+
+        function(position) {
+            $scope.lat = position.coords.latitude
+            $scope.lng = position.coords.longitude
+            $scope.positions = {
+                lat: $scope.lat,
+                lng: $scope.lng
+            }
+            
+
+        });
+
+    // watch.clearWatch();
+
+
+    $scope.centerOnMe = function() {
+        $ionicLoading.show({
+            template: 'Loading...'
+        });
+    };
 
 }]);

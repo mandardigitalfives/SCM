@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'ngCordova','ngMap'])
+angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'ngCordova', 'ngMap'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -22,6 +22,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
     });
 })
 
+.factory('socket', function(socketFactory) {
+    //Create socket and connect to http://chat.socket.io
+    var myIoSocket = io.connect('http://n2.transparent.sg:3000/');
+
+    mySocket = socketFactory({
+        ioSocket: myIoSocket
+    });
+
+    return mySocket;
+})
 
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
