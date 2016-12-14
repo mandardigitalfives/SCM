@@ -34,10 +34,10 @@ angular.module('starter.controllers', ['ionic-toast'])
         });
     }
 
-    $scope.user = {
+    /*$scope.user = {
         email: "mac@digitalfives.com",
         password: "mac123"
-    }
+    }*/
 
     $scope.login = function(user) {
         $scope.showLoader();
