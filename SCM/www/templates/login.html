@@ -1,18 +1,43 @@
 <ion-view title="Login" ng-init="init()">
     <ion-content padding="'true'" class="has-header">
-        <form class="list">
+        <form class="list" name="loginfrm" novalidate data-ng-submit="loginfrm.$valid && login(user,loginfrm.$valid)">
             <ion-list>
                 <label class="item item-input">
                     <span class="input-label">Email</span>
-                    <input ng-model="user.email" type="email" placeholder="">
+                    <input ng-model="user.email" type="email" placeholder=""  name="username" ng-pattern='/^(([^ </>()[\]\.,;:\s@\"]+(\.[^ <> ()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^ <> ()[\]\.,;:\s@\"]{2,})$/i' required>
                 </label>
+                 <span>
+                            <div data-ng-messages="loginfrm.$submitted && loginfrm.username.$error" role="alert" class="error_msg">
+                                <div id="reqmassgclor" data-ng-message="required">
+                                    Enter User name
+                                </div>
+                                <div id="reqmassgclor" data-ng-message="email || pattern">
+                                    Enter Valid User name
+                                </div>
+                            </div>
+                        </span>
                 <label class="item item-input">
-                    <span class="input-label">Password</span>
-                    <input ng-model="user.password" type="password" placeholder="">
+                    <span class="input-label" >Password</span>
+                    <input ng-model="user.password" type="password" placeholder="" name="password" required/>
                 </label>
+
+               <span>
+                            <div data-ng-messages="loginfrm.$submitted && loginfrm.password.$error" role="alert" class="error_msg">
+                                <div id="reqmassgclor" data-ng-message="required">
+                                    Enter password
+                                </div>
+                            </div>
+                        </span>
+                  <span>
+                        <div role="alert" class="error_msg" ng-if="errMsgLogin">
+                            <div id="reqmassgclor">
+                                {{ errMsgLogin }}
+                            </div>
+                        </div>
+                    </span>
             </ion-list>
             <div class="spacer" style="height: 40px;"></div>
-            <button class="button button-stable button-block " ng-click="login(user)">Log in</button>
+            <button class="button button-stable button-block " >Log in</button>
             <a href="#/page5" class="button button-positive button-clear button-block ">Or create an account</a>
             <a href="#/page5" class="button button-positive button-clear button-block ">Or create an account</a>
 

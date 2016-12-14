@@ -55,8 +55,10 @@ angular.module('starter.controllers', ['ionic-toast'])
                 $rootScope.islogin = store.get('userdata');
                 $ionicNavBarDelegate.showBackButton(false);
                 $ionicLoading.hide();
-                if(store.get('userdata').type == 'truck'){
+            
+            if(store.get('userdata').type == 'truck'){
                   $state.go('app.browse');
+                  
             }else if(store.get('userdata').type == 'agency'){
                   $state.go('app.Browse_truck');
               };
