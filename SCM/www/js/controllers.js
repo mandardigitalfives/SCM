@@ -34,10 +34,10 @@ angular.module('starter.controllers', ['ionic-toast'])
         });
     }
 
-    /*$scope.user = {
+    $scope.user = {
         email: "mac@digitalfives.com",
         password: "mac123"
-    }*/
+    }
 
     $scope.login = function(user) {
         $scope.showLoader();
@@ -63,9 +63,11 @@ angular.module('starter.controllers', ['ionic-toast'])
                   $state.go('app.Browse_truck');
               };
             } else {
+                $ionicLoading.hide();
                 $scope.errMsgLogin = response.message;
             }
         }).error(function() {
+            $ionicLoading.hide();
             var alertPopup = $ionicPopup.alert({
                 title: 'Connection Problem.',
                 template: 'Please check your credentials!'
