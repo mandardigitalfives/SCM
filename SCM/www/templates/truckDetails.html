@@ -1,82 +1,68 @@
-<ion-view view-title="Truck Details" >
-  <ion-content>
-   <div class="card">
-     <div class="item item-divider" >
-      Truck Details
-     </div>
-
- <div class="item item-text-wrap">
-
-   <div class="list"  >
-  <label class="item item-input item-stacked-label">
-    <span>Truck Number</span>
-  </label>
-  <label class="item item-input item-stacked-label"> 
-  <span style="color:green;">{{details_list.Truck_Number}}</span>
-  </label>
-
-  <label class="item item-input item-stacked-label">
-    <span >Truck Registration Number</span>
-  </label>
-  <label class="item item-input item-stacked-label"> 
-  <span style="color:green;">{{details_list.Truck_RegNumber}}</span>
-  </label>
-
-  <label class="item item-input item-stacked-label">
-    <span>Truck Capacity</span>
-  </label>
-  <label class="item item-input item-stacked-label"> 
-  <span style="color:green;">{{details_list.Truck_Capacity}}</span>
-  </label>
-   
-     <label class="item item-input item-stacked-label">
-    <span>Truck Contact Details</span>
-  </label>
-  <label class="item item-input item-stacked-label"> 
-  <span style="color:green;" >{{details_list.agencyDetails}}</span>
-  </label>
-
- </div>
-</div>
-
-<div class="item item-divider">
-    Driver Details
-  </div>
-  <div class="item item-text-wrap">
-
-   <div class="list">
-  <label class="item item-input item-stacked-label">
-    <span >Driver Name</span>
-  </label>
-  <label class="item item-input item-stacked-label"> 
-  <span style="color:green;">{{details_list.Driver_Name}}</span>
-  </label>
-
-  <label class="item item-input item-stacked-label">
-    <span >Driver Age</span>
-  </label>
-  <label class="item item-input item-stacked-label"> 
-  <span style="color:green;">{{details_list.Driver_Age}}</span>
-  </label>
-
-  <label class="item item-input item-stacked-label">
-    <span>Driver Mobile Number</span>
-  </label>
-  <label class="item item-input item-stacked-label"> 
-  <span style="color:green;">{{details_list.Driver_Mobile}}</span>
-  </label>
-
- </div>
-</div>
- 
-<button class="button button-block button-positive" ng-click="AllotTruck()">
-  Allot Truck
-</button>
-<button class="button button-block button-positive" ui-sref="app.trackTruck">
-  Track This Truck
-</button>
-</div>
-
-  
-</ion-content>
+<ion-view view-title="Truck Details">
+    <ion-content>
+        <div class="card">
+            <div class="item item-divider">
+                Truck Details
+            </div>
+            <div class="item item-text-wrap">
+                <div class="list">
+                    <label class="item item-input item-stacked-label">
+                        <span>Truck Number</span>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span style="color:green;">{{details_list.Truck_Number}}</span>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span>Truck Registration Number</span>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span style="color:green;">{{details_list.Truck_RegNumber}}</span>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span>Truck Capacity</span>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span style="color:green;">{{details_list.Truck_Capacity}}</span>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span>Truck Contact Details</span>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span style="color:green;">{{details_list.agencyDetails}}</span>
+                    </label>
+                </div>
+            </div>
+            <div class="item item-divider">
+                Driver Details
+            </div>
+            <div class="item item-text-wrap">
+                <div class="list">
+                    <label class="item item-input item-stacked-label">
+                        <span>Driver Name</span>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span style="color:green;">{{details_list.Driver_Name}}</span>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span>Driver Age</span>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span style="color:green;">{{details_list.Driver_Age}}</span>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span>Driver Mobile Number</span>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span style="color:green;">{{details_list.Driver_Mobile}}</span>
+                    </label>
+                </div>
+            </div>
+            <button class="button button-block button-positive" ng-click="AllotTruck()">
+                Allot Truck
+            </button>
+            <button class="button button-block button-positive" ui-sref="app.trackTruck">
+                Track This Truck
+            </button>
+        </div>
+    </ion-content>
 </ion-view>

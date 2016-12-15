@@ -17,7 +17,7 @@ angular.module('starter.controllers', ['ionic-toast'])
     }
 })
 
-.controller('logincontroller', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$ionicNavBarDelegate','$ionicLoading', function($scope, $rootScope, $http, $state, $stateParams, store, $ionicNavBarDelegate,$ionicLoading) {
+.controller('logincontroller', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$ionicNavBarDelegate', '$ionicLoading', function($scope, $rootScope, $http, $state, $stateParams, store, $ionicNavBarDelegate, $ionicLoading) {
 
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
@@ -49,19 +49,19 @@ angular.module('starter.controllers', ['ionic-toast'])
                     user_login: true,
                     user_id: response.Uid,
                     email: response.UserId,
-                    type : response.type,
+                    type: response.type,
                 }
                 store.set('userdata', userdata);
                 $rootScope.islogin = store.get('userdata');
                 $ionicNavBarDelegate.showBackButton(false);
                 $ionicLoading.hide();
-            
-            if(store.get('userdata').type == 'truck'){
-                  $state.go('app.browse');
-                  
-            }else if(store.get('userdata').type == 'agency'){
-                  $state.go('app.Browse_truck');
-              };
+
+                if (store.get('userdata').type == 'truck') {
+                    $state.go('app.browse');
+
+                } else if (store.get('userdata').type == 'agency') {
+                    $state.go('app.Browse_truck');
+                };
             } else {
                 $ionicLoading.hide();
                 $scope.errMsgLogin = response.message;
@@ -267,4 +267,14 @@ angular.module('starter.controllers', ['ionic-toast'])
 
     }, 5000);
 
-});
+})
+
+.controller('takePhoto', function($scope, $http, $ionicLoading, $timeout, $state) {
+    
+    var myimage = document.getElementById("largeImage").src;
+                console.log(myimage);
+    Tesseract.recognize("myimage")
+        .then(function(result) {
+            console.log(result);
+        })
+})

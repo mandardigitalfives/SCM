@@ -101,7 +101,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
         views: {
             'menuContent': {
                 templateUrl: 'templates/take_photo.html',
-                controller: ''
+                controller: 'takePhoto'
             }
         }
     })
