@@ -39,6 +39,7 @@ jspm_packages
 node_modules/
 bower_components/
 plugins/
+apidoc/
 
 SCM/node_modules
 SCM/platforms/

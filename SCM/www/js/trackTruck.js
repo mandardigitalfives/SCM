@@ -1,24 +1,42 @@
-angular.module('starter.controllers').controller('trackTruckCtrl', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$cordovaGeolocation', '$ionicLoading','$ionicPopup', function($scope, $rootScope, $http, $state, $stateParams, store, $cordovaGeolocation, $ionicLoading,$ionicPopup) {
+angular.module('starter.controllers').controller('trackTruckCtrl', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$cordovaGeolocation', '$ionicLoading', '$ionicPopup', function($scope, $rootScope, $http, $state, $stateParams, store, $cordovaGeolocation, $ionicLoading, $ionicPopup) {
 
-    var posOptions = { maximumAge:600000, timeout:7000, enableHighAccuracy: false };
+    var posOptions = { maximumAge: 60000, timeout: 10000, enableHighAccuracy: false };
     $cordovaGeolocation
         .getCurrentPosition(posOptions)
 
     .then(function(position) {
         $scope.lat = position.coords.latitude
         $scope.lng = position.coords.longitude
-        $scope.positions= {
+        $scope.positions = {
             lat: $scope.lat,
             lng: $scope.lng
         }
         console.log($scope.positions)
         $ionicLoading.hide();
     }, function(err) {
-        console.log(err)
+        if (err.code == 1) {
+            var alertPopup = $ionicPopup.alert({
+                title: "Warning",
+                template: err.message
+            });
+            $ionicLoading.hide();
+        } else if (err.code == 2) {
+            var alertPopup = $ionicPopup.alert({
+                title: "Warning",
+                template: err.message
+            });
+            $ionicLoading.hide();
+        } else if (err.code == 3) {
+            var alertPopup = $ionicPopup.alert({
+                title: "Warning",
+                template: err.message
+            });
+            $ionicLoading.hide();
+        }
     });
 
 
-    var watchOptions = { maximumAge:600000, timeout:7000, enableHighAccuracy: false };
+    var watchOptions = { maximumAge: 60000, timeout: 10000, enableHighAccuracy: false };
 
     var watch = $cordovaGeolocation.watchPosition(watchOptions);
 
@@ -26,6 +44,19 @@ angular.module('starter.controllers').controller('trackTruckCtrl', ['$scope', '$
         null,
         function(err) {
             console.log(err)
+            if (err.code == 1) {
+                var alertPopup = $ionicPopup.alert({
+                    title: "Warning",
+                    template: err.message
+                });
+                $ionicLoading.hide();
+            } else if (err.code == 2) {
+                var alertPopup = $ionicPopup.alert({
+                    title: "Warning",
+                    template: err.message
+                });
+                $ionicLoading.hide();
+            }
         },
 
         function(position) {
@@ -35,8 +66,6 @@ angular.module('starter.controllers').controller('trackTruckCtrl', ['$scope', '$
                 lat: $scope.lat,
                 lng: $scope.lng
             }
-
-
         });
 
     // watch.clearWatch();
