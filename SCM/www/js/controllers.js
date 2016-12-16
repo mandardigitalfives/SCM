@@ -28,12 +28,12 @@ angular.module('starter.controllers', ['ionic-toast'])
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
         if ($rootScope.islogin) {
-            $state.go('app.browse');
+            $state.go('app.browse_trucklist');
         }
     }
 
     $scope.user = {
-        email: "mac@digitalfives.com",
+        email: "agency@agency.com",
         password: "mac123"
     }
 
@@ -54,11 +54,11 @@ angular.module('starter.controllers', ['ionic-toast'])
                 $ionicNavBarDelegate.showBackButton(false);
                 $ionicLoading.hide();
 
-                if (store.get('userdata').type == 'truck') {
-                    $state.go('app.browse');
+                if (store.get('userdata').type == 'agency') {
+                    $state.go('app.browse_trucklist');
 
-                } else if (store.get('userdata').type == 'agency') {
-                    $state.go('app.Browse_truck');
+                } else if (store.get('userdata').type == 'truck') {
+                    $state.go('app.browse_joblist');
                 };
             } else {
                 $ionicLoading.hide();
