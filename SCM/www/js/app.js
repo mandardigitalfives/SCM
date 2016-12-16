@@ -53,22 +53,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
         }
     })
 
-    .state('app.browse', {
-        url: '/browse',
+    .state('app.browse_trucklist', {
+        url: '/browse_trucklist',
         cache: false,
         views: {
             'menuContent': {
-                templateUrl: 'templates/browse.html',
-                controller: 'listCtrl'
+                templateUrl: 'templates/browse_trucklist.html',
+                controller: 'TrucklistCtrl'
             }
         }
     })
 
-    .state('app.Browse_truck', {
-        url: '/Browse_truck',
+    .state('app.browse_joblist', {
+        url: '/browse_joblist',
         views: {
             'menuContent': {
-                templateUrl: 'templates/Browse_truck.html',
+                templateUrl: 'templates/browse_joblist.html',
                 controller: 'AgencyCtrl'
             }
         }

@@ -1,4 +1,4 @@
-<ion-view view-title="Agency Details">
+<ion-view view-title="Agency Details" ng-init="init()">
     <ion-content>
         <div class="card">
             <div class="item item-divider">
@@ -31,7 +31,7 @@
                         <span>Agency Contact Details</span>
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span style="color:green;">{{job_details.Agency_Details}}</span>
+                        <span style="color:green;">{{itemDetails.Agency_Details}}</span>
                     </label>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                         <span>Owner Name</span>
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span style="color:green;">{{job_details.CustomerName}}</span>
+                        <span style="color:green;">{{itemDetails.CustomerName}}</span>
                     </label>
                     <!-- 
   <label class="item item-input item-stacked-label">
@@ -57,7 +57,7 @@
                         <span>Owner Mobile Number</span>
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span style="color:green;">{{job_details.Driver_Mobile}}</span>
+                        <span style="color:green;">{{itemDetails.Driver_Mobile}}</span>
                     </label>
                 </div>
             </div>

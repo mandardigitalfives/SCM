@@ -28,16 +28,16 @@ $rootScope.Loadingshow();
 
 .controller('agencyDetailsCrl',function($scope,$http,$state,$stateParams){
   
-  $scope.init=function(){
-      $timeout(function() {
-        $ionicLoading.hide();
-
-        $http.get("http://digitalfives-apps.org/android_database_Connect/getJobDetails.php").then(function(response) {
-            $scope.job_details = response.data;
-            console.log($scope.job_details);
-        });
-    }, 5000);
-
-  }
+   $scope.init = function() {
+        var ItemI = {
+            ItemId: $stateParams.Id
+        }
+        $http.post("http://digitalfives-apps.org/android_database_Connect/getJobDetails.php", ItemI).success(function(res, req) {
+            $scope.itemDetails = res;
+            console.log($scope.itemDetails);
+        }).error(function(err) {
+            console.log('Internet Connection Is Not Available.');
+        })
+    }
 });
 
