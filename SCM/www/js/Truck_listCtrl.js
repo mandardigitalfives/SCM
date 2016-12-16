@@ -4,9 +4,10 @@ angular.module('starter.controllers').controller('listCtrl', function($scope, $s
     $scope.init = function() {
 
     }
-
-
-
+       $ionicLoading.show({
+        noBackdrop: true,
+        template: '<p class="item-icon-left">Please wait...<ion-spinner icon="bubbles" class="spinner-balanced"></ion-spinner></p>'
+    });
     $timeout(function() {
         $ionicLoading.hide();
 
@@ -15,7 +16,6 @@ angular.module('starter.controllers').controller('listCtrl', function($scope, $s
             $scope.datalist = response.data;
 
         });
-
     }, 5000);
 
     $scope.showDetails = function(Id) {

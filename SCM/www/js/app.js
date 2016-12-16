@@ -116,11 +116,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
             }
         })
         .state('app.agencyDetails', {
-            url: '/agencyDetails',
+            url: '/agencyDetails/:Id',
             views: {
                 'menuContent': {
                     templateUrl: 'templates/agencyDetails.html',
-                    controller: 'AgencyCtrl'
+                    controller: 'agencyDetailsCrl'
                 }
             }
         });
