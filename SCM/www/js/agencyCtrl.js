@@ -1,9 +1,6 @@
 angular.module('starter.controllers')
-.controller('AgencyCtrl', function($scope, $http, $ionicLoading, $timeout, $state) {
-    $ionicLoading.show({
-        noBackdrop: true,
-        template: '<p class="item-icon-left">Please wait...<ion-spinner icon="bubbles" class="spinner-balanced"></ion-spinner></p>'
-    });
+.controller('AgencyCtrl', function($scope, $http, $ionicLoading, $timeout, $state,$rootScope ) {
+         $rootScope.Loadingshow();
     $timeout(function() {
         $ionicLoading.hide();
         $http.get("http://digitalfives-apps.org/android_database_Connect/get_Joblist.php?Status=Assigned").then(function(response) {
@@ -24,11 +21,19 @@ angular.module('starter.controllers')
 
 
 
+
 .controller('agencyDetailsCrl',function($scope,$http,$state,$stateParams){
   
   $scope.init=function(){
+      $timeout(function() {
+        $ionicLoading.hide();
 
-    
+        $http.get("http://digitalfives-apps.org/android_database_Connect/getJobDetails.php").then(function(response) {
+            $scope.job_details = response.data;
+            console.log($scope.job_details);
+        });
+    }, 5000);
+
   }
 });
 

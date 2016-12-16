@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['ionic-toast'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope, $state, store, $ionicSideMenuDelegate, $ionicNavBarDelegate) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope, $state, store, $ionicSideMenuDelegate, $ionicNavBarDelegate, $ionicLoading) {
 
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
@@ -32,21 +32,13 @@ angular.module('starter.controllers', ['ionic-toast'])
         }
     }
 
-    $scope.showLoader = function() {
-
-        $ionicLoading.show({
-            noBackdrop: true,
-            template: '<p class="item-icon-left">Login in...<ion-spinner icon="lines"/></p>'
-        });
-    }
-
     $scope.user = {
         email: "mac@digitalfives.com",
         password: "mac123"
     }
 
     $scope.login = function(user) {
-        $scope.showLoader();
+        $rootScope.Loadingshow();
         $http.post("http://digitalfives-apps.org/android_database_Connect/login.php", user).success(function(response, request) {
 
             if (response.isLogin == true) {

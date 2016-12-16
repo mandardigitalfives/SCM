@@ -1,13 +1,9 @@
-
 angular.module('starter.controllers').controller('listCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout) {
 
     $scope.init = function() {
-
+        $rootScope.Loadingshow();
     }
-       $ionicLoading.show({
-        noBackdrop: true,
-        template: '<p class="item-icon-left">Please wait...<ion-spinner icon="bubbles" class="spinner-balanced"></ion-spinner></p>'
-    });
+
     $timeout(function() {
         $ionicLoading.hide();
 
@@ -22,4 +18,3 @@ angular.module('starter.controllers').controller('listCtrl', function($scope, $s
         $state.go('app.truckDetails', { Id: Id });
     }
 });
-
