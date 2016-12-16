@@ -1,0 +1,16 @@
+<ion-view view-title="Truck List" ng-init="init()">
+  <ion-content>
+    <div class="row header">
+          <div class="col">Status </div>
+          <div class="col">Truck Number</div>
+          <div class="col">Truck Details</div>
+        </div>
+        <div class="row" ng-repeat="data in datalist" >
+         
+          <div class="col">{{data.Status}}</div>
+           <div class="col" >{{data.Truck_Number}}</div>
+          <div class="col" ng-click="showDetails(data.Id);">{{data.Truck_Details}}</div>
+         
+        </div>
+  </ion-content>
+</ion-view>
