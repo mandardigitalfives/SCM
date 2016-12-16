@@ -101,12 +101,11 @@ angular.module('starter.controllers', ['ionic-toast'])
     }, 5000);
 
 
-    $scope.showDetails = function(datalist) {
-
-        /*  if (response == Id) {*/
-        $state.go('app.truckDetails');
-        /*                };
-         */
+    $scope.showDetails = function(Id) {
+           
+        
+        $state.go('app.truckDetails', {Id:Id});
+    
     }
 
 
@@ -115,104 +114,21 @@ angular.module('starter.controllers', ['ionic-toast'])
 })
 
 .controller('detailsCtrl', function($scope, $stateParams, $http, $ionicLoading, $timeout, ionicToast) {
+              
+           $scope.init=function(){
+            
+              console.log($stateParams.Id);
+               var ItemId={
+                Id :$stateParams.Id
+               }
+         $http.post(baseURL,ItemId).success(function( res, req ){
+            $scope.itemDetails = res;
+            console.log($scope.itemDetails);
+        }).error(function (err) {
+          console.log('Internet Connection Is Not Available.');
+        })
+           }
 
-
-    $ionicLoading.show({
-
-        noBackdrop: true,
-        template: '<p class="item-icon-left">Please wait...<ion-spinner icon="bubbles" class="spinner-balanced"></ion-spinner></p>'
-    });
-
-    $timeout(function() {
-        $ionicLoading.hide();
-
-        $http.get("http://digitalfives-apps.org/android_database_Connect/getJobDetailsAgency.php").then(function(response) {
-            $scope.details_list = response.data;
-            // console.log($scope.datalist);
-        });
-
-    }, 5000);
-    /* $http.get("http://digitalfives-apps.org/android_database_Connect/getJobDetailsAgency.php").then(function(response) {
-        $scope.details_list = response.data;
-        $scope.details_list.Truck_Number=$scope.details_list.Truck_Number;
-         $scope.details_list.agencyDetails= $scope.details_list.agencyDetails;
-         $scope.details_list.Truck_RegNumber= $scope.details_list.Truck_RegNumber;
-         $scope.details_list.Truck_Capacity= $scope.details_list.Truck_Capacity;
-         $scope.details_list.Driver_Name= $scope.details_list.Driver_Name;
-         $scope.details_list.Id=$scope.details_list.Id;
-        
-       
-         console.log($scope.details_list);
-      });         */
-    $scope.JobList = [];
-    $scope.UserData = {};
-
-    $scope.AllotTruck = function(type) {
-        <!-- ionicToast.show(message, position, stick, time); -->
-
-        var data = $.param({
-            'data': $scope.UserData,
-            'type': type
-        });
-        var config = {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-            }
-        };
-
-        $http.get("http://digitalfives-apps.org/android_database_Connect/getJobDetailsAgency.php").then(function(response) {
-            $scope.data_allot = response.data;
-            $scope.data_allot.Status = $scope.data_allot.Status;
-            console.log($scope.data_allot.Status);
-
-            if (response.data == 'OK') {
-
-
-                if (type == 'edit') {
-
-                    $scope.JobList[$scope.index].Status = $scope.UserData.Status;
-
-                } else {
-                    $scope.JobList.push({
-                        Status: response.data.Status
-
-                    });
-
-                }
-                $scope.UserData = {};
-                //$scope.messageSuccess(response.msg);
-            } else {
-                //$scope.messageError(response.msg);
-            }
-        });
-        /*
-                      $http.get("http://digitalfives-apps.org/android_database_Connect/getJobDetailsAgency.php").then(function(response) {
-          $scope.data_allot = response.data;
-          $scope.data_allot.Truck_Number=$scope.data_allot.Truck_Number;
-          $scope.data_allot.agencyDetails=$scope.data_allot.agencyDetails;
-          $scope.data_allot.Truck_Capacity=$scope.data_allot.Truck_Capacity;
-         
-          $scope.data_allot.Truck_=scope.data_allot.agencyDetails;
-           $scope.data_allot.agencyDetails=scope.data_allot.agencyDetails;
-           $scope.data_allot.agencyDetails=scope.data_allot.agencyDetails;
-           ionicToast.show('Truck Alloted Successfully....'+$scope.data_allot.Truck_Number+'<br/>'+$scope.data_allot.agencyDetails+'<br/>'+$scope.data_allot.Truck_Capacity+'<br/>','middle', false, 4000);
-           
-          var ChangeStatus= response.data;
-            if (response.status==1) {
-                console.log(ChangeStatus.Status);
-            };
-
-           });*/
-
-
-
-
-
-    }
-
-    $scope.hideToast = function() {
-        ionicToast.hide();
-    };
 })
 
 .controller('AgencyCtrl', function($scope, $http, $ionicLoading, $timeout, $state) {

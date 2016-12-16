@@ -76,7 +76,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
 
 
     .state('app.truckDetails', {
-        url: '/truckDetails',
+        url: '/truckDetails/:Id',
         views: {
             'menuContent': {
                 templateUrl: 'templates/truckDetails.html',
