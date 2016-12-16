@@ -41,14 +41,7 @@ angular.module('starter.controllers').controller('agency_location', ['$scope', '
     // watch.clearWatch();
 
 
-    $scope.centerOnMe = function() {
-        $ionicLoading.show({
-            template: 'Loading...'
-        });
-    };
-
-
-
+   
     // var socketURL = "http://localhost:9999";
     // var newgigisadded = io(socketURL + '/newgig');
     // newgigisadded.on('newgig', function(data) {

@@ -1,11 +1,8 @@
-
 angular.module('starter.controllers').controller('listCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout) {
 
     $scope.init = function() {
-
+        $rootScope.Loadingshow();
     }
-
-
 
     $timeout(function() {
         $ionicLoading.hide();
@@ -22,4 +19,3 @@ angular.module('starter.controllers').controller('listCtrl', function($scope, $s
         $state.go('app.truckDetails', { Id: Id });
     }
 });
-
