@@ -1,4 +1,4 @@
-angular.module('starter.controllers').controller('listCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout) {
+angular.module('starter.controllers').controller('listCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout,$rootScope) {
 
     $scope.init = function() {
         $rootScope.Loadingshow();
