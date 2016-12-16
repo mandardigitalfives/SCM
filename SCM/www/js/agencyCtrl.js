@@ -1,12 +1,16 @@
 angular.module('starter.controllers')
 .controller('AgencyCtrl', function($scope, $http, $ionicLoading, $timeout, $state,$rootScope ) {
-         $rootScope.Loadingshow();
-    $timeout(function() {
-        $ionicLoading.hide();
+         
+         $scope.init = function(){
+$rootScope.Loadingshow();
+            
         $http.get("http://digitalfives-apps.org/android_database_Connect/get_Joblist.php?Status=Assigned").then(function(response) {
             $scope.job_list = response.data;
             console.log($scope.job_list);
-        });
+        });    
+         }
+    $timeout(function() {
+        
     }, 5000);
 
     $scope.showDetails = function(Id) {
