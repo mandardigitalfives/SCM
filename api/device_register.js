@@ -1,10 +1,24 @@
+/**
+ * This is a comment.
+ */
 var express = require('express');
 var mysql = require('mysql');
 var CRUD = require('mysql-crud');
 var env = require('./environment');
 var connection = env.Dbconnection;
 var devicecrud = CRUD(connection,'device_information');
-
+	
+	/**
+ * @api {POST} /user/:id Request User information
+ * @apiName GetUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id Users unique ID.
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ */
+ 
 exports.deviceregister = function(req,res){
 	  devicecrud.load({
 	  	'deviceid':req.body.deviceid,

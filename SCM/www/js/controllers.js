@@ -6,6 +6,12 @@ angular.module('starter.controllers', ['ionic-toast'])
         $rootScope.islogin = store.get('userdata') || false;
     }
 
+    $rootScope.Loadingshow = function() {
+        $ionicLoading.show({
+            noBackdrop: true,
+            template: '<p class="item-icon-left">Please wait...<ion-spinner icon="lines"/></p>'
+        });
+    }
 
     $scope.logout = function() {
         store.remove('userdata');
@@ -85,87 +91,58 @@ angular.module('starter.controllers', ['ionic-toast'])
 
     }
 
-    $ionicLoading.show({
-        noBackdrop: true,
-        template: '<p class="item-icon-left">Please wait...<ion-spinner icon="lines"/></p>'
-    });
+
 
     $timeout(function() {
         $ionicLoading.hide();
 
         $http.get("http://digitalfives-apps.org/android_database_Connect/get_JoblistAgency.php").then(function(response) {
+
             $scope.datalist = response.data;
-            // console.log($scope.datalist);
+
         });
 
     }, 5000);
 
-
     $scope.showDetails = function(Id) {
-           
-        
-        $state.go('app.truckDetails', {Id:Id});
-    
+        $state.go('app.truckDetails', { Id: Id });
     }
-
-
-
-
 })
 
 .controller('detailsCtrl', function($scope, $stateParams, $http, $ionicLoading, $timeout, ionicToast) {
-              
-           $scope.init=function(){
-            
-              console.log($stateParams.Id);
-               var ItemId={
-                Id :$stateParams.Id
-               }
-         $http.post(baseURL,ItemId).success(function( res, req ){
+    $scope.init = function() {
+        var ItemI = {
+            ItemId: $stateParams.Id
+        }
+        $http.post("http://digitalfives-apps.org/android_database_Connect/getJobDetailsAgency.php", ItemI).success(function(res, req) {
             $scope.itemDetails = res;
             console.log($scope.itemDetails);
-        }).error(function (err) {
-          console.log('Internet Connection Is Not Available.');
+        }).error(function(err) {
+            console.log('Internet Connection Is Not Available.');
         })
-           }
-
+    }
 })
 
 .controller('AgencyCtrl', function($scope, $http, $ionicLoading, $timeout, $state) {
-
-
     $ionicLoading.show({
-
         noBackdrop: true,
         template: '<p class="item-icon-left">Please wait...<ion-spinner icon="bubbles" class="spinner-balanced"></ion-spinner></p>'
     });
-
     $timeout(function() {
         $ionicLoading.hide();
-
         $http.get("http://digitalfives-apps.org/android_database_Connect/get_Joblist.php?Status=Assigned").then(function(response) {
             $scope.job_list = response.data;
             console.log($scope.job_list);
         });
-
     }, 5000);
 
     $scope.showDetails = function(datalist) {
-
-        /*  if (response == Id) {*/
         $state.go('app.agencyDetails');
-        /*                };
-         */
     }
-
-
     $scope.AllotTruck = function() {
-
         $scope.data_allot.Truck_Number = $scope.data_allot.Truck_Number;
         console.log($scope.data_allot.Truck_Number);
     }
-
-
 
     $ionicLoading.show({
 
@@ -180,15 +157,14 @@ angular.module('starter.controllers', ['ionic-toast'])
             $scope.job_details = response.data;
             console.log($scope.job_details);
         });
-
     }, 5000);
 
 })
 
 .controller('takePhoto', function($scope, $http, $ionicLoading, $timeout, $state) {
-    
+
     var myimage = document.getElementById("largeImage").src;
-                console.log(myimage);
+    console.log(myimage);
     Tesseract.recognize("myimage")
         .then(function(result) {
             console.log(result);

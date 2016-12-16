@@ -224,7 +224,8 @@ app.all('*', function(req, res, next) {
 
 app.use('/', express.static(__dirname + '/public'));
 app.use('/api', express.static(__dirname + '/api'));
-app.use('/mobile', express.static(__dirname + '/mobile/www'));
+app.use('/mobile', express.static(__dirname + '/SCM/www'));
+app.use('/apidoc', express.static(__dirname + '/apidoc'));
 
 
 app.post('/api/login', userlogin.login);
