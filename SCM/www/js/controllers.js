@@ -75,5 +75,3 @@ angular.module('starter.controllers', ['ionic-toast'])
 
     };
 }]);
-
-
