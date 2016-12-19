@@ -71,11 +71,7 @@ angular.module('starter.controllers').controller('trackTruckCtrl', ['$scope', '$
     // watch.clearWatch();
 
 
-    $scope.centerOnMe = function() {
-        $ionicLoading.show({
-            template: 'Loading...'
-        });
-    };
+  
 
     // $scope.centerOnMe();
     // var socketURL = "http://localhost:9999";
