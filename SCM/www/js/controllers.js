@@ -27,6 +27,7 @@ angular.module('starter.controllers', ['ionic-toast'])
 
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
+        console.log( baseURL);
         if ($rootScope.islogin) {
             $state.go('app.browse_trucklist');
         }
@@ -39,8 +40,8 @@ angular.module('starter.controllers', ['ionic-toast'])
 */
     $scope.login = function(user) {
         $rootScope.Loadingshow();
-        $http.post("http://digitalfives-apps.org/android_database_Connect/login.php", user).success(function(response, request) {
-
+        var baseURL = "http://digitalfives-apps.org/android_database_Connect/login.php";
+        $http.post(baseURL+"login", user).success(function(response, request) {
             if (response.isLogin == true) {
                 console.log(response);
                 userdata = {
