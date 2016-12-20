@@ -71,27 +71,25 @@ angular.module('starter.controllers').controller('trackTruckCtrl', ['$scope', '$
     // watch.clearWatch();
 
 
-  
-
     // $scope.centerOnMe();
-    // var socketURL = "http://localhost:9999";
-    // var trackTruck = io(socketURL + '/tracktruck');
-    // trackTruck.on('tracktruck', function(data) {
-    //     for (var i = 0; i < data.length; i++) {
-    //         $scope.lat = data[i].lat;
-    //         $scope.lng = data[i].lng;
-    //         $scope.positions = {
-    //             lat: data[i].lat,
-    //             lng: data[i].lng
-    //         }
-    //     }
-    //     console.log($scope.positions);
-    //     var alertPopup = $ionicPopup.alert({
-    //             title: "Lat -: "+$scope.lat+"<BR>"+'Lng -:  '+$scope.lng,
-    //             template: "HI....."
-    //         });
-    //     $scope.$apply();
-    //     $ionicLoading.hide();
-    //     trackTruck.off();
-    // });
+    var socketURL = "http://localhost:9999";
+    var trackTruck = io(socketURL + '/tracktruck');
+    trackTruck.on('tracktruck', function(data) {
+        for (var i = 0; i < data.length; i++) {
+            $scope.lat = data[i].lat;
+            $scope.lng = data[i].lng;
+            $scope.positions = {
+                lat: data[i].lat,
+                lng: data[i].lng
+            }
+        }
+        console.log($scope.positions);
+        var alertPopup = $ionicPopup.alert({
+                title: "Lat -: "+$scope.lat+"<BR>"+'Lng -:  '+$scope.lng,
+                template: "HI....."
+            });
+        $scope.$apply();
+        $ionicLoading.hide();
+        trackTruck.off();
+    });
 }]);
