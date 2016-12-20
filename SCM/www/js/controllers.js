@@ -32,11 +32,11 @@ angular.module('starter.controllers', ['ionic-toast'])
         }
     }
 
-    $scope.user = {
+    /*$scope.user = {
         email: "agency@agency.com",
         password: "mac123"
     }
-
+*/
     $scope.login = function(user) {
         $rootScope.Loadingshow();
         $http.post("http://digitalfives-apps.org/android_database_Connect/login.php", user).success(function(response, request) {
@@ -75,5 +75,3 @@ angular.module('starter.controllers', ['ionic-toast'])
 
     };
 }]);
-
-
