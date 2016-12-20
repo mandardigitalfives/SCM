@@ -43,13 +43,6 @@ app.use('/mobile', express.static(__dirname + '/mobile/www'));
 
 
 app.post('/api/login', userlogin.login);
-app.post('/api/addtodos',todos.addtodos);
-app.post('/api/gettodos',todos.gettodos);
-app.post('/api/gettododetails',todos.gettododetails);
-app.post('/api/updatetodos',todos.updatetodos);
-app.post('/api/deletetodo',todos.deletetodo);
-app.post('/api/deviceregister',device_register.deviceregister);
-app.post('/api/signup',userlogin.signup);
 
 http.listen( 9999, function(){
    console.log('Express server listening on port ' + http.address().port);
