@@ -6,14 +6,12 @@ angular.module('starter.controllers').controller('managerListCtrl', function($sc
 
      $scope.getManager = function(){
           var managerData= {
-
-          	 type : $scope.mangerDetails.type,
+          	 type : "manager",
           	 refUid : $scope.mangerDetails.refUid
-
           }
         $http.post( baseURL + 'getManager',managerData).success(function (response, request) {
-            $scope.mangerlist = response;
-           console.log( $scope.mangerlist);
+           console.log( response );
+           $scope.managerList = response.record;
         }).error(function (err) {
           console.log('Internet Connection Is Not Available.');
         })

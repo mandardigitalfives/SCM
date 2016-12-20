@@ -40,17 +40,15 @@ angular.module('starter.controllers', ['ionic-toast'])
 
     $scope.login = function(user) {
         $rootScope.Loadingshow();
-        var baseURL = "http://digitalfives-apps.org/android_database_Connect/login.php";
-        $http.post(baseURL, user).success(function(response, request) {
-        // $http.post(baseURL+"login", user).success(function(response, request) {
-            if (response.isLogin == true) {
-                console.log(response);
+        $http.post(baseURL+"login", user).success(function(response, request) {
+            console.log(response.record)
+            if (response.status == true) {
                 userdata = {
                     user_login: true,
-                    user_id: response.Uid,
-                    email: response.UserId,
-                    type: response.type,
-                    refUid : response.RefUid
+                    user_id: response.record.Uid,
+                    email: response.record.UserId,
+                    type: response.record.type,
+                    refUid : response.record.RefUid
                 }
                 store.set('userdata', userdata);
                 $rootScope.islogin = store.get('userdata');

@@ -7,17 +7,24 @@ var trucklistCRUD = CRUD(connection, 'authenticateUser');
 
 exports.getManager = function(req ,res) {
 	console.log(req.body);
-   /*authenticateUser.find().toArray(function(err,result){
-
-   	if(err){
-   		var resdata ={
-   			status : 0;
-   			message : err;
-   		}
-   		res.jsonp(resdata)
-   	}else{
-   		console.log(result);
-   		res.jsonp(result);
-   	}
-   })*/
+    trucklistCRUD.load({
+      'refUid':req.body.refUid,
+      'type' : req.body.type
+     },function(error, result) {
+       if (result) {
+         responsedata = {
+           status: true,
+           record: result,
+           message: 'Todos List'
+         }
+         res.jsonp(responsedata);
+       } else {
+         responsedata = {
+           status: false,
+           record: result,
+           message: 'Something went wrong.'
+         }
+         res.jsonp(responsedata);
+       }
+  });
 }
