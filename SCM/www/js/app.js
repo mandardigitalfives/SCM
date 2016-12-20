@@ -53,6 +53,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
         }
     })
 
+     .state('app.managerList', {
+        url: '/managerList',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/managerList.html',
+                controller: 'managerListCtrl'
+            }
+        }
+    })
+
     .state('app.browse_trucklist', {
         url: '/browse_trucklist',
         cache: false,

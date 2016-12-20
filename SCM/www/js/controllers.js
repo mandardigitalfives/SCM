@@ -34,8 +34,8 @@ angular.module('starter.controllers', ['ionic-toast'])
     }
 
     $scope.user = {
-        email: "agency@agency.com",
-        password: "mac123"
+        email: "admin@admin.com",
+        password: "admin123"
     }
 
     $scope.login = function(user) {
@@ -50,6 +50,7 @@ angular.module('starter.controllers', ['ionic-toast'])
                     user_id: response.Uid,
                     email: response.UserId,
                     type: response.type,
+                    refUid : response.RefUid
                 }
                 store.set('userdata', userdata);
                 $rootScope.islogin = store.get('userdata');
@@ -57,11 +58,14 @@ angular.module('starter.controllers', ['ionic-toast'])
                 $ionicLoading.hide();
 
                 if (store.get('userdata').type == 'manager') {
-                    $state.go('app.browse_trucklist');
+                    $state.go('app.managerList');
 
                 } else if (store.get('userdata').type == 'truck') {
                     $state.go('app.browse_joblist');
+                }else if (store.get('userdata').type == 'Owner') {
+                    $state.go('app.managerList');
                 };
+
             } else {
                 $ionicLoading.hide();
                 $scope.errMsgLogin = response.message;
