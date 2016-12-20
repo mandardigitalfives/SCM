@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['ionic-toast'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope, $state, store, $ionicSideMenuDelegate, $ionicNavBarDelegate, $ionicLoading) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope, $state, store, $ionicSideMenuDelegate, $ionicNavBarDelegate, $ionicLoading,$ionicPopup) {
 
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
@@ -23,7 +23,7 @@ angular.module('starter.controllers', ['ionic-toast'])
     }
 })
 
-.controller('logincontroller', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$ionicNavBarDelegate', '$ionicLoading', function($scope, $rootScope, $http, $state, $stateParams, store, $ionicNavBarDelegate, $ionicLoading) {
+.controller('logincontroller', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$ionicNavBarDelegate', '$ionicLoading',"$ionicPopup", function($scope, $rootScope, $http, $state, $stateParams, store, $ionicNavBarDelegate, $ionicLoading,$ionicPopup) {
 
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
@@ -33,15 +33,16 @@ angular.module('starter.controllers', ['ionic-toast'])
         }
     }
 
-    /*$scope.user = {
+    $scope.user = {
         email: "agency@agency.com",
         password: "mac123"
     }
-*/
+
     $scope.login = function(user) {
         $rootScope.Loadingshow();
         var baseURL = "http://digitalfives-apps.org/android_database_Connect/login.php";
-        $http.post(baseURL+"login", user).success(function(response, request) {
+        $http.post(baseURL, user).success(function(response, request) {
+        // $http.post(baseURL+"login", user).success(function(response, request) {
             if (response.isLogin == true) {
                 console.log(response);
                 userdata = {
@@ -55,7 +56,7 @@ angular.module('starter.controllers', ['ionic-toast'])
                 $ionicNavBarDelegate.showBackButton(false);
                 $ionicLoading.hide();
 
-                if (store.get('userdata').type == 'agency') {
+                if (store.get('userdata').type == 'manager') {
                     $state.go('app.browse_trucklist');
 
                 } else if (store.get('userdata').type == 'truck') {
