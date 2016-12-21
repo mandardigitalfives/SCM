@@ -3,11 +3,11 @@ var http = require('http');
 var CRUD = require('mysql-crud');
 var env =require('./environment');
 var connection = env.Dbconnection;
-var trucklistCRUD = CRUD(connection, 'authenticateUser');
+var managerlistCRUD = CRUD(connection, 'authenticateUser');
 
 exports.getManager = function(req ,res) {
 	console.log(req.body);
-    trucklistCRUD.load({
+    managerlistCRUD.load({
       'refUid':req.body.refUid,
       'type' : req.body.type
      },function(error, result) {

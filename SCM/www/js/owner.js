@@ -17,4 +17,10 @@ angular.module('starter.controllers').controller('managerListCtrl', function($sc
         })
     };
 
+
+    $scope.showTruckList = function(Id){
+     
+      $state.go('app.browse_trucklist',{Id : Id});
+    }
+
 });
