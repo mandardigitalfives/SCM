@@ -3,7 +3,7 @@
         <div ng-repeat="manager in managerList" class="list card">
             <div class="item item-avatar">
                 <img src="img/ionic.png">
-                <h2>Marty McFly</h2>
+                <h2>{{manager}}</h2>
                 <p>November 05, 1955</p>
             </div>
             <div class="item item-body">
@@ -12,5 +12,12 @@
                 </p>
             </div>
         </div>
+        <!-- <div class="list">
+            <a class="item item-avatar" ng-repeat="manager in managerList" href="#">
+                <img src="venkman.jpg">
+                <h2>Venkman</h2>
+                <p>Back off, man. I'm a scientist.</p>
+            </a>
+        </div> -->
     </ion-content>
 </ion-view>
