@@ -1,9 +1,9 @@
 <ion-view view-title="Manager List" ng-init="init();getManager();">
     <ion-content>
-        <div ng-repeat="manager in managerList" class="list card">
+        <div ng-repeat="manager in managerList" class="list card" ng-click="showTruckList(manager.Uid)">
             <div class="item item-avatar">
                 <img src="img/ionic.png">
-                <h2>Marty McFly</h2>
+                <h2>{{manager}}</h2>
                 <p>November 05, 1955</p>
             </div>
             <div class="item item-body">

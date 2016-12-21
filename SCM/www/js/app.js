@@ -54,7 +54,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
     })
 
      .state('app.managerList', {
-        url: '/managerList',
+        url: '/managerList/',
         cache: false,
         views: {
             'menuContent': {
@@ -65,7 +65,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
     })
 
     .state('app.browse_trucklist', {
-        url: '/browse_trucklist',
+        url: '/browse_trucklist/:Id',
         cache: false,
         views: {
             'menuContent': {

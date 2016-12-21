@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({
 
 var userlogin = require('./api/userlogin.js');
 var owner =require('./api/owner.js');
+var trucklist =require('./api/trucklist.js');
 var todos = require('./api/todos.js');
 var device_register = require('./api/device_register.js');
 var sendpushnotification = require('./api/sendpushnotification.js');
@@ -45,6 +46,7 @@ app.use('/mobile', express.static(__dirname + '/mobile/www'));
 
 app.post('/api/login', userlogin.login);
 app.post('/api/getManager',owner.getManager);
+app.post('/api/getTrucklist',trucklist.getTrucklist);
 
 http.listen( 9999, function(){
    console.log('Express server listening on port ' + http.address().port);

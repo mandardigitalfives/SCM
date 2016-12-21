@@ -1,20 +1,25 @@
-angular.module('starter.controllers').controller('TrucklistCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout,$rootScope) {
-
-    $scope.init = function() {
-        $rootScope.Loadingshow();
+angular.module('starter.controllers').controller('TrucklistCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout,$rootScope,store) {
+    $scope.init = function(){
+     $scope.truckDetails = store.get("userdata");
+      console.log($scope.truckDetails);
+      var ItemI = {
+            refuid: $stateParams.Id,
+            type : "truck",
+            
+        }
+         $scope.getTrucklist(ItemI);
+         
     }
 
-    $timeout(function() {
-        $ionicLoading.hide();
+     $scope.getTrucklist = function(ItemI){
+        
+        $http.post( baseURL + 'getTrucklist',ItemI).success(function (response, request) {
+           console.log( response );
+           $scope.TruckList = response.record;
+        }).error(function (err) {
+          console.log('Internet Connection Is Not Available.');
+        })
 
-        $http.get("http://digitalfives-apps.org/android_database_Connect/get_JoblistAgency.php").then(function(response) {
-
-            $scope.datalist = response.data;
-
-        });
-    }, 5000);
-
-    $scope.showDetails = function(Id) {
-        $state.go('app.truckDetails', { Id: Id });
-    }
+     };
 });
+ 
