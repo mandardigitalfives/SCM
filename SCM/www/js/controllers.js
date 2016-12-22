@@ -29,7 +29,7 @@ angular.module('starter.controllers', ['ionic-toast'])
         $rootScope.islogin = store.get('userdata') || false;
         console.log( baseURL);
         if ($rootScope.islogin) {
-            $state.go('app.browse_trucklist');
+            //$state.go('app.browse_trucklist');
         }
     }
 

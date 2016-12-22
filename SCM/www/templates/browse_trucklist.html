@@ -1,5 +1,11 @@
-<ion-view view-title="Truck List" ng-init="init();">
-    <ion-content>
+<ion-modal-view >
+<ion-header-bar>
+    <h1 class="title">Truck List</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeTruckList()">Close</button>
+    </div>
+  </ion-header-bar>
+    <ion-content ng-controller="TrucklistCtrl"  ng-init="init();">
          <div ng-repeat="truck in TruckList" class="list card">
             <div class="item item-avatar">
                 <img src="img/ionic.png">
@@ -13,4 +19,4 @@
             </div>
         </div>
     </ion-content>
-</ion-view>
+</ion-modal-view>

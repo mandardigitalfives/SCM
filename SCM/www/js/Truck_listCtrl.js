@@ -1,8 +1,10 @@
-angular.module('starter.controllers').controller('TrucklistCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout,$rootScope,store) {
-   
+angular.module('starter.controllers').controller('TrucklistCtrl', function($scope, $ionicModal,$stateParams, $http, $state, $ionicLoading, $timeout,$rootScope,store) {
+     
+  
+
     $scope.init = function(){
      $scope.truckDetails = store.get("userdata");
-      console.log($scope.truckDetails);
+     //console.log($scope.truckDetails);
       var ItemI = {
             refuid: $stateParams.Id,
             type : "truck",
