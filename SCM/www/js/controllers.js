@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['ionic-toast'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope, $state, store, $ionicSideMenuDelegate, $ionicNavBarDelegate, $ionicLoading,$ionicPopup) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope, $state, store, $ionicSideMenuDelegate, $ionicNavBarDelegate, $ionicLoading, $ionicPopup) {
 
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
@@ -23,11 +23,11 @@ angular.module('starter.controllers', ['ionic-toast'])
     }
 })
 
-.controller('logincontroller', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$ionicNavBarDelegate', '$ionicLoading',"$ionicPopup", function($scope, $rootScope, $http, $state, $stateParams, store, $ionicNavBarDelegate, $ionicLoading,$ionicPopup) {
+.controller('logincontroller', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$ionicNavBarDelegate', '$ionicLoading', "$ionicPopup", function($scope, $rootScope, $http, $state, $stateParams, store, $ionicNavBarDelegate, $ionicLoading, $ionicPopup) {
 
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
-        console.log( baseURL);
+        console.log(baseURL);
         if ($rootScope.islogin) {
             $state.go('app.managerList');
         }
@@ -40,7 +40,7 @@ angular.module('starter.controllers', ['ionic-toast'])
 
     $scope.login = function(user) {
         $rootScope.Loadingshow();
-        $http.post(baseURL+"login", user).success(function(response, request) {
+        $http.post(baseURL + "login", user).success(function(response, request) {
             console.log(response.record)
             if (response.status == true) {
                 userdata = {
@@ -48,7 +48,7 @@ angular.module('starter.controllers', ['ionic-toast'])
                     user_id: response.record.Uid,
                     email: response.record.UserId,
                     type: response.record.type,
-                    refUid : response.record.RefUid
+                    refUid: response.record.RefUid
                 }
                 store.set('userdata', userdata);
                 $rootScope.islogin = store.get('userdata');
@@ -60,7 +60,7 @@ angular.module('starter.controllers', ['ionic-toast'])
 
                 } else if (store.get('userdata').type == 'truck') {
                     $state.go('app.browse_joblist');
-                }else if (store.get('userdata').type == 'Owner') {
+                } else if (store.get('userdata').type == 'Owner') {
                     $state.go('app.managerList');
                 };
 
@@ -75,7 +75,5 @@ angular.module('starter.controllers', ['ionic-toast'])
                 template: 'Please check your credentials!'
             });
         });
-
-
     };
 }]);
