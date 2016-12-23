@@ -2,6 +2,7 @@ angular.module('starter.controllers').controller('managerListCtrl', function($sc
       
    $ionicModal.fromTemplateUrl('templates/browse_trucklist.html', {
     scope: $scope
+  
   }).then(function(modal) {
     $scope.modal = modal;
   });
@@ -9,6 +10,7 @@ angular.module('starter.controllers').controller('managerListCtrl', function($sc
   // Triggered in the login modal to close it
   $scope.closeTruckList = function() {
     $scope.modal.hide();
+
   };
 
 
