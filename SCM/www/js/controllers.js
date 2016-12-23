@@ -4,6 +4,9 @@ angular.module('starter.controllers', ['ionic-toast'])
 
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
+        if (!$rootScope.islogin) {
+            $state.go('app.login');
+        }
     }
 
     $rootScope.Loadingshow = function() {
@@ -17,13 +20,12 @@ angular.module('starter.controllers', ['ionic-toast'])
         store.remove('userdata');
         localStorage.clear();
         $ionicSideMenuDelegate.toggleLeft();
-        $ionicNavBarDelegate.showBackButton(false);
         $scope.init();
         $state.go('app.login');
     }
 })
 
-.controller('logincontroller', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$ionicNavBarDelegate', '$ionicLoading', "$ionicPopup", function($scope, $rootScope, $http, $state, $stateParams, store, $ionicNavBarDelegate, $ionicLoading, $ionicPopup) {
+.controller('logincontroller', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$ionicLoading', "$ionicPopup", function($scope, $rootScope, $http, $state, $stateParams, store, $ionicLoading, $ionicPopup) {
 
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
@@ -52,12 +54,9 @@ angular.module('starter.controllers', ['ionic-toast'])
                 }
                 store.set('userdata', userdata);
                 $rootScope.islogin = store.get('userdata');
-                $ionicNavBarDelegate.showBackButton(false);
                 $ionicLoading.hide();
-
                 if (store.get('userdata').type == 'manager') {
                     $state.go('app.managerList');
-
                 } else if (store.get('userdata').type == 'truck') {
                     $state.go('app.browse_joblist');
                 } else if (store.get('userdata').type == 'Owner') {
