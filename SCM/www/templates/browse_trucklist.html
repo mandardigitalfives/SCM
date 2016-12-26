@@ -1,17 +1,11 @@
-<ion-modal-view >
 
-<ion-header-bar style="background-color: #444444;">
-    <div class="buttons">
-      <button class="button  button-clear" ng-click="closeTruckList()"><i class="icon ion-android-arrow-back"></i></button>
-    </div>
-    <h1 class="title" style="color: white;!important;text-align: center;">Truck List</h1>
-  </ion-header-bar>
-    <ion-content  ng-controller="TrucklistCtrl">
+<ion-view view-title="Truck List" ng-init="init();">
+    <ion-content>
          <div ng-repeat="truck in TruckList" class="list card">
             <div class="item item-avatar">
                 <img src="img/ionic.png">
                 <h2>{{truck.UserId}}</h2>
-                <p>November 05, 1955</p>
+                <p>{{truck.type}}</p>
             </div>
             <div class="item item-body">
                 <p>
@@ -20,4 +14,4 @@
             </div>
         </div>
     </ion-content>
-</ion-modal-view>
+</ion-view>

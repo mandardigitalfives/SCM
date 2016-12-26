@@ -63,7 +63,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
             }
         }
     })
-/*
+
     .state('app.browse_trucklist', {
         url: '/browse_trucklist/:Id',
         cache: false,
@@ -73,7 +73,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 controller: 'TrucklistCtrl'
             }
         }
-    })*/
+    })
 
     .state('app.browse_joblist', {
         url: '/browse_joblist',
