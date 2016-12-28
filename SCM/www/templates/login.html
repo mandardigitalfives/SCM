@@ -1,4 +1,4 @@
-<ion-view view-title="Login" align-title="left" ng-init="init()" hide-nav-bar="true">
+<ion-view view-title="Login" ng-init="init()" hide-nav-bar="true">
     <ion-content class="loginContent">
         <div class="hero no-header flat">
             <div class="content">
@@ -10,7 +10,7 @@
             <div class="list">
                 <ion-md-input placeholder="Username" highlight-color="balanced" ng-model="user.email" type="email" name="username" ng-pattern='/^(([^ </>()[\]\.,;:\s@\"]+(\.[^ <> ()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^ <> ()[\]\.,;:\s@\"]{2,})$/i' required></ion-md-input>
                 <span >
-                    <div  data-ng-messages="loginfrm.$submitted && loginfrm.username.$error" role="alert" class="assertive errmsg">
+                    <div data-ng-messages="loginfrm.$submitted && loginfrm.username.$error" role="alert" class="assertive errmsg">
                         <div data-ng-message="required">
                             Enter User name
                         </div>

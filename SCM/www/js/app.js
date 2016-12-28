@@ -1,22 +1,12 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'ngCordova', 'ngMap','ngMessages','ionic-material', 'ionMdInput'])
+angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'ngCordova', 'ngMap', 'ngMessages', 'ionic-material', 'ionMdInput'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
-        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-        // for form inputs)
         if (window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             cordova.plugins.Keyboard.disableScroll(true);
-
         }
         if (window.StatusBar) {
-            // org.apache.cordova.statusbar required
             StatusBar.styleDefault();
         }
     });
@@ -24,7 +14,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
 
 .factory('socket', function(socketFactory) {
     //Create socket and connect to http://chat.socket.io
-    var myIoSocket = io.connect('http://n2.transparent.sg:3000/');
+    var myIoSocket = io.connect('http://localhost:9999/');
 
     mySocket = socketFactory({
         ioSocket: myIoSocket
@@ -35,16 +25,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
 
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
-
-        .state('app', {
+    .state('app', {
         url: '/app',
+        abstract: true,
         templateUrl: 'templates/menu.html',
         controller: 'AppCtrl'
     })
 
     .state('app.login', {
         url: '/login',
-        cache: false,
         views: {
             'menuContent': {
                 templateUrl: 'templates/login.html',
@@ -53,9 +42,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
         }
     })
 
-     .state('app.managerList', {
-        url: '/managerList/',
-        cache: false,
+    .state('app.managerList', {
+        url: '/managerList',
         views: {
             'menuContent': {
                 templateUrl: 'templates/managerList.html',
@@ -65,8 +53,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
     })
 
     .state('app.browse_trucklist', {
-        url: '/browse_trucklist/:Id',
-        cache: false,
+        url: '/managerList/:Id',
         views: {
             'menuContent': {
                 templateUrl: 'templates/browse_trucklist.html',
@@ -75,6 +62,37 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
         }
     })
 
+       .state('app.truck-list', {
+        url: '/truck-list',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/truck-list.html',
+                controller: ''
+            }
+        }
+    })
+
+        .state('app.truck-list.available_truck', {
+        url: '/available_truck',
+        views: {
+            'app.truck-list.available_truck': {
+                templateUrl: 'templates/available_truck.html',
+                controller: ''
+            }
+        }
+    })
+      
+
+        .state('app.truck-list.ongoing_truck', {
+        url: '/ongoing_truck',
+        views: {
+            'app.truck-list.ongoing_truck': {
+                templateUrl: 'templates/ongoing_truck.html',
+                controller: ''
+            }
+        }
+    })
+        
     .state('app.browse_joblist', {
         url: '/browse_joblist',
         views: {
@@ -84,7 +102,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
             }
         }
     })
-
 
     .state('app.truckDetails', {
         url: '/truckDetails/:Id',
@@ -105,7 +122,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
             }
         }
     })
-
 
     .state('app.take_photo', {
         url: '/take_photo',
@@ -135,10 +151,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 }
             }
         });
-
-
-
-
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/login');
 });

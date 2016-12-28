@@ -1,11 +1,13 @@
 
-
-angular.module('starter.controllers').controller('managerListCtrl', function($scope, $stateParams, $ionicModal, $http, $state, $ionicLoading, $timeout, $rootScope, store) {
-
-    $scope.init = function() {
-        $scope.mangerDetails = store.get("userdata");
-        $scope.managerId = '0';
-    }
+angular.module('starter.controllers').controller('managerListCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout,$rootScope,store) {
+       $scope.init = function(){
+       	$scope.mangerDetails =store.get("userdata");
+          $rootScope.islogin = store.get('userdata') || false;
+        console.log(baseURL);
+        if (!$rootScope.islogin) {
+            $state.go('app.login');
+        }
+       }
 
     $scope.getManager = function() {
         var managerData = {
