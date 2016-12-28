@@ -12,6 +12,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
     });
 })
 
+.directive('activePageHighlight', ['$rootScope', '$state', function($rootScope, $state) {
+
+    return function($scope, $element, $attr) {
+
+        function checkUISref() {
+            if ($state.is($attr['uiSref'])) {
+                $element.addClass('active-page-highlight');
+            } else {
+                $element.removeClass('active-page-highlight');
+            }
+        }
+
+        checkUISref();
+
+        $rootScope.$on('$stateChangeSuccess', function() {
+            checkUISref();
+        })
+    };
+
+}])
+
 .factory('socket', function(socketFactory) {
     //Create socket and connect to http://chat.socket.io
     var myIoSocket = io.connect('http://localhost:9999/');
@@ -25,25 +46,34 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
 
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
-    .state('app', {
-        url: '/app',
-        abstract: true,
-        templateUrl: 'templates/menu.html',
-        controller: 'AppCtrl'
-    })
+        .state('app', {
+            url: '/app',
+            abstract: true,
+            templateUrl: 'templates/menu.html',
+            controller: 'AppCtrl'
+        })
 
-    .state('app.login', {
+    // .state('app.login', {
+    //     url: '/login',
+    //     cache : false,
+    //     views: {
+    //         'menuContent': {
+    //             templateUrl: 'templates/login.html',
+    //             controller: 'logincontroller'
+    //         }
+    //     }
+    // })
+
+    .state('login', {
         url: '/login',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/login.html',
-                controller: 'logincontroller'
-            }
-        }
+        cache: false,
+        templateUrl: 'templates/login.html',
+        controller: 'logincontroller'
     })
 
     .state('app.managerList', {
         url: '/managerList',
+        cache: false,
         views: {
             'menuContent': {
                 templateUrl: 'templates/managerList.html',
@@ -54,6 +84,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
 
     .state('app.browse_trucklist', {
         url: '/managerList/:Id',
+        cache: false,
         views: {
             'menuContent': {
                 templateUrl: 'templates/browse_trucklist.html',
@@ -121,5 +152,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
             }
         });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/login');
+    $urlRouterProvider.otherwise('/login');
 });

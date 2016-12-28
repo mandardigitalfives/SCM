@@ -4,8 +4,9 @@ angular.module('starter.controllers', ['ionic-toast'])
 
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
+        console.log($rootScope.islogin);
         if (!$rootScope.islogin) {
-            $state.go('app.login');
+            $state.go('login');
         }
     }
 
@@ -21,7 +22,7 @@ angular.module('starter.controllers', ['ionic-toast'])
         localStorage.clear();
         $ionicSideMenuDelegate.toggleLeft();
         $scope.init();
-        $state.go('app.login');
+        $state.go('login');
     }
 })
 
@@ -29,12 +30,20 @@ angular.module('starter.controllers', ['ionic-toast'])
 
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
-        console.log(baseURL);
         if ($rootScope.islogin) {
             $state.go('app.managerList');
+        }else{
+            console.log("please Login");
         }
     }
 
+    $rootScope.Loadingshow = function() {
+        $ionicLoading.show({
+            noBackdrop: true,
+            template: '<p class="item-icon-left">Please wait...<ion-spinner icon="lines"/></p>'
+        });
+    }
+    
     $scope.user = {
         email: "admin@admin.com",
         password: "admin123"
@@ -50,7 +59,8 @@ angular.module('starter.controllers', ['ionic-toast'])
                     user_id: response.record.Uid,
                     email: response.record.UserId,
                     type: response.record.type,
-                    refUid: response.record.RefUid
+                    refUid: response.record.RefUid,
+                    Name : response.record.Name
                 }
                 store.set('userdata', userdata);
                 $rootScope.islogin = store.get('userdata');

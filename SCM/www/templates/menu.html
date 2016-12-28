@@ -1,6 +1,6 @@
 <ion-side-menus ng-init="init()">
     <ion-side-menu-content drag-content="false">
-        <ion-nav-bar class="bar-dark">
+        <ion-nav-bar class="stable-bg">
             <ion-nav-back-button>
             </ion-nav-back-button>
             <ion-nav-buttons side="left">
@@ -11,28 +11,37 @@
         <ion-nav-view name="menuContent"></ion-nav-view>
     </ion-side-menu-content>
     <ion-side-menu side="left">
-        <ion-header-bar class="bar-stable">
-            <h1 class="title">Left</h1>
+        <ion-header-bar class="stable-bg expanded" data-ng-if="islogin">
+            <ion-item class="profile-item">
+                <div class="profile-picture big-profile-picture">
+                    <img ng-src="img/jon-snow.jpg">
+                </div>
+                <div class="profile-info">
+                    <dt>{{islogin.Name}}</dt>
+                </div>
+                <div class="profile-info">
+                    <dt>{{islogin.email}}</dt>
+                </div>
+            </ion-item>
         </ion-header-bar>
-        <ion-content>
+        <ion-content class="stable-bg has-expanded-header">
             <ion-list>
-                <ion-item menu-close href="#/app/login" ng-if="!islogin">
-                    Login
+                <ion-item menu-close href="#/login" ng-if="!islogin">
+                    <dt> Login </dt>
                 </ion-item>
                 <ion-item menu-close href="#/app/browse_trucklist">
-                    Browse TruckList
+                    <dt>Browse TruckList </dt>
                 </ion-item>
                 <ion-item menu-close href="#/app/browse_joblist">
-                    Browse Agency
+                    <DT>Browse Agency</DT>
                 </ion-item>
                 <ion-item menu-close href="#/app/take_photo">
-                    Take Photo
+                    <dt>Take Photo</dt>
                 </ion-item>
                 <ion-item menu-close ng-click="logout()" ng-if="islogin">
-                    Logout
+                    <dt>Logout</dt>
                 </ion-item>
             </ion-list>
         </ion-content>
     </ion-side-menu>
-
 </ion-side-menus>
