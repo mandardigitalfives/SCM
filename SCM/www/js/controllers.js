@@ -4,12 +4,9 @@ angular.module('starter.controllers', ['ionic-toast'])
 
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
-
-        console.log($rootScope.islogin);
         if (!$rootScope.islogin) {
             $state.go('login');
         }
-
     }
 
     $rootScope.Loadingshow = function() {
@@ -46,11 +43,10 @@ angular.module('starter.controllers', ['ionic-toast'])
             template: '<p class="item-icon-left">Please wait...<ion-spinner icon="lines"/></p>'
         });
     }
-    
+
     $scope.user = {
        /* email: "admin@admin.com",
         password: "admin123"*/
-
         email : "agency@agency.com",
         password : "mac123"
     }
