@@ -12,7 +12,7 @@ $calm:                            #11c1f3 !default;
 $balanced:                        #33cd5f !default;
 $energized:                       #ffc900 !default;
 $assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
+$royal:                           #0fbfd1 !default;
 $dark:                            #444 !default;
 */
 /*!
@@ -9560,6 +9560,14 @@ background-color: #fff; }
 
 .royal-bg {
   background-color: #886aea; }
+
+.appback{
+  color: #10bccd;
+}
+
+.appback-bg{
+  background-color: #10bccd;
+}
 
 .royal-border {
   border-color: #6b46e5; }
