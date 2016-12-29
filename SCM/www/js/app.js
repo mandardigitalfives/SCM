@@ -93,6 +93,37 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
         }
     })
 
+       .state('app.truck-list', {
+        url: '/truck-list',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/truck-list.html',
+                controller: ''
+            }
+        }
+    })
+
+        .state('app.truck-list.available_truck', {
+        url: '/available_truck',
+        views: {
+            'app.truck-list.available_truck': {
+                templateUrl: 'templates/available_truck.html',
+                controller: ''
+            }
+        }
+    })
+      
+
+        .state('app.truck-list.ongoing_truck', {
+        url: '/ongoing_truck',
+        views: {
+            'app.truck-list.ongoing_truck': {
+                templateUrl: 'templates/ongoing_truck.html',
+                controller: ''
+            }
+        }
+    })
+        
     .state('app.browse_joblist', {
         url: '/browse_joblist',
         views: {

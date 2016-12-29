@@ -6,8 +6,9 @@ angular.module('starter.controllers').controller('TrucklistCtrl', function($scop
         var ItemI = {
             refuid: $stateParams.Id,
             type: "truck",
+
         }
-        $scope.getTrucklist(ItemI);
+         $scope.getTrucklist(ItemI);
     }
 
     $scope.getTrucklist = function(ItemI) {
@@ -22,5 +23,6 @@ angular.module('starter.controllers').controller('TrucklistCtrl', function($scop
             console.log('Internet Connection Is Not Available.');
         })
 
-    };
+     };
 });
+ 

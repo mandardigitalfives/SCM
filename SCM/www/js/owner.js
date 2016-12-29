@@ -1,3 +1,4 @@
+
 angular.module('starter.controllers').controller('managerListCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout,$rootScope,store) {
        $scope.init = function(){
        	$scope.mangerDetails =store.get("userdata");
@@ -7,6 +8,7 @@ angular.module('starter.controllers').controller('managerListCtrl', function($sc
             $state.go('app.login');
         }
        }
+
     $scope.getManager = function() {
         var managerData = {
             type: "manager",

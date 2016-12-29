@@ -4,10 +4,12 @@ angular.module('starter.controllers', ['ionic-toast'])
 
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
+
         console.log($rootScope.islogin);
         if (!$rootScope.islogin) {
             $state.go('login');
         }
+
     }
 
     $rootScope.Loadingshow = function() {
@@ -21,12 +23,13 @@ angular.module('starter.controllers', ['ionic-toast'])
         store.remove('userdata');
         localStorage.clear();
         $ionicSideMenuDelegate.toggleLeft();
+        $ionicNavBarDelegate.showBackButton(false);
         $scope.init();
         $state.go('login');
     }
 })
 
-.controller('logincontroller', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$ionicLoading', "$ionicPopup", function($scope, $rootScope, $http, $state, $stateParams, store, $ionicLoading, $ionicPopup) {
+.controller('logincontroller', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$ionicNavBarDelegate', '$ionicLoading', "$ionicPopup", function($scope, $rootScope, $http, $state, $stateParams, store, $ionicNavBarDelegate, $ionicLoading, $ionicPopup) {
 
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
@@ -45,8 +48,11 @@ angular.module('starter.controllers', ['ionic-toast'])
     }
     
     $scope.user = {
-        email: "admin@admin.com",
-        password: "admin123"
+       /* email: "admin@admin.com",
+        password: "admin123"*/
+
+        email : "agency@agency.com",
+        password : "mac123"
     }
 
     $scope.login = function(user) {
@@ -64,9 +70,12 @@ angular.module('starter.controllers', ['ionic-toast'])
                 }
                 store.set('userdata', userdata);
                 $rootScope.islogin = store.get('userdata');
+                $ionicNavBarDelegate.showBackButton(false);
                 $ionicLoading.hide();
+
                 if (store.get('userdata').type == 'manager') {
-                    $state.go('app.managerList');
+                    $state.go('app.truck-list');
+
                 } else if (store.get('userdata').type == 'truck') {
                     $state.go('app.browse_joblist');
                 } else if (store.get('userdata').type == 'Owner') {
