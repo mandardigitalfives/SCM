@@ -11,8 +11,6 @@ exports.getTrucklist = function(req, res) {
         'refUid': req.body.refuid,
         'type': req.body.type
     }, function(error, result) {
-        console.log('result : ', result.length);
-        console.log("error : ", error);
         if (error) {
             responsedata = {
                 status: false,

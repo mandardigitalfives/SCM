@@ -1,11 +1,11 @@
-angular.module('starter.controllers').controller('TrucklistCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout,$rootScope,store) {
-   
-    $scope.init = function(){
-     $scope.truckDetails = store.get("userdata");
-      console.log($scope.truckDetails);
-      var ItemI = {
+angular.module('starter.controllers').controller('TrucklistCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout, $rootScope, store, ionicMaterialMotion, ionicMaterialInk) {
+
+    $scope.init = function() {
+        $scope.truckDetails = store.get("userdata");
+        console.log($scope.truckDetails);
+        var ItemI = {
             refuid: $stateParams.Id,
-            type : "truck",
+            type: "truck",
         }
         $scope.getTrucklist(ItemI);
     }
@@ -14,6 +14,10 @@ angular.module('starter.controllers').controller('TrucklistCtrl', function($scop
         $http.post(baseURL + 'getTrucklist', ItemI).success(function(response, request) {
             console.log(response);
             $scope.TruckList = response.record;
+            ionicMaterialMotion.slideUp({
+                selector: '.slide-up'
+            });
+            ionicMaterialInk.displayEffect();
         }).error(function(err) {
             console.log('Internet Connection Is Not Available.');
         })

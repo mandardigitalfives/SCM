@@ -1,7 +1,7 @@
 
 .pane {
     /*background: url(../img/background.jpg) no-repeat center center fixed; */
-    background-color: #fff;
+    background-color: #00bfd1;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -22,6 +22,7 @@
 .menu-open .ion-navicon:before {
     content: "\f2ca";
 }
+
 
 .app-icon {
     background-color: #fff;
@@ -67,6 +68,7 @@
 .profile-item {
     background-size: cover;
     text-align: center;
+    border-color: #00bfd1 !important;
 }
 
 .profile-picture {
