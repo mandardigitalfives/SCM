@@ -1,0 +1,18 @@
+
+<ion-view ng-init="init()">
+  
+    <ion-content scroll="false">
+
+    <ion-tabs class="tabs-striped tabs-top stable-bg">
+
+            <ion-tab title="Available Truck" ui-sref="app.truck-list.available_truck">
+                <ion-nav-view name="app.truck-list.available_truck"></ion-nav-view>
+            </ion-tab>
+             
+               <ion-tab title="On Going Truck" ui-sref="app.truck-list.ongoing_truck">
+                <ion-nav-view name="app.truck-list.ongoing_truck"></ion-nav-view>
+            </ion-tab>
+          
+        </ion-tabs>
+    </ion-content>
+</ion-view>
