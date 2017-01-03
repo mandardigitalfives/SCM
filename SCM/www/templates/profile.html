@@ -1,98 +1,138 @@
 <ion-view view-title="Profile" class="title-center" ng-init="init()">
-    <ion-content has-header="true">
+    <ion-content has-header="true" scroll="false">
         <div id="profile-bg"></div>
         <div id="content" ng-if="profiledetails">
             <div id="profile-info">
-                <img id="profile-image" src="img/jon-snow.jpg">
+                <img id="profile-image" ng-src="img/jon-snow.jpg">
                 <i id="selectpicture" class="icon ion-camera"></i>
                 <h3 id="profile-name">{{profiledetails.Name}}</h3>
                 <span id="profile-description">{{profiledetails.UserId}}</span>
             </div>
-            <tab-slide-box class="customScroll">
-                <div class="tsb-icons">
-                    <div class="tsb-ic-wrp">
-                        <ion-scroll direction="x" class="tsb-hscroll">
-                            <a href="javascript:;" class="ion-ios-contact"></a>
-                            <a href="javascript:;" class="ion-ios-gear"></a>
-                            <a href="javascript:;" class="ion-email"></a>
-                            <a href="javascript:;" class="ion-arrow-graph-up-right"></a>
-                        </ion-scroll>
-                    </div>
-                </div>
-                <ion-slide-box slide-tabs-scrollable="true" does-continue="false" ion-slide-tabs show-pager="false" on-slide-changed="slideHasChanged($index)">
-                    <ion-slide>
-                        <div class="card-wrapper">
-                            <div class="card custom-card">
-                                <ion-scroll>
-                                    <ion-list>
-                                        <ion-item class="padding item-text-wrap justify">
-                                            <div class="list card">
-                                                <div class="item item-avatar">
-                                                    <img src="mcfly.jpg">
-                                                    <h2>Marty McFly</h2>
-                                                    <p>November 05, 1955</p>
-                                                </div>
-                                                <div class="item item-body">
-                                                    <img class="full-image" src="delorean.jpg">
-                                                    <p>
-                                                        This is a "Facebook" styled Card. The header is created from a Thumbnail List item, the content is from a card-body consisting of an image and paragraph text. The footer consists of tabs, icons aligned left, within the card-footer.
-                                                    </p>
-                                                    <p>
-                                                        <a href="#" class="subdued">1 Like</a>
-                                                        <a href="#" class="subdued">5 Comments</a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </ion-item>
-                                    </ion-list>
-                                </ion-scroll>
-                            </div>
-                        </div>
-                    </ion-slide>
-                    <ion-slide>
-                        <div class="card-wrapper">
-                            <div class="card custom-card">
-                                <ion-scroll>
-                                    <ion-list>
-                                        <ion-item style="border-bottom: 0;" class="padding item-text-wrap justify">
-                                            <h2> 2
-                                        </h2>
-                                        </ion-item>
-                                    </ion-list>
-                                </ion-scroll>
-                            </div>
-                        </div>
-                    </ion-slide>
-                    <ion-slide>
-                        <div class="card-wrapper">
-                            <div class="card custom-card">
-                                <ion-scroll>
-                                    <ion-list>
-                                        <ion-item class="padding item-text-wrap justify">
-                                            <h2>3
-                                        </h2>
-                                        </ion-item>
-                                    </ion-list>
-                                </ion-scroll>
-                            </div>
-                        </div>
-                    </ion-slide>
-                    <ion-slide>
-                        <div class="card-wrapper">
-                            <div class="card custom-card">
-                                <ion-scroll>
-                                    <ion-list>
-                                        <ion-item class="padding item-text-wrap justify ">
-                                            <h2>4
-                                        </h2>
-                                        </ion-item>
-                                    </ion-list>
-                                </ion-scroll>
-                            </div>
-                        </div>
-                    </ion-slide>
-                </ion-slide-box>
-            </tab-slide-box>
         </div>
+        <tab-slide-box class="customScroll" ng-if="profiledetails">
+            <div class="tsb-icons">
+                <div class="tsb-ic-wrp">
+                    <ion-scroll direction="x" class="tsb-hscroll">
+                        <a href="javascript:;" class="ion-ios-contact"></a>
+                        <a href="javascript:;" class="ion-ios-gear"></a>
+                        <a href="javascript:;" class="ion-email"></a>
+                        <a href="javascript:;" class="ion-arrow-graph-up-right"></a>
+                    </ion-scroll>
+                </div>
+            </div>
+            <ion-slide-box slide-tabs-scrollable="true" does-continue="false" ion-slide-tabs show-pager="false" on-slide-changed="slideHasChanged($index)">
+                <ion-slide>
+                    <div class="card-wrapper">
+                        <div class="card custom-card">
+                            <ion-scroll>
+                                <ion-list>
+                                    <ion-item ng-repeat="item in ['sdaf','sfd','asdfsadf','sdfaasdf','sdaff','sfdf','asdfsadff','sdfaasdff']" class="padding item-text-wrap justify">
+                                        <h2>sdfafsdf</h2>
+                                    </ion-item>
+                                </ion-list>
+                            </ion-scroll>
+                        </div>
+                    </div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="card-wrapper">
+                        <div class="card custom-card">
+                            <ion-scroll>
+                                <!-- <ion-list>
+                                    <ion-item class="padding item-text-wrap justify">
+                                        <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+                                        </canvas>
+                                    </ion-item>
+                                    <ion-item>
+                                        <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels"> chart-series="series"
+                                        </canvas>
+                                    </ion-item>
+                                </ion-list> -->
+                                <div class="card">
+                                    <div class="item item-divider">
+                                        LINE CHART
+                                    </div>
+                                    <div class="item item-text-wrap">
+                                        <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+                                        </canvas>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="item item-divider">
+                                        BAR CHART
+                                    </div>
+                                    <div class="item item-text-wrap">
+                                        <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels"> chart-series="series"
+                                        </canvas>
+                                    </div>
+                                </div>
+                            </ion-scroll>
+                        </div>
+                    </div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="card-wrapper">
+                        <div class="card custom-card">
+                            <ion-scroll>
+                                <ion-list>
+                                    <ion-item ng-repeat="item in ['sdaf','sfd','asdfsadf','sdfaasdf','sdaff','sfdf','asdfsadff','sdfaasdff']" class="padding item-text-wrap justify">
+                                        <a class="item clear-bg item-bg-image waves-effect waves-button waves-light has-mask-reverse">
+                                            <h2>Toronto</h2>
+                                            <p>Drake's Raptastic Raptors</p>
+                                            <img src="../img/toronto.jpg" style="transition-delay: 0.02s;">
+                                        </a>
+                                    </ion-item>
+                                </ion-list>
+                            </ion-scroll>
+                        </div>
+                    </div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="card-wrapper">
+                        <div class="card custom-card">
+                            <ion-scroll>
+                                <!-- <ion-list>
+                                    <ion-item class="padding item-text-wrap justify">
+                                        <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+                                        </canvas>
+                                    </ion-item>
+                                    <ion-item>
+                                        <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels"> chart-series="series"
+                                        </canvas>
+                                    </ion-item>
+                                </ion-list> -->
+                                <div class="card">
+                                    <div class="item item-divider">
+                                        LINE CHART
+                                    </div>
+                                    <div class="item item-text-wrap">
+                                        <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+                                        </canvas>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="item item-divider">
+                                        BAR CHART
+                                    </div>
+                                    <div class="item item-text-wrap">
+                                        <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels"> chart-series="series"
+                                        </canvas>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="item item-divider">
+                                        BAR CHART
+                                    </div>
+                                    <div class="item item-text-wrap">
+                                        <canvas id="radar" class="chart chart-radar" chart-data="data" chart-options="optionss" chart-labels="labelss">
+                                        </canvas>
+                                    </div>
+                                </div>
+                            </ion-scroll>
+                        </div>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+        </tab-slide-box>
     </ion-content>
 </ion-view>

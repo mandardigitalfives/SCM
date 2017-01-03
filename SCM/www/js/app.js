@@ -1,3 +1,24 @@
+function SimplePubSub() {
+    var events = {};
+    return {
+        on: function(names, handler) {
+            names.split(' ').forEach(function(name) {
+                if (!events[name]) {
+                    events[name] = [];
+                }
+                events[name].push(handler);
+            });
+            return this;
+        },
+        trigger: function(name, args) {
+            angular.forEach(events[name], function(handler) {
+                handler.call(null, args);
+            });
+            return this;
+        }
+    };
+};
+
 angular.module('tabSlideBox', []).directive('onFinishRender', function($timeout) {
     return {
         restrict: 'A',
@@ -124,7 +145,7 @@ angular.module('tabSlideBox', []).directive('onFinishRender', function($timeout)
 
 }]);
 
-angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'ngCordova', 'ngMap', 'ngMessages', 'ionic-material', 'ionMdInput', 'tabSlideBox'])
+angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'ngCordova', 'ngMap', 'ngMessages', 'ionic-material', 'ionMdInput', 'tabSlideBox','chart.js'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -187,7 +208,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 $element.removeClass('active-page-highlight');
             }
         }
-
         checkUISref();
 
         $rootScope.$on('$stateChangeSuccess', function() {

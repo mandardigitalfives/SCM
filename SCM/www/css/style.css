@@ -47,7 +47,7 @@
 
 .tabs-top > .tabs, .tabs.tabs-top {top: 100% !important;}
 
-.customScroll .card-wrapper { height: 100%; padding: 5px 5px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+.customScroll .card-wrapper { height: 100%; padding: 10px 10px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
 
 .customScroll .custom-card.card {height: 100%; margin: 0;}
 
@@ -57,6 +57,12 @@
 
 .customScroll a {color: #888;}
 
+.scroll {height: 100%;}
+
+.tabbed-slidebox .tsb-icons:after {display: none;}
+
+.ion-slides {width: 100%;display: block;}
+  
 /*************...........IDS..........*************/
 
 #selectpicture { position: absolute;color: #10bccd;font-size: 40px; top: 47%; left: 58%;}
