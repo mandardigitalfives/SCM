@@ -30,6 +30,7 @@ var trucklist =require('./api/trucklist.js');
 var todos = require('./api/todos.js');
 var device_register = require('./api/device_register.js');
 var sendpushnotification = require('./api/sendpushnotification.js');
+var profile = require('./api/profile.js')
 
 app.all('*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -47,6 +48,7 @@ app.use('/mobile', express.static(__dirname + '/mobile/www'));
 app.post('/api/login', userlogin.login);
 app.post('/api/getManager',owner.getManager);
 app.post('/api/getTrucklist',trucklist.getTrucklist);
+app.post('/api/getProfile',profile.getProfile);
 
 http.listen( 9999, function(){
    console.log('Express server listening on port ' + http.address().port);

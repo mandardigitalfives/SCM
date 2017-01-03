@@ -6,13 +6,11 @@ angular.module('starter.controllers').controller('TrucklistCtrl', function($scop
         var ItemI = {
             refuid: $stateParams.Id,
             type: "truck",
-
         }
          $scope.getTrucklist(ItemI);
     }
 
     $scope.getTrucklist = function(ItemI) {
-        $rootScope.Loadingshow();
         $http.post(baseURL + 'getTrucklist', ItemI).success(function(response, request) {
             console.log(response);
             $scope.TruckList = response.record;
@@ -20,7 +18,6 @@ angular.module('starter.controllers').controller('TrucklistCtrl', function($scop
                 selector: '.slide-up'
             });
             ionicMaterialInk.displayEffect();
-            $ionicLoading.hide();
         }).error(function(err) {
             console.log('Internet Connection Is Not Available.');
         })
