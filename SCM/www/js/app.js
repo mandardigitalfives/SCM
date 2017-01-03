@@ -106,7 +106,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
         .state('app.truck-list.available_truck', {
         url: '/available_truck',
         views: {
-            'app.truck-list.available_truck': {
+            'app-truck-list-available_truck': {
                 templateUrl: 'templates/available_truck.html',
                 controller: ''
             }
@@ -117,7 +117,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
         .state('app.truck-list.ongoing_truck', {
         url: '/ongoing_truck',
         views: {
-            'app.truck-list.ongoing_truck': {
+            'app-truck-list-ongoing_truck': {
                 templateUrl: 'templates/ongoing_truck.html',
                 controller: ''
             }
