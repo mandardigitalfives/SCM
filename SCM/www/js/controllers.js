@@ -71,7 +71,6 @@ angular.module('starter.controllers', ['ionic-toast'])
 
                 if (store.get('userdata').type == 'manager') {
                     $state.go('app.truck-list');
-
                 } else if (store.get('userdata').type == 'truck') {
                     $state.go('app.browse_joblist');
                 } else if (store.get('userdata').type == 'Owner') {
