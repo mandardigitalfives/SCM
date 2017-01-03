@@ -1,0 +1,97 @@
+<ion-view view-title="Profile" class="title-center" ng-init="init()">
+    <ion-content has-header="true">
+        <div id="profile-bg"></div>
+        <div id="content" ng-if="profiledetails">
+            <div id="profile-info">
+                <img id="profile-image" src="img/jon-snow.jpg">
+                <h3 id="profile-name">{{profiledetails.Name}}</h3>
+                <span id="profile-description">{{profiledetails.UserId}}</span>
+            </div>
+            <tab-slide-box class="customScroll">
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-ios-contact"></a>
+                            <a href="javascript:;" class="ion-ios-gear"></a>
+                            <a href="javascript:;" class="ion-email"></a>
+                            <a href="javascript:;" class="ion-arrow-graph-up-right"></a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box slide-tabs-scrollable="true" does-continue="false" ion-slide-tabs show-pager="false" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide>
+                        <div class="card-wrapper">
+                            <div class="card custom-card">
+                                <ion-scroll>
+                                    <ion-list>
+                                        <ion-item class="padding item-text-wrap justify">
+                                            <div class="list card">
+                                                <div class="item item-avatar">
+                                                    <img src="mcfly.jpg">
+                                                    <h2>Marty McFly</h2>
+                                                    <p>November 05, 1955</p>
+                                                </div>
+                                                <div class="item item-body">
+                                                    <img class="full-image" src="delorean.jpg">
+                                                    <p>
+                                                        This is a "Facebook" styled Card. The header is created from a Thumbnail List item, the content is from a card-body consisting of an image and paragraph text. The footer consists of tabs, icons aligned left, within the card-footer.
+                                                    </p>
+                                                    <p>
+                                                        <a href="#" class="subdued">1 Like</a>
+                                                        <a href="#" class="subdued">5 Comments</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </ion-item>
+                                    </ion-list>
+                                </ion-scroll>
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div class="card-wrapper">
+                            <div class="card custom-card">
+                                <ion-scroll>
+                                    <ion-list>
+                                        <ion-item style="border-bottom: 0;" class="padding item-text-wrap justify">
+                                            <h2> 2
+                                        </h2>
+                                        </ion-item>
+                                    </ion-list>
+                                </ion-scroll>
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div class="card-wrapper">
+                            <div class="card custom-card">
+                                <ion-scroll>
+                                    <ion-list>
+                                        <ion-item class="padding item-text-wrap justify">
+                                            <h2>3
+                                        </h2>
+                                        </ion-item>
+                                    </ion-list>
+                                </ion-scroll>
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div class="card-wrapper">
+                            <div class="card custom-card">
+                                <ion-scroll>
+                                    <ion-list>
+                                        <ion-item class="padding item-text-wrap justify ">
+                                            <h2>4
+                                        </h2>
+                                        </ion-item>
+                                    </ion-list>
+                                </ion-scroll>
+                            </div>
+                        </div>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </div>
+    </ion-content>
+</ion-view>
