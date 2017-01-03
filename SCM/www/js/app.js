@@ -1,135 +1,130 @@
-
-angular.module('tabSlideBox', [])
-    .directive('onFinishRender', function($timeout) {
-        return {
-            restrict: 'A',
-            link: function(scope, element, attr) {
-                if (scope.$last === true) {
-                    $timeout(function() {
-                        scope.$emit('ngRepeatFinished');
-                    });
-                }
+angular.module('tabSlideBox', []).directive('onFinishRender', function($timeout) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attr) {
+            if (scope.$last === true) {
+                $timeout(function() {
+                    scope.$emit('ngRepeatFinished');
+                });
             }
         }
-    })
-    .directive('tabSlideBox', ['$timeout', '$window', '$ionicSlideBoxDelegate', '$ionicScrollDelegate',
-        function($timeout, $window, $ionicSlideBoxDelegate, $ionicScrollDelegate) {
-            'use strict';
+    }
+}).directive('tabSlideBox', ['$timeout', '$window', '$ionicSlideBoxDelegate', '$ionicScrollDelegate', function($timeout, $window, $ionicSlideBoxDelegate, $ionicScrollDelegate) {
+    'use strict';
 
-            return {
-                restrict: 'A, E, C',
-                link: function(scope, element, attrs, ngModel) {
+    return {
+        restrict: 'A, E, C',
+        link: function(scope, element, attrs, ngModel) {
 
-                    var ta = element[0],
-                        $ta = element;
-                    $ta.addClass("tabbed-slidebox");
-                    if (attrs.tabsPosition === "bottom") {
-                        $ta.addClass("btm");
-                    }
+            var ta = element[0],
+                $ta = element;
+            $ta.addClass("tabbed-slidebox");
+            if (attrs.tabsPosition === "bottom") {
+                $ta.addClass("btm");
+            }
 
-                    function renderScrollableTabs() {
-                        var iconsDiv = angular.element(ta.querySelector(".tsb-icons")),
-                            icons = iconsDiv.find("a"),
-                            wrap = iconsDiv[0].querySelector(".tsb-ic-wrp"),
-                            totalTabs = icons.length;
-                        var scrollDiv = wrap.querySelector(".scroll");
+            function renderScrollableTabs() {
+                var iconsDiv = angular.element(ta.querySelector(".tsb-icons")),
+                    icons = iconsDiv.find("a"),
+                    wrap = iconsDiv[0].querySelector(".tsb-ic-wrp"),
+                    totalTabs = icons.length;
+                var scrollDiv = wrap.querySelector(".scroll");
 
-                        angular.forEach(icons, function(value, key) {
-                            var a = angular.element(value);
-                            a.on('click', function() {
-                                $ionicSlideBoxDelegate.slide(key);
-                            });
-                        });
+                angular.forEach(icons, function(value, key) {
+                    var a = angular.element(value);
+                    a.on('click', function() {
+                        $ionicSlideBoxDelegate.slide(key);
+                    });
+                });
 
-                        var initialIndex = attrs.tab;
-                        //Initializing the middle tab
-                        if (typeof attrs.tab === 'undefined' || (totalTabs <= initialIndex) || initialIndex < 0) {
-                            initialIndex = 0;
-                        } else {
-                            initialIndex = Math.floor(icons.length / 2);
-                        }
+                var initialIndex = attrs.tab;
+                //Initializing the middle tab
+                if (typeof attrs.tab === 'undefined' || (totalTabs <= initialIndex) || initialIndex < 0) {
+                    initialIndex = 0;
+                } else {
+                    initialIndex = Math.floor(icons.length / 2);
+                }
 
-                        //If initial element is 0, set position of the tab to 0th tab 
-                        if (initialIndex == 0) {
-                            setPosition(0);
-                        }
+                //If initial element is 0, set position of the tab to 0th tab 
+                if (initialIndex == 0) {
+                    setPosition(0);
+                }
 
-                        $timeout(function() {
-                            $ionicSlideBoxDelegate.slide(initialIndex);
-                        }, 0);
-                    }
+                $timeout(function() {
+                    $ionicSlideBoxDelegate.slide(initialIndex);
+                }, 0);
+            }
 
-                    function setPosition(index) {
-                        var iconsDiv = angular.element(ta.querySelector(".tsb-icons")),
-                            icons = iconsDiv.find("a"),
-                            wrap = iconsDiv[0].querySelector(".tsb-ic-wrp"),
-                            totalTabs = icons.length;
-                        var scrollDiv = wrap.querySelector(".scroll");
+            function setPosition(index) {
+                var iconsDiv = angular.element(ta.querySelector(".tsb-icons")),
+                    icons = iconsDiv.find("a"),
+                    wrap = iconsDiv[0].querySelector(".tsb-ic-wrp"),
+                    totalTabs = icons.length;
+                var scrollDiv = wrap.querySelector(".scroll");
 
-                        var middle = iconsDiv[0].offsetWidth / 2;
-                        var curEl = angular.element(icons[index]);
-                        if (curEl && curEl.length) {
-                            var curElWidth = curEl[0].offsetWidth,
-                                curElLeft = curEl[0].offsetLeft;
+                var middle = iconsDiv[0].offsetWidth / 2;
+                var curEl = angular.element(icons[index]);
+                if (curEl && curEl.length) {
+                    var curElWidth = curEl[0].offsetWidth,
+                        curElLeft = curEl[0].offsetLeft;
 
-                            angular.element(iconsDiv[0].querySelector(".active")).removeClass("active");
-                            curEl.addClass("active");
+                    angular.element(iconsDiv[0].querySelector(".active")).removeClass("active");
+                    curEl.addClass("active");
 
-                            var leftStr = (middle - (curElLeft) - curElWidth / 2 + 4);
-                            //If tabs are not scrollable
-                            if (!scrollDiv) {
-                                var leftStr = (middle - (curElLeft) - curElWidth / 2 + 4) + "px";
-                                wrap.style.webkitTransform = "translate3d(" + leftStr + ",0,0)";
-                            } else {
-                                //If scrollable tabs
-                                var wrapWidth = wrap.offsetWidth;
-                                var currentX = Math.abs(getX(scrollDiv.style.webkitTransform));
-                                var leftOffset = 100;
-                                var elementOffset = 40;
-                                //If tabs are reaching right end or left end
-                                if (((currentX + wrapWidth) < (curElLeft + curElWidth + elementOffset)) || (currentX > (curElLeft - leftOffset))) {
-                                    if (leftStr > 0) {
-                                        leftStr = 0;
-                                    }
-                                    //Use this scrollTo, so when scrolling tab manually will not flicker
-                                    $ionicScrollDelegate.scrollTo(Math.abs(leftStr), 0, true);
-                                }
+                    var leftStr = (middle - (curElLeft) - curElWidth / 2 + 4);
+                    //If tabs are not scrollable
+                    if (!scrollDiv) {
+                        var leftStr = (middle - (curElLeft) - curElWidth / 2 + 4) + "px";
+                        wrap.style.webkitTransform = "translate3d(" + leftStr + ",0,0)";
+                    } else {
+                        //If scrollable tabs
+                        var wrapWidth = wrap.offsetWidth;
+                        var currentX = Math.abs(getX(scrollDiv.style.webkitTransform));
+                        var leftOffset = 100;
+                        var elementOffset = 40;
+                        //If tabs are reaching right end or left end
+                        if (((currentX + wrapWidth) < (curElLeft + curElWidth + elementOffset)) || (currentX > (curElLeft - leftOffset))) {
+                            if (leftStr > 0) {
+                                leftStr = 0;
                             }
+                            //Use this scrollTo, so when scrolling tab manually will not flicker
+                            $ionicScrollDelegate.scrollTo(Math.abs(leftStr), 0, true);
                         }
-                    };
-
-                    function getX(matrix) {
-                        matrix = matrix.replace("translate3d(", "");
-                        matrix = matrix.replace("translate(", "");
-                        return (parseInt(matrix));
                     }
-                    var events = scope.events;
-                    events.on('slideChange', function(data) {
-                        setPosition(data.index);
-                    });
-                    events.on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
-                        renderScrollableTabs();
-                    });
-
-                    renderScrollableTabs();
-                },
-                controller: function($scope, $attrs, $element) {
-                    $scope.events = new SimplePubSub();
-
-                    $scope.slideHasChanged = function(index) {
-                        $scope.events.trigger("slideChange", { "index": index });
-                    };
-
-                    $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
-                        $scope.events.trigger("ngRepeatFinished", { "event": ngRepeatFinishedEvent });
-                    });
                 }
             };
 
-        }
-    ]);
+            function getX(matrix) {
+                matrix = matrix.replace("translate3d(", "");
+                matrix = matrix.replace("translate(", "");
+                return (parseInt(matrix));
+            }
+            var events = scope.events;
+            events.on('slideChange', function(data) {
+                setPosition(data.index);
+            });
+            events.on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
+                renderScrollableTabs();
+            });
 
-angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'ngCordova', 'ngMap', 'ngMessages', 'ionic-material', 'ionMdInput','tabSlideBox'])
+            renderScrollableTabs();
+        },
+        controller: function($scope, $attrs, $element) {
+            $scope.events = new SimplePubSub();
+
+            $scope.slideHasChanged = function(index) {
+                $scope.events.trigger("slideChange", { "index": index });
+            };
+
+            $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
+                $scope.events.trigger("ngRepeatFinished", { "event": ngRepeatFinishedEvent });
+            });
+        }
+    };
+
+}]);
+
+angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'ngCordova', 'ngMap', 'ngMessages', 'ionic-material', 'ionMdInput', 'tabSlideBox'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -143,9 +138,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
     });
 })
 
-  // A simple relative timestamp filter
-    .filter('relativets', function() {
-      return function(value) {
+// A simple relative timestamp filter
+.filter('relativets', function() {
+    return function(value) {
         var now = new Date();
         var diff = now - value;
 
@@ -154,32 +149,32 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
         var minute = second * 60;
         var hour = minute * 60;
         var day = hour * 24;
-        var year =  day * 365;
+        var year = day * 365;
         var month = day * 30;
 
         var unit = day;
         var unitStr = 'd';
-        if(diff > year) {
-          unit = year;
-          unitStr = 'y';
-        } else if(diff > day) {
-          unit = day;
-          unitStr = 'd';
-        } else if(diff > hour) {
-          unit = hour;
-          unitStr = 'h';
-        } else if(diff > minute) {
-          unit = minute;
-          unitStr = 'm';
+        if (diff > year) {
+            unit = year;
+            unitStr = 'y';
+        } else if (diff > day) {
+            unit = day;
+            unitStr = 'd';
+        } else if (diff > hour) {
+            unit = hour;
+            unitStr = 'h';
+        } else if (diff > minute) {
+            unit = minute;
+            unitStr = 'm';
         } else {
-          unit = second;
-          unitStr = 's';
+            unit = second;
+            unitStr = 's';
         }
 
         var amt = Math.ceil(diff / unit);
         return amt + '' + unitStr;
-      }
-    })
+    }
+})
 
 .directive('activePageHighlight', ['$rootScope', '$state', function($rootScope, $state) {
 
@@ -214,33 +209,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
-    $stateProvider
-        .state('app', {
-            url: '/app',
-            abstract: true,
-            templateUrl: 'templates/menu.html',
-            controller: 'AppCtrl'
-        })
-
-    // .state('app.login', {
-    //     url: '/login',
-    //     cache : false,
-    //     views: {
-    //         'menuContent': {
-    //             templateUrl: 'templates/login.html',
-    //             controller: 'logincontroller'
-    //         }
-    //     }
-    // })
-
-    .state('login', {
+    $stateProvider.state('app', {
+        url: '/app',
+        abstract: true,
+        templateUrl: 'templates/menu.html',
+        controller: 'AppCtrl'
+    }).state('login', {
         url: '/login',
         cache: false,
         templateUrl: 'templates/login.html',
         controller: 'logincontroller'
-    })
-
-    .state('app.managerList', {
+    }).state('app.managerList', {
         url: '/managerList',
         cache: false,
         views: {
@@ -249,9 +228,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 controller: 'managerListCtrl'
             }
         }
-    })
-
-    .state('app.browse_trucklist', {
+    }).state('app.browse_trucklist', {
         url: '/managerList/:Id',
         cache: false,
         views: {
@@ -260,9 +237,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 controller: 'TrucklistCtrl'
             }
         }
-    })
-
-    .state('app.truck-list', {
+    }).state('app.truck-list', {
         url: '/truck-list',
         views: {
             'menuContent': {
@@ -270,9 +245,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 controller: ''
             }
         }
-    })
-
-    .state('app.truck-list.available_truck', {
+    }).state('app.truck-list.available_truck', {
         url: '/available_truck',
         views: {
             'app.truck-list.available_truck': {
@@ -280,10 +253,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 controller: ''
             }
         }
-    })
-
-
-    .state('app.truck-list.ongoing_truck', {
+    }).state('app.truck-list.ongoing_truck', {
         url: '/ongoing_truck',
         views: {
             'app.truck-list.ongoing_truck': {
@@ -291,9 +261,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 controller: ''
             }
         }
-    })
-
-    .state('app.browse_joblist', {
+    }).state('app.browse_joblist', {
         url: '/browse_joblist',
         views: {
             'menuContent': {
@@ -301,9 +269,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 controller: 'AgencyCtrl'
             }
         }
-    })
-
-    .state('app.truckDetails', {
+    }).state('app.truckDetails', {
         url: '/truckDetails/:Id',
         views: {
             'menuContent': {
@@ -311,9 +277,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 controller: 'detailsCtrl'
             }
         }
-    })
-
-    .state('app.trackTruck', {
+    }).state('app.trackTruck', {
         url: '/trackTruck',
         views: {
             'menuContent': {
@@ -321,9 +285,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 controller: 'trackTruckCtrl'
             }
         }
-    })
-
-    .state('app.take_photo', {
+    }).state('app.take_photo', {
         url: '/take_photo',
         views: {
             'menuContent': {
@@ -331,35 +293,32 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 controller: 'takePhoto'
             }
         }
-    })
+    }).state('app.agency_location', {
+        url: '/agency_location',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/agency_location.html',
+                controller: 'agency_location'
+            }
+        }
+    }).state('app.agencyDetails', {
+        url: '/agencyDetails/:Id',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/agencyDetails.html',
+                controller: 'agencyDetailsCrl'
+            }
+        }
+    }).state('app.profile', {
+        url: '/profile',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/profile.html',
+                controller: 'profileCtrl'
+            }
+        }
+    });
 
-    .state('app.agency_location', {
-            url: '/agency_location',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/agency_location.html',
-                    controller: 'agency_location'
-                }
-            }
-        })
-        .state('app.agencyDetails', {
-            url: '/agencyDetails/:Id',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/agencyDetails.html',
-                    controller: 'agencyDetailsCrl'
-                }
-            }
-        })
-        .state('app.profile', {
-            url: '/profile',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/profile.html',
-                    controller: 'profileCtrl'
-                }
-            }
-        });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/login');
 });
