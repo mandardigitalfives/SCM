@@ -257,16 +257,6 @@
 .stripedTabs .has-tabs-top {
     top: 40px !important;
 }
-
-.row {
-    /* border: solid 1px black;*/
-    padding: 0px !important;
-}
-
-.row {
-    margin-top: 8px ! important;
-}
-
 .button-small {
     background-color: #c4eff3 !important;
     margin-top: 40px !important;
