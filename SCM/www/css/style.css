@@ -56,7 +56,7 @@
 .profile-item {
     background-size: cover;
     text-align: center;
-    border-color: #00bfd1 !important;
+    border-color: #00acc1 !important;
 }
 
 .profile-picture {
@@ -140,7 +140,7 @@
 }
 
 .customScroll a {
-    color: #888;
+    color: #98a3a4;
 }
 
 .scroll {
@@ -161,7 +161,7 @@
 
 #selectpicture {
     position: absolute;
-    color: #10bccd;
+    color: #00ACC1;
     font-size: 40px;
     top: 47%;
     left: 58%;
@@ -228,7 +228,7 @@
 .stripedTabs .tabs-striped.tabs-dark .tab-item.activated {
     color: #ffffff;
     margin-top: 0px !important;
-    background: #10bccd;
+    background: #00ACC1;
     border-width: 0 0 0 0 !important;
 }
 

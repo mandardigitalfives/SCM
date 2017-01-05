@@ -8,8 +8,10 @@
         </div>
         <form name="loginfrm" novalidate data-ng-submit="loginfrm.$valid && login(user,loginfrm.$valid)">
             <div class="list">
-                <ion-md-input placeholder="Username" highlight-color="balanced" ng-model="user.email" type="email" name="username" ng-pattern='/^(([^ </>()[\]\.,;:\s@\"]+(\.[^ <> ()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^ <> ()[\]\.,;:\s@\"]{2,})$/i' required></ion-md-input>
-                <span >
+                <div class="item item-input">
+                    <ion-md-input placeholder="Username" highlight-color="balanced" ng-model="user.email" type="email" name="username" ng-pattern='/^(([^ </>()[\]\.,;:\s@\"]+(\.[^ <> ()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^ <> ()[\]\.,;:\s@\"]{2,})$/i' required></ion-md-input>
+                </div>
+                <span>
                     <div data-ng-messages="loginfrm.$submitted && loginfrm.username.$error" role="alert" class="assertive errmsg">
                         <div data-ng-message="required">
                             Enter User name
@@ -19,7 +21,8 @@
                         </div>
                     </div>
                 </span>
-                <ion-md-input placeholder="Password" highlight-color="energized" type="password" ng-model="user.password" name="password" required></ion-md-input>
+                <div class="item item-input">
+                <ion-md-input placeholder="Password" highlight-color="energized" type="password" ng-model="user.password" name="password" required></ion-md-input></div>
                 <span>
                     <div data-ng-messages="loginfrm.$submitted && loginfrm.password.$error" role="alert" class="assertive errmsg">
                         <div data-ng-message="required">

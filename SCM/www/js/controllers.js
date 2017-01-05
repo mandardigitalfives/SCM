@@ -1,38 +1,43 @@
 angular.module('starter.controllers', ['ionic-toast'])
+    .controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope, $state, store, $ionicSideMenuDelegate, $ionicNavBarDelegate, $ionicLoading, $ionicPopup) {
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope, $state, store, $ionicSideMenuDelegate, $ionicNavBarDelegate, $ionicLoading, $ionicPopup) {
+        $scope.init = function() {
+            $rootScope.islogin = store.get('userdata') || false;
+            if (!$rootScope.islogin) {
+                $state.go('login');
+            }
+        }
 
-    $scope.init = function() {
-        $rootScope.islogin = store.get('userdata') || false;
-        if (!$rootScope.islogin) {
+        $rootScope.Loadingshow = function() {
+            $ionicLoading.show({
+                noBackdrop: true,
+                template: '<p class="item-icon-left">Please wait...<ion-spinner icon="lines"/></p>'
+            });
+        }
+
+        $scope.logout = function() {
+            store.remove('userdata');
+            localStorage.clear();
+            $ionicSideMenuDelegate.toggleLeft();
+            $ionicNavBarDelegate.showBackButton(false);
+            $scope.init();
             $state.go('login');
         }
-    }
-
-    $rootScope.Loadingshow = function() {
-        $ionicLoading.show({
-            noBackdrop: true,
-            template: '<p class="item-icon-left">Please wait...<ion-spinner icon="lines"/></p>'
-        });
-    }
-
-    $scope.logout = function() {
-        store.remove('userdata');
-        localStorage.clear();
-        $ionicSideMenuDelegate.toggleLeft();
-        $ionicNavBarDelegate.showBackButton(false);
-        $scope.init();
-        $state.go('login');
-    }
-})
+    })
 
 .controller('logincontroller', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$ionicNavBarDelegate', '$ionicLoading', "$ionicPopup", function($scope, $rootScope, $http, $state, $stateParams, store, $ionicNavBarDelegate, $ionicLoading, $ionicPopup) {
 
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
         if ($rootScope.islogin) {
-            $state.go('app.managerList');
-        }else{
+            if ($rootScope.islogin.type == "manager") {
+                $state.go('app.truck-list');
+            } else if ($rootScope.islogin.type == "Owner") {
+                $state.go('app.managerList');
+            } else if ($rootScope.islogin.type == "truck") {
+                $state.go('app.browse_joblist');
+            }
+        } else {
             console.log("please Login");
         }
     }
@@ -45,10 +50,10 @@ angular.module('starter.controllers', ['ionic-toast'])
     }
 
     $scope.user = {
-        // email: "admin@admin.com",
-        // password: "admin123"
-        email : "agency@agency.com",
-        password : "mac123"
+        email: "admin@admin.com",
+        password: "admin123"
+        // email: "agency@agency.com",
+        // password: "mac123"
     }
 
     $scope.login = function(user) {
@@ -62,7 +67,7 @@ angular.module('starter.controllers', ['ionic-toast'])
                     email: response.record.UserId,
                     type: response.record.type,
                     refUid: response.record.RefUid,
-                    Name : response.record.Name
+                    Name: response.record.Name
                 }
                 store.set('userdata', userdata);
                 $rootScope.islogin = store.get('userdata');

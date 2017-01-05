@@ -1,10 +1,10 @@
-<ion-view view-title="Manager's login " >
+<ion-view view-title="Manager's login ">
     <ion-content>
-         <div class="item card-item"  ng-click="showTruckList(manager.Uid)">
+        <div class="item card-item" ng-click="showTruckList(manager.Uid)">
             <div class="card stable-bg ink ink-dark">
                 <div class="item item-avatar item-text-wrap">
                     <span class="avatar" style="background-image: url('img/jon-snow.jpg');"></span>
-                    <strong>Jon Snow</strong> knows nothing.
+                    <strong class="appback text-left" >Jon Snow</strong> knows nothing.
                     <div class="card-footer text-right">
                         <i class="icon ion-chatbubbles positive"></i> 6
                         <i class="icon ion-heart assertive"></i> 23
@@ -13,6 +13,23 @@
                         </div> -->
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="list card">
+            <div class="item item-avatar">
+                <img ng-src="img/jon-snow.jpg">
+                <h2><strong class="appback">Jon Snow</strong></h2>
+                <p class="appback">MH 25 AF 6177</p>
+            </div>
+            <div class="item item-body">
+                <img class="full-image" ng-src="img/truck.jpg">
+                <p>
+                    This is a "Facebook" styled Card. The header is created from a Thumbnail List item, the content is from a card-body consisting of an image and paragraph text. The footer consists of tabs, icons aligned left, within the card-footer.
+                </p>
+                <p>
+                    <a href="#" class="subdued"><strong class="appback">1 Like</strong></a>
+                    <a href="#" class="subdued"><strong class="appback">5 Comments</strong></a>
+                </p>
             </div>
         </div>
     </ion-content>
