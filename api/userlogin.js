@@ -13,13 +13,15 @@ exports.login = function(req, res) {
         UserId: email,
         Password: password
     }, function(err, val) {
-        console.log(err, val);
+
         var resdata = {
             record: '',
             status: false,
-            message: 'Something get wrong please try after some time.'
+            message: 'Server not responding.'
         };
-        if (val.length > 0) {
+        if (err) {
+            res.jsonp(resdata);
+        }else if (val.length > 0) {
             resdata.record = val[0];
             resdata.status = true;
             resdata.message = 'Successfully login welcome ';
