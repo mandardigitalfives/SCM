@@ -25,11 +25,7 @@
                     <div class="card-wrapper">
                         <div class="card custom-card">
                             <ion-scroll>
-                                <ion-list>
-                                    <ion-item ng-repeat="item in ['sdaf','sfd','asdfsadf','sdfaasdf','sdaff','sfdf','asdfsadff','sdfaasdff']" class="padding item-text-wrap justify">
-                                        <h2>sdfafsdf</h2>
-                                    </ion-item>
-                                </ion-list>
+                                sdfasfd
                             </ion-scroll>
                         </div>
                     </div>
@@ -38,24 +34,26 @@
                     <div class="card-wrapper">
                         <div class="card custom-card">
                             <ion-scroll>
-                                <div class="card" ng-click="chartDetails()">
-                                    <div class="item item-divider">
-                                        LINE CHART
-                                    </div>
-                                    <div class="item item-text-wrap">
-                                        <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
-                                        </canvas>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="item item-divider">
-                                        BAR CHART
-                                    </div>
-                                    <div class="item item-text-wrap">
-                                        <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels"> chart-series="series"
-                                        </canvas>
-                                    </div>
-                                </div>
+                                <ul class="list">
+                                    <li class="item item-toggle">
+                                        <strong> Send Notification </strong>
+                                        <label class="toggle toggle-assertive">
+                                            <input type="checkbox" ng-model="notifiacation" value="true"> 
+                                            <div class="track">
+                                                <div class="handle"></div>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li class="item item-toggle">
+                                        <strong> Send Notification </strong>
+                                        <label class="toggle toggle-assertive">
+                                            <input type="checkbox">
+                                            <div class="track">
+                                                <div class="handle"></div>
+                                            </div>
+                                        </label>
+                                    </li>
+                                </ul>
                             </ion-scroll>
                         </div>
                     </div>
@@ -82,7 +80,7 @@
                         <div class="card custom-card">
                             <ion-scroll>
                                 <div class="card" ng-click="chartDetails()">
-                                    <div class="item item-divider" >
+                                    <div class="item item-divider">
                                         LINE CHART
                                     </div>
                                     <div class="item item-text-wrap">

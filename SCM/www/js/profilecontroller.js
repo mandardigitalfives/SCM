@@ -66,7 +66,7 @@ angular.module('starter.controllers').controller('profileCtrl', function($scope,
     $scope.chartDetails = function() {
         $ionicModal.fromTemplateUrl('templates/chartDetails.html', {
             scope: $scope,
-            animation: 'none'
+            // animation: 'none'
         }).then(function(modal) {
             $scope.modal = modal;
             $scope.modal.show();
