@@ -13,7 +13,7 @@ exports.login = function(req, res) {
         UserId: email,
         Password: password
     }, function(err, val) {
-
+        console.log("err", err);
         var resdata = {
             record: '',
             status: false,

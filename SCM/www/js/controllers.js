@@ -50,16 +50,15 @@ angular.module('starter.controllers', ['ionic-toast'])
     }
 
     $scope.user = {
-        email: "admin@admin.com",
-        password: "admin123"
-        // email: "agency@agency.com",
-        // password: "mac123"
+        email: "owner@owner.com",
+        password: "owner123"
     }
 
     $scope.login = function(user) {
+        $scope.errMsgLogin = '';
         $rootScope.Loadingshow();
         $http.post(baseURL + "login", user).success(function(response, request) {
-            console.log(response.record)
+            console.log(response)
             if (response.status == true) {
                 userdata = {
                     user_login: true,
@@ -78,7 +77,7 @@ angular.module('starter.controllers', ['ionic-toast'])
                     $state.go('app.truck-list');
                 } else if (store.get('userdata').type == 'truck') {
                     $state.go('app.browse_joblist');
-                } else if (store.get('userdata').type == 'Owner') {
+                } else if (store.get('userdata').type == 'owner') {
                     $state.go('app.managerList');
                 };
 
