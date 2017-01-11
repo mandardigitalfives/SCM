@@ -28,19 +28,20 @@
                                 <div class="list">
                                     <label class="item item-input item-stacked-label">
                                         <span class="input-label">First Name</span>
-                                        <input type="text" placeholder="">
+                                        <input type="text" placeholder="" ng-model="profiledetails.Name">
                                     </label>
                                     <label class="item item-input item-stacked-label">
                                         <span class="input-label">Last Name</span>
-                                        <input type="text" placeholder="">
+                                        <input type="text" placeholder="" ng-model="profiledetails.last_name">
                                     </label>
                                     <label class="item item-input item-stacked-label">
                                         <span class="input-label" >Email</span>
-                                        <input type="text" ng-disabled="true" placeholder="">
+                                        <input type="text" ng-disabled="true" placeholder="" ng-model="profiledetails.UserId" >
                                     </label>
-                                    <div class="item item-input">
-                                        <button class="button button-block button-positive">
-                                            Block Button
+                                    <label>
+                                    <div class="text-center">
+                                        <button class="button button-clear button-positive " >
+                                            Submit
                                         </button>
                                     </div>
                                 </div>
