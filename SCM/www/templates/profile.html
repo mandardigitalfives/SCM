@@ -5,8 +5,7 @@
             <div id="profile-info">
                 <img id="profile-image" ng-src="img/jon-snow.jpg">
                 <i id="selectpicture" class="icon ion-camera"></i>
-                 <h3 id="profile-name">{{profiledetails.UserId}}</h3>
-<!--                <span id="profile-description">{{profiledetails.UserId}}</span> -->
+                <h3 id="profile-name">{{profiledetails.UserId}}</h3>
             </div>
         </div>
         <tab-slide-box class="customScroll" ng-if="profiledetails">
@@ -25,7 +24,7 @@
                     <div class="card-wrapper">
                         <div class="card custom-card">
                             <ion-scroll>
-                                <div class="list">
+                                <div class="list padding-top">
                                     <label class="item item-input item-stacked-label">
                                         <span class="input-label">First Name</span>
                                         <input type="text" placeholder="" ng-model="profiledetails.Name">
@@ -35,15 +34,15 @@
                                         <input type="text" placeholder="" ng-model="profiledetails.last_name">
                                     </label>
                                     <label class="item item-input item-stacked-label">
-                                        <span class="input-label" >Email</span>
-                                        <input type="text" ng-disabled="true" placeholder="" ng-model="profiledetails.UserId" >
+                                        <span class="input-label">Email</span>
+                                        <input type="text" ng-disabled="true" placeholder="" ng-model="profiledetails.UserId">
                                     </label>
-                                    <label>
-                                    <div class="text-center appback">
-                                        <button class="button button-clear button-positive " >
-                                            Submit
-                                        </button>
-                                    </div>
+                                    <label class="padding">
+                                        <div class="text-center appback">
+                                            <button class="button button-clear button-positive">
+                                                Submit
+                                            </button>
+                                        </div>
                                 </div>
                             </ion-scroll>
                         </div>
@@ -53,7 +52,7 @@
                     <div class="card-wrapper">
                         <div class="card custom-card">
                             <ion-scroll>
-                                <ul class="list">
+                                <ul class="list padding-top">
                                     <li class="item item-toggle">
                                         <strong> Send Notification </strong>
                                         <label class="toggle toggle-assertive">
