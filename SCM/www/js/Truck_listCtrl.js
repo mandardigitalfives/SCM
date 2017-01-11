@@ -5,8 +5,13 @@ angular.module('starter.controllers').controller('TrucklistCtrl', function($scop
         console.log($scope.truckDetails);
         var ItemI = {
             refuid: $stateParams.Id,
+            Name:  $stateParams.Name,
+            UserId: $stateParams.UserId,
+            Company_name: $stateParams.Company_name,
             type: "truck",
         }
+        console.log(ItemI);
+        $scope.ManagerDetails=ItemI;
          $scope.getTrucklist(ItemI);
     }
 

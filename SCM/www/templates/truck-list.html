@@ -1,33 +1,13 @@
 
 <ion-view ng-init="init()">
-
-  
-
-   <!--  <ion-tabs class="tabs-striped tabs-top appback-bg ">
-
-            <ion-tab title="Available Truck" ui-sref="app.truck-list.available_truck" ng-class="button.first.clicked?'button-positive':'button-energized'">
-                <ion-nav-view name="app.truck-list.available_truck" ></ion-nav-view>
-            </ion-tab>
-             
-               <ion-tab title="On Going Truck" ui-sref="app.truck-list.ongoing_truck">
-                <ion-nav-view name="app.truck-list.ongoing_truck"></ion-nav-view>
-            </ion-tab>
-          
-        </ion-tabs> 
- -->
-
     <ion-content class="stripedTabs" scroll="false" >
     <ion-tabs class="tabs-striped tabs-top tabs-light">
       <ion-tab title="Available Truck" ui-sref="app.truck-list.available_truck" on-select="main.onTabSelected(this)">
         <ion-nav-view name="app-truck-list-available_truck" ></ion-nav-view>
       </ion-tab>
       <ion-tab title="On Going Truck" ui-sref="app.truck-list.ongoing_truck">
-    
         <ion-nav-view name="app-truck-list-ongoing_truck"></ion-nav-view>
       </ion-tab>
-     
     </ion-tabs>
-
-   
     </ion-content>
 </ion-view>

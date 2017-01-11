@@ -249,7 +249,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 }
             }
         }).state('app.browse_trucklist', {
-            url: '/managerList/:Id',
+            url: '/managerList/:Id/:Name/:UserId/:Company_name',
             cache: false,
             views: {
                 'menuContent': {
