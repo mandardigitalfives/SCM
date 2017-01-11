@@ -27,3 +27,31 @@ exports.getProfile = function(req ,res) {
        }
   });
 }
+
+exports.updateProfile = function(req,res){
+  console.log(req.body);
+  getUserDetails.update({
+    'Uid' : req.body.Uid
+  },{
+    "Name" : req.body.firstname,
+    "last_name" : req.body.lastname
+  },function(error,result){
+    console.log("Profile.js_39", error);
+    console.log("Profile.js_49", result);
+     if (result) {
+        responsedata = {
+          status: true,
+          record: result,
+          message: 'Todos Updated successfully'
+        }
+        res.jsonp(responsedata);
+      } else {
+        responsedata = {
+          status: false,
+          record: result,
+          message: 'Todos Failed to Update'
+        }
+        res.jsonp(responsedata);
+      }
+  });
+}

@@ -23,28 +23,44 @@
                 <ion-slide>
                     <div class="card-wrapper">
                         <div class="card custom-card">
-                            <ion-scroll>
-                                <div class="list padding-top">
-                                    <label class="item item-input item-stacked-label">
-                                        <span class="input-label">First Name</span>
-                                        <input type="text" placeholder="" ng-model="profiledetails.Name">
-                                    </label>
-                                    <label class="item item-input item-stacked-label">
-                                        <span class="input-label">Last Name</span>
-                                        <input type="text" placeholder="" ng-model="profiledetails.last_name">
-                                    </label>
-                                    <label class="item item-input item-stacked-label">
-                                        <span class="input-label">Email</span>
-                                        <input type="text" ng-disabled="true" placeholder="" ng-model="profiledetails.UserId">
-                                    </label>
-                                    <label class="padding">
-                                        <div class="text-center appback">
-                                            <button class="button button-clear button-positive">
-                                                Submit
-                                            </button>
-                                        </div>
-                                </div>
-                            </ion-scroll>
+                            <form name="profileForm" data-ng-submit="profileForm.$valid && editProfile(profiledetails.Name,profiledetails.last_name)" novalidate>
+                                <ion-scroll>
+                                    <div class="list padding-top">
+                                        <label class="item item-input item-stacked-label">
+                                            <span class="input-label">First Name</span>
+                                            <input type="text" name="username" placeholder="" ng-model="profiledetails.Name" required="true" />
+                                            <span>
+                                                <div data-ng-messages="profileForm.$submitted && profileForm.username.$error" role="alert" class="assertive errmsg">
+                                                    <div data-ng-message="required">
+                                                        Enter First Name
+                                                    </div>
+                                                </div>
+                                            </span>
+                                        </label>
+                                        <label class="item item-input item-stacked-label">
+                                            <span class="input-label">Last Name</span>
+                                            <input name="lastname" type="text" placeholder="" ng-model="profiledetails.last_name" required="true">
+                                            <span>
+                                                <div data-ng-messages="profileForm.$submitted && profileForm.lastname.$error" role="alert" class="assertive errmsg">
+                                                    <div data-ng-message="required">
+                                                        Enter Last Name
+                                                    </div>
+                                                </div>
+                                            </span>
+                                        </label>
+                                        <label class="item item-input item-stacked-label">
+                                            <span class="input-label">Email</span>
+                                            <input type="text" ng-disabled="true" placeholder="" ng-model="profiledetails.UserId">
+                                        </label>
+                                        <label class="padding">
+                                            <div class="text-center appback">
+                                                <button class="button button-clear button-positive">
+                                                    Submit
+                                                </button>
+                                            </div>
+                                    </div>
+                                </ion-scroll>
+                            </form>
                         </div>
                     </div>
                 </ion-slide>

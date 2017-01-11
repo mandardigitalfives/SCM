@@ -49,6 +49,8 @@ app.post('/api/login', userlogin.login);
 app.post('/api/getManager',owner.getManager);
 app.post('/api/getTrucklist',trucklist.getTrucklist);
 app.post('/api/getProfile',profile.getProfile);
+app.post('/api/updateProfile',profile.updateProfile);
+
 
 http.listen( 9999, function(){
    console.log('Express server listening on port ' + http.address().port);

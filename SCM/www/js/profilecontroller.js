@@ -1,13 +1,14 @@
-angular.module('starter.controllers').controller('profileCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout, $rootScope, store, $ionicLoading,$ionicModal) {
+angular.module('starter.controllers').controller('profileCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout, $rootScope, store, $ionicLoading, $ionicPopup) {
+
     $scope.init = function() {
         $rootScope.Loadingshow();
         $scope.userdata = store.get('userdata') || false;
         var userdata = {
             Uid: $scope.userdata.user_id
         }
+
         $http.post(baseURL + "getProfile", userdata).success(function(response, request) {
             $scope.profiledetails = response.record;
-            console.log($scope.profiledetails);
             $timeout(function() {
                 $ionicLoading.hide();
             }, 300);
@@ -19,9 +20,7 @@ angular.module('starter.controllers').controller('profileCtrl', function($scope,
             });
         });
 
-
         $scope.labelss = ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"];
-
 
         $scope.data = [
             [65, 59, 90, 81, 56, 55, 40],
@@ -57,7 +56,6 @@ angular.module('starter.controllers').controller('profileCtrl', function($scope,
         };
     }
 
-
     // Triggered in the login modal to close it
     $scope.closeLogin = function() {
         $scope.modal.hide();
@@ -73,4 +71,33 @@ angular.module('starter.controllers').controller('profileCtrl', function($scope,
         });
     }
 
+    $scope.editProfile = function(firstname, lastname) {
+        $rootScope.Loadingshow();
+        var data = {
+            firstname: firstname,
+            lastname: lastname,
+            Uid: $scope.userdata.user_id
+        }
+
+        $http.post(baseURL + "updateProfile", data).success(function(response, request) {
+            if (response.status == true) {
+                $rootScope.islogin.Name = firstname;
+                $rootScope.islogin.last_name = lastname;
+                $ionicLoading.hide();
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Done.',
+                    template: 'Profile Updated Successfully!'
+                });
+            } else {
+                console.log(response)
+                $ionicLoading.hide();
+            }
+        }).error(function() {
+            $ionicLoading.hide();
+            var alertPopup = $ionicPopup.alert({
+                title: 'Connection Problem.',
+                template: 'Please check your credentials!'
+            });
+        });
+    }
 })

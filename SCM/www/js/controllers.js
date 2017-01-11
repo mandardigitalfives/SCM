@@ -66,7 +66,8 @@ angular.module('starter.controllers', ['ionic-toast'])
                     email: response.record.UserId,
                     type: response.record.type,
                     refUid: response.record.RefUid,
-                    Name: response.record.Name
+                    Name: response.record.Name,
+                    last_name : response.record.last_name
                 }
                 store.set('userdata', userdata);
                 $rootScope.islogin = store.get('userdata');
