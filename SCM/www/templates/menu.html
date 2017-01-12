@@ -14,7 +14,7 @@
         <ion-header-bar class="appback-bg expanded" data-ng-if="islogin">
             <ion-item class="profile-item" ui-sref="app.profile" menu-close>
                 <div class="profile-picture big-profile-picture">
-                    <img ng-src="img/jon-snow.jpg">
+                    <img  ng-src="{{ProfileImage}}{{islogin.profile_image}}">
                 </div>
                 <div class="profile-info">
                     <dt>{{islogin.Name}}&nbsp;{{islogin.last_name}}</dt>

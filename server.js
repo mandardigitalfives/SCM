@@ -42,6 +42,7 @@ app.all('*', function(req, res, next) {
 
 app.use('/', express.static(__dirname + '/public'));
 app.use('/api', express.static(__dirname + '/api'));
+app.use('/profile_image', express.static(__dirname + '/profile_image'));
 app.use('/mobile', express.static(__dirname + '/mobile/www'));
 
 

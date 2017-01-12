@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['ionic-toast'])
     .controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope, $state, store, $ionicSideMenuDelegate, $ionicNavBarDelegate, $ionicLoading, $ionicPopup) {
-
+         $scope.ProfileImage = ProfileImage;
         $scope.init = function() {
             $rootScope.islogin = store.get('userdata') || false;
             if (!$rootScope.islogin) {
@@ -26,6 +26,8 @@ angular.module('starter.controllers', ['ionic-toast'])
     })
 
 .controller('logincontroller', ['$scope', '$rootScope', '$http', '$state', '$stateParams', 'store', '$ionicNavBarDelegate', '$ionicLoading', "$ionicPopup", function($scope, $rootScope, $http, $state, $stateParams, store, $ionicNavBarDelegate, $ionicLoading, $ionicPopup) {
+      
+      
 
     $scope.init = function() {
         $rootScope.islogin = store.get('userdata') || false;
@@ -52,8 +54,11 @@ angular.module('starter.controllers', ['ionic-toast'])
     $scope.user = {
         // email: "owner@owner.com",
         // password: "owner123"
-        email :"KennethAGarrison@armyspy.com",
-        password : "mac123"
+        email: "JakobTobiassen@rhyta.com",
+        password: "jakob123"
+        //email :"KennethAGarrison@armyspy.com",
+        // password : "mac123"
+
     }
 
     $scope.login = function(user) {
@@ -69,8 +74,10 @@ angular.module('starter.controllers', ['ionic-toast'])
                     type: response.record.type,
                     refUid: response.record.RefUid,
                     Name: response.record.Name,
-                    last_name : response.record.last_name
+                    last_name : response.record.last_name,
+                    profile_image: response.record.profile_image
                 }
+                console.log(userdata);
                 store.set('userdata', userdata);
                 $rootScope.islogin = store.get('userdata');
                 $ionicNavBarDelegate.showBackButton(false);

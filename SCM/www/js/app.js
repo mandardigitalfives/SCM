@@ -248,15 +248,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 controller: 'managerListCtrl'
             }
         }
-    }).state('app.browse_trucklist', {
-        url: '/managerList/:Id/:Name/:UserId/:Company_name',
-        cache: false,
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/browse_trucklist.html',
-                controller: 'TrucklistCtrl'
+
+        }).state('app.browse_trucklist', {
+            url: '/managerList/:Id/:Name/:UserId/:Company_name/:profile_image',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/browse_trucklist.html',
+                    controller: 'TrucklistCtrl'
+                }
             }
-        }
     }).state('app.truck-list', {
         url: '/truck-list',
         views: {

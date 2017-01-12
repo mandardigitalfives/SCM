@@ -3,7 +3,7 @@
         <div id="profile-bg"></div>
         <div id="content" ng-if="profiledetails">
             <div id="profile-info">
-                <img id="profile-image" ng-src="img/jon-snow.jpg">
+                <img  id="profile-image" ng-src="{{ProfileImage}}{{islogin.profile_image}}">
                 <i id="selectpicture" class="icon ion-camera"></i>
                 <h3 id="profile-name">{{profiledetails.UserId}}</h3>
             </div>

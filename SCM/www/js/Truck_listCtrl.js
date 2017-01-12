@@ -8,6 +8,7 @@ angular.module('starter.controllers').controller('TrucklistCtrl', function($scop
             Name:  $stateParams.Name,
             UserId: $stateParams.UserId,
             Company_name: $stateParams.Company_name,
+            profile_image: $stateParams.profile_image,
             type: "truck",
         }
         $scope.ManagerDetails=ItemI;
