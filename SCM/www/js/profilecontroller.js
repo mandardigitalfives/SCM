@@ -9,6 +9,7 @@ angular.module('starter.controllers').controller('profileCtrl', function($scope,
 
         $http.post(baseURL + "getProfile", userdata).success(function(response, request) {
             $scope.profiledetails = response.record;
+            
             $timeout(function() {
                 $ionicLoading.hide();
             }, 300);

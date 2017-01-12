@@ -7,8 +7,14 @@ var trucklistCRUD = CRUD(connection, 'authenticateUser');
 
 exports.getTrucklist = function(req, res) {
     console.log("req.body", req.body);
+    if(req.body.refuid){
+        var managerId = req.body.refuid 
+    }else{
+        var managerId = req.body.managerId 
+    }
+    
     trucklistCRUD.load({
-        'refUid': req.body.refuid,
+        'refUid': managerId,
         'type': req.body.type
     }, function(error, result) {
         if (error) {

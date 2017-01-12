@@ -195,6 +195,6 @@ var job = new CronJob({
         // });
 
     },
-    start: false
+    start: true
 });
 job.start();

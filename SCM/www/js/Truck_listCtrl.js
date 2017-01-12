@@ -11,7 +11,6 @@ angular.module('starter.controllers').controller('TrucklistCtrl', function($scop
             profile_image: $stateParams.profile_image,
             type: "truck",
         }
-        console.log(ItemI);
         $scope.ManagerDetails=ItemI;
          $scope.getTrucklist(ItemI);
     }
@@ -27,7 +26,6 @@ angular.module('starter.controllers').controller('TrucklistCtrl', function($scop
         }).error(function(err) {
             console.log('Internet Connection Is Not Available.');
         })
-
      };
 });
  
