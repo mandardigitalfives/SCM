@@ -54,10 +54,10 @@ angular.module('starter.controllers', ['ionic-toast'])
     $scope.user = {
         // email: "owner@owner.com",
         // password: "owner123"
-        email: "JakobTobiassen@rhyta.com",
-        password: "jakob123"
-        //email :"KennethAGarrison@armyspy.com",
-        // password : "mac123"
+        // email: "JakobTobiassen@rhyta.com",
+        // password: "jakob123"
+        email :"KennethAGarrison@armyspy.com",
+        password : "mac123"
 
     }
 

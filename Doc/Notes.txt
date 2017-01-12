@@ -1,0 +1,22 @@
+Owner Login
+
+Menu - 1. Background image.
+
+ManagerList- Title :- My Managers	
+ 
+Manager List summ : name, Godoun name, City, Phone, Idle Vehicles, Vehicles on roads.
+
+Truck List : Title : Godoun name
+
+	Manager summ : name, Godoun name, City, Phone, Idle Vehicles, Vehicles on roads, Address,pin,Material current status.
+	Opacity Background manager iamge profile.
+	
+	Remove image of vehical.
+
+	Truck list : Driver name, mobile, vehical number,  vehical Type,  vehical capasity, carrier details.
+
+	Truck Status:
+
+	1 On Road
+
+	2 Idle.
