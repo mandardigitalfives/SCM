@@ -1,6 +1,6 @@
 <ion-view view-title="Manager's login ">
     <ion-content>
-        <div class="card" id="cardList" ng-repeat="item in ['sdaf','sfd','asdfsadf','sdfaasdf','sdaff','sfdf','asdfsadff','sdfaasdff']">
+        <div class="card" id="cardList" ng-repeat="truck in TruckList">
             <div class="row">
                 <div class="col" align="justify">
                     <h5><strong class="appback">Material :</strong></h5>
@@ -11,6 +11,9 @@
                     <p>
                         121 jump street california.
                     </p>
+                    <div class="padding">
+                        <button class="button button-full appback-bg" ng-click="tracktruck()">TRACK</button>
+                    </div>
                 </div>
                 <div class="col" align="justify">
                     <h5><strong class="appback">Info :</strong></h5>
@@ -20,32 +23,11 @@
                     <h5>
                     <strong class="appback">To :</strong></h5>
                     <p> 40/120, Wall street, NY.</p>
+                    <div class="padding">
+                        <button class="button button-full appback-bg">DONE</button>
+                    </div>
                 </div>
-            </div>
-            <div class="padding">
-                <button class="button button-full appback-bg">DONE</button>
             </div>
         </div>
-        <!--         <div class="card" id="cardList">
-            <div class="row">
-                <div class="col col-50">
-                    <h5 style="text-align: left; color: #10bccd;">Material: </h5>
-                    <span>1000 units of wheel chairs for office study.</span>
-                    <button class="button button-small button-text-wrap ">
-                        DONE
-                    </button>
-                </div>
-                <div class="col col-50">
-                    <div class="col">
-                        <h5 style="text-align:left; color: #10bccd;">From:</h5>
-                        <span>121 jump street california.</span>
-                    </div>
-                    <div class="col ">
-                        <h5 style="text-align: left; color: #10bccd;">To: </h5>
-                        <span> 40/120, Wall street, NY.</span>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </ion-content>
 </ion-view>

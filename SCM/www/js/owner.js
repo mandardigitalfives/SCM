@@ -22,11 +22,8 @@ angular.module('starter.controllers').controller('managerListCtrl', function($sc
         })
     };
 
-
     $scope.showTruckList = function(Id, Name, UserId, Company_name){
       console.log(UserId);
       $state.go('app.browse_trucklist',{Id : Id, Name : Name, UserId: UserId, Company_name: Company_name});
-    
     }
-
 });

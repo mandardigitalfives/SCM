@@ -14,25 +14,25 @@ angular.module('starter.controllers').controller('trackTruckCtrl', ['$scope', '$
         console.log($scope.positions)
         $ionicLoading.hide();
     }, function(err) {
-        if (err.code == 1) {
-            var alertPopup = $ionicPopup.alert({
-                title: "Warning",
-                template: err.message
-            });
-            $ionicLoading.hide();
-        } else if (err.code == 2) {
-            var alertPopup = $ionicPopup.alert({
-                title: "Warning",
-                template: err.message
-            });
-            $ionicLoading.hide();
-        } else if (err.code == 3) {
-            var alertPopup = $ionicPopup.alert({
-                title: "Warning",
-                template: err.message
-            });
-            $ionicLoading.hide();
-        }
+        // if (err.code == 1) {
+        //     var alertPopup = $ionicPopup.alert({
+        //         title: "Warning",
+        //         template: err.message
+        //     });
+        //     $ionicLoading.hide();
+        // } else if (err.code == 2) {
+        //     var alertPopup = $ionicPopup.alert({
+        //         title: "Warning",
+        //         template: err.message
+        //     });
+        //     $ionicLoading.hide();
+        // } else if (err.code == 3) {
+        //     var alertPopup = $ionicPopup.alert({
+        //         title: "Warning",
+        //         template: err.message
+        //     });
+        //     $ionicLoading.hide();
+        // }
     });
 
 
@@ -43,20 +43,19 @@ angular.module('starter.controllers').controller('trackTruckCtrl', ['$scope', '$
     watch.then(
         null,
         function(err) {
-            console.log(err)
-            if (err.code == 1) {
-                var alertPopup = $ionicPopup.alert({
-                    title: "Warning",
-                    template: err.message
-                });
-                $ionicLoading.hide();
-            } else if (err.code == 2) {
-                var alertPopup = $ionicPopup.alert({
-                    title: "Warning",
-                    template: err.message
-                });
-                $ionicLoading.hide();
-            }
+            // if (err.code == 1) {
+            //     var alertPopup = $ionicPopup.alert({
+            //         title: "Warning",
+            //         template: err.message
+            //     });
+            //     $ionicLoading.hide();
+            // } else if (err.code == 2) {
+            //     var alertPopup = $ionicPopup.alert({
+            //         title: "Warning",
+            //         template: err.message
+            //     });
+            //     $ionicLoading.hide();
+            // }
         },
 
         function(position) {
@@ -90,6 +89,6 @@ angular.module('starter.controllers').controller('trackTruckCtrl', ['$scope', '$
             });
         $scope.$apply();
         $ionicLoading.hide();
-        trackTruck.off();
+        trackTruck.off();//For Socket oFF
     });
 }]);

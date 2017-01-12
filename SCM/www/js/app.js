@@ -229,119 +229,119 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
 })
 
 .config(function($stateProvider, $urlRouterProvider, $provide) {
-        $stateProvider.state('app', {
-            url: '/app',
-            abstract: true,
-            templateUrl: 'templates/menu.html',
-            controller: 'AppCtrl'
-        }).state('login', {
-            url: '/login',
-            cache: false,
-            templateUrl: 'templates/login.html',
-            controller: 'logincontroller'
-        }).state('app.managerList', {
-            url: '/managerList',
-            cache: false,
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/managerList.html',
-                    controller: 'managerListCtrl'
-                }
+    $stateProvider.state('app', {
+        url: '/app',
+        abstract: true,
+        templateUrl: 'templates/menu.html',
+        controller: 'AppCtrl'
+    }).state('login', {
+        url: '/login',
+        cache: false,
+        templateUrl: 'templates/login.html',
+        controller: 'logincontroller'
+    }).state('app.managerList', {
+        url: '/managerList',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/managerList.html',
+                controller: 'managerListCtrl'
             }
-        }).state('app.browse_trucklist', {
-            url: '/managerList/:Id/:Name/:UserId/:Company_name',
-            cache: false,
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/browse_trucklist.html',
-                    controller: 'TrucklistCtrl'
-                }
+        }
+    }).state('app.browse_trucklist', {
+        url: '/managerList/:Id/:Name/:UserId/:Company_name',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/browse_trucklist.html',
+                controller: 'TrucklistCtrl'
             }
-        }).state('app.truck-list', {
-            url: '/truck-list',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/truck-list.html',
-                    controller: ''
-                }
+        }
+    }).state('app.truck-list', {
+        url: '/truck-list',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/truck-list.html',
+                controller: 'Trucklist_managerCtrl'
             }
-        }).state('app.truck-list.available_truck', {
-            url: '/available_truck',
-            views: {
-                'app-truck-list-available_truck': {
-                    templateUrl: 'templates/available_truck.html',
-                    controller: ''
-                }
+        }
+    }).state('app.truck-list.available_truck', {
+        url: '/available_truck',
+        views: {
+            'app-truck-list-available_truck': {
+                templateUrl: 'templates/available_truck.html',
+                controller: ''
             }
-        }).state('app.truck-list.ongoing_truck', {
-            url: '/ongoing_truck',
-            views: {
-                'app-truck-list-ongoing_truck': {
-                    templateUrl: 'templates/ongoing_truck.html',
-                    controller: ''
-                }
+        }
+    }).state('app.truck-list.ongoing_truck', {
+        url: '/ongoing_truck',
+        views: {
+            'app-truck-list-ongoing_truck': {
+                templateUrl: 'templates/ongoing_truck.html',
+                controller: ''
             }
-        }).state('app.browse_joblist', {
-            url: '/browse_joblist',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/browse_joblist.html',
-                    controller: 'AgencyCtrl'
-                }
+        }
+    }).state('app.browse_joblist', {
+        url: '/browse_joblist',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/browse_joblist.html',
+                controller: 'AgencyCtrl'
             }
-        }).state('app.truckDetails', {
-            url: '/truckDetails/:Id',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/truckDetails.html',
-                    controller: 'detailsCtrl'
-                }
+        }
+    }).state('app.truckDetails', {
+        url: '/truckDetails/:Id',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/truckDetails.html',
+                controller: 'detailsCtrl'
             }
-        }).state('app.trackTruck', {
-            url: '/trackTruck',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/trackTruck.html',
-                    controller: 'trackTruckCtrl'
-                }
+        }
+    }).state('app.trackTruck', {
+        url: '/trackTruck',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/trackTruck.html',
+                controller: 'trackTruckCtrl'
             }
-        }).state('app.take_photo', {
-            url: '/take_photo',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/take_photo.html',
-                    controller: 'takePhoto'
-                }
+        }
+    }).state('app.take_photo', {
+        url: '/take_photo',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/take_photo.html',
+                controller: 'takePhoto'
             }
-        }).state('app.agency_location', {
-            url: '/agency_location',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/agency_location.html',
-                    controller: 'agency_location'
-                }
+        }
+    }).state('app.agency_location', {
+        url: '/agency_location',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/agency_location.html',
+                controller: 'agency_location'
             }
-        }).state('app.agencyDetails', {
-            url: '/agencyDetails/:Id',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/agencyDetails.html',
-                    controller: 'agencyDetailsCrl'
-                }
+        }
+    }).state('app.agencyDetails', {
+        url: '/agencyDetails/:Id',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/agencyDetails.html',
+                controller: 'agencyDetailsCrl'
             }
-        }).state('app.profile', {
-            url: '/profile',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/profile.html',
-                    controller: 'profileCtrl'
-                }
+        }
+    }).state('app.profile', {
+        url: '/profile',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/profile.html',
+                controller: 'profileCtrl'
             }
-        });
+        }
+    });
 
-        // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/login');
-        // $provide.decorator('movieTitle', function($delegate) {
-        //     return $delegate + ' - starring Keanu Reeves';
-        // });
-    })
+    // if none of the above states are matched, use this as the fallback
+    $urlRouterProvider.otherwise('/login');
+    // $provide.decorator('movieTitle', function($delegate) {
+    //     return $delegate + ' - starring Keanu Reeves';
+    // });
+})
