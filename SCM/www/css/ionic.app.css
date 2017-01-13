@@ -8736,6 +8736,11 @@ progress {
     border-color: transparent;
     background-color: #ef473a;
     color: #fff; }
+
+    .button.button-appback {
+      border-color: transparent;
+      background-color: #00ACC1;
+      color: #fff; }
     .button.button-assertive:hover {
       color: #fff;
       text-decoration: none; }
