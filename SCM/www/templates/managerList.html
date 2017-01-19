@@ -4,18 +4,18 @@
             <div class="card stable-bg ink ink-dark">
                 <div class="item item-avatar item-text-wrap ">
                     <span class="avatar" style="background-image: url('{{ProfileImage}}{{manager.profile_image}}');"></span>
-                     <h2><span class="appback">{{manager.Name}}</span></h2>
+                     <h2 class="appback">{{manager.Name}}</h2>
                      <h3>Company&nbsp;:&nbsp;&nbsp;{{manager.Company_name}}</h3>
                      <h4>Godown&nbsp;:&nbsp;&nbsp;{{manager.Godown}}</h4>
                      <h4>City&nbsp;:&nbsp;&nbsp;{{manager.city}}</h4>
-                      <h2><a class="positive">Phone&nbsp;:&nbsp;&nbsp;{{manager.mobile}}</a></h2> 
+                      <a><h2 class="positive">Phone&nbsp;:&nbsp;&nbsp;{{manager.mobile}}</h2></a>
                     </div>
                     <div>
                       <div class="row">
-                      <div class="col col-50"><h4><img ng-src="img/delivery-truck.png">Idle&nbsp;:&nbsp;&nbsp;{{manager.Idle_Vehicles}}</h4>
+                      <div class="col col-50"><img ng-src="img/delivery-truck.png"><h4>Idle&nbsp;:&nbsp;&nbsp;{{manager.Idle_Vehicles}}</h4>
                        </div>
                       <div class="col col-50">
-                       <h4> <img ng-src="img/delivery-truck.png">On roads&nbsp;:&nbsp;&nbsp;{{manager.Vehicles_on_roads}}</h4>
+                      <img ng-src="img/delivery-truck.png"> <h4> On roads&nbsp;:&nbsp;&nbsp;{{manager.Vehicles_on_roads}}</h4>
                         
                         <!-- <i class="icon ion-chatbubble appback"></i> 2 -->
                         <!-- <i class="icon ion-heart assertive"></i> 4 -->

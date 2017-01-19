@@ -3,7 +3,7 @@
         <div class="hero slide-up" style="background-image: url('img/back3.png');" >
             <div class="content" >
                 <div class="avatar" style="background-image: url('{{ProfileImage}}{{ManagerDetails.profile_image}}');"></div>
-                 <h3 ><span class="positive">{{ManagerDetails.Name}}</span></h3>
+                <h3 ><span class="positive">{{ManagerDetails.Name}}</span></h3>
                 <h4><span class="dark">{{ManagerDetails.UserId}}</span></h4>
                 <h5><span class="dark">{{ManagerDetails.Company_name}}</span></h5>
             </div>
@@ -11,33 +11,18 @@
         <!-- <h4 class="content padding text-center">Trucks</h4> -->
         <div class="item card-item" ng-repeat="truck in TruckList">
             <div class="card stable-bg ink ink-dark">
-               <!--  <div class="item item-avatar item-text-wrap">
-                    <span class="avatar" style="background-image: url('img/jon-snow.jpg');"></span>
-                    <h3>Driver&nbsp;:&nbsp;&nbsp;{{truck.Name}}</h3>
-               
-                    <div class="card-footer text-right">
-                        <i class="icon ion-chatbubbles appback"></i> 6
-                        <i class="icon ion-heart assertive"></i> 23
-                        <!- <div class="pull-left">
-                            <i class="icon ion-clock"></i> just now
-                        </div>
-                    </div>
-                </div> --> 
-                <div class="item item-avatar">
-    <span class="avatar" style="background-image: url('img/jon-snow.jpg');"></span>
-    <h2>Driver&nbsp;:&nbsp;&nbsp;{{truck.Name}}</h2>
-               
-    <p>November 05, 1955</p>
-  </div>
-
-  <div class="item item-body">
-    <!-- <img class="full-image" ng-src="img/truck.jpg"> -->
-     
-    <p>
-      <a href="#" class="subdued">1 Like</a>
-      <a href="#" class="subdued">5 Comments</a>
-    </p>
-  </div>
+                 <div class="item item-avatar item-text-wrap ">
+                      <div class="avatar" style="background-image: url('{{ProfileImage}}{{ManagerDetails.profile_image}}');"></div>
+                      <div class="row">
+                        <div class="col">
+                         <h2 class="appback">Driver&nbsp;:&nbsp;&nbsp;{{truck.Name}}</h2>
+                         <h3 class="positive">Phone&nbsp;:&nbsp;&nbsp;{{truck.mobile}}</h3>
+                         <h3>Vehicle  Number&nbsp;:&nbsp;&nbsp;{{truck.vehicle_number}}</h3>
+                         <h3>Vehicle  Type&nbsp;:&nbsp;&nbsp;{{truck.vehicle_type}}</h3>
+                         <h3>Vehicle  Capacity&nbsp;:&nbsp;&nbsp;{{truck.vehicle_capacity}}</h>
+                         </div>
+                       </div>
+                  </div>
             </div>
         </div>
     </ion-content>
