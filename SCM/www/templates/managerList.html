@@ -1,5 +1,5 @@
 <ion-view view-title=" My Managers" ng-init="init();getManager();">
-    <ion-content ng-class="{expanded:isExpanded}">
+    <ion-content ng-class="{expanded:isExpanded}" id="managerList">
           <div class="item card-item"  ng-repeat="manager in managerList" ng-click="showTruckList(manager.Uid,manager.Name,manager.UserId,manager.Company_name,manager.profile_image)">
             <div class="card stable-bg ink ink-dark">
                 <div class="item item-avatar item-text-wrap ">
@@ -15,8 +15,8 @@
                       <div class="col col-50"><img ng-src="img/delivery-truck.png"><h4>Idle&nbsp;:&nbsp;&nbsp;{{manager.Idle_Vehicles}}</h4>
                        </div>
                       <div class="col col-50">
-                      <img ng-src="img/delivery-truck.png"> <h4> On roads&nbsp;:&nbsp;&nbsp;{{manager.Vehicles_on_roads}}</h4>
-                        
+                      <img ng-src="img/delivery-truck.png">
+                        <h4> On roads&nbsp;:&nbsp;&nbsp;{{manager.Vehicles_on_roads}}</h4>
                         <!-- <i class="icon ion-chatbubble appback"></i> 2 -->
                         <!-- <i class="icon ion-heart assertive"></i> 4 -->
                       <!--   <div class="pull-left">

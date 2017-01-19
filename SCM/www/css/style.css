@@ -270,3 +270,16 @@
     background: url('../img/material-graphite.jpg');
     color: #eae4cc;
 }
+
+#managerList .card img {
+    box-shadow: none;
+    display: inline;
+    max-width: 100%;
+    max-height: initial;
+    position: static;
+    vertical-align: middle;
+}
+
+#managerList h4{
+    display: inline;
+}
