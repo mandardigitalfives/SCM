@@ -1,4 +1,4 @@
-angular.module('starter.controllers').controller('profileCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout, $rootScope, store, $ionicLoading, $ionicPopup) {
+angular.module('starter.controllers').controller('profileCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout, $rootScope, store, $ionicLoading, $ionicPopup,$ionicModal) {
 
     $scope.init = function() {
         $rootScope.Loadingshow();

@@ -1,0 +1,14 @@
+1) Odometer : For Calculate Speed.
+
+2) Fuel Guage: For fueal level indicator.
+	       Fuel Sensor for GPS Tracker.
+
+3) Speed Lock : For Speed Lock.
+
+4) Cruise Control (Speedostat or tempomod): For Speed Control. 
+
+
+LINk :- HOW TO USE FUEL LEVEL SENSOR WITH GPS TRACKING SYSTEM IN VEHICLES
+
+http://www.totemtek.com/totem-news/how-to-use-fuel-level-sensors-with-GPS-tracking-system-in-vehicles.html#.WIB9oVN97IV
+
