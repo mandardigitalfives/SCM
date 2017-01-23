@@ -23,7 +23,6 @@ router.get('/', function(req, res) {
         }
     }
   	res.jsonp( responsedata );
-
   });
   /*activityCrud.load(function(){
   	res.send('bid List');

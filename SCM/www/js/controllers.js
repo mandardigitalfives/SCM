@@ -55,7 +55,7 @@ angular.module('starter.controllers', ['ionic-toast'])
         // email: "owner@owner.com",
         // password: "owner123"
          email: "JakobTobiassen@rhyta.com",
-         password: "jakob123"
+         password: "mac123"
        /* email :"KennethAGarrison@armyspy.com",
         password : "mac123"*/
 

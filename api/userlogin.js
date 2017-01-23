@@ -8,7 +8,6 @@ var userCRUD = CRUD(connection, 'authenticateUser');
 exports.login = function(req, res) {
     var email = req.body.email;
     var password = req.body.password;
-    console.log(email, password);
     userCRUD.load({
         UserId: email,
         Password: password
@@ -32,4 +31,29 @@ exports.login = function(req, res) {
             res.jsonp(resdata);
         }
     });
+
+    // var query = "SELECT users.user_Id, users.user_Type FROM users WHERE email_Id = '" + email + "' AND user_Password ='" + password + "'";
+
+    // res.jsonp({"status":false})
+    // connection.query(query, function(error, result, fields) {
+
+    //     if (error == null) {
+    //         if (result.length > 0) {
+    //             console.log("result", result);
+    //         } else {
+    //             var resdata = {
+    //                 record: '',
+    //                 status: false,
+    //                 message: 'Wrong user name or password.'
+    //             };
+    //         }
+    //     } else {
+    //         var resdata = {
+    //             record: '',
+    //             status: false,
+    //             message: 'Server not responding.'
+    //         };
+    //         res.jsonp(resdata);
+    //     }
+    // });
 }
