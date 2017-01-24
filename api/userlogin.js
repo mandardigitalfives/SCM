@@ -33,13 +33,11 @@ exports.login = function(req, res) {
     });
 
     // var query = "SELECT users.user_Id, users.user_Type FROM users WHERE email_Id = '" + email + "' AND user_Password ='" + password + "'";
-
-    // res.jsonp({"status":false})
-    // connection.query(query, function(error, result, fields) {
-
+    // connection.query(query, function(error, user, fields) {
     //     if (error == null) {
-    //         if (result.length > 0) {
-    //             console.log("result", result);
+    //         if (user.length > 0) {
+    //             console.log("user", user);
+    //             getLoginDetails(user[0])
     //         } else {
     //             var resdata = {
     //                 record: '',
@@ -56,4 +54,8 @@ exports.login = function(req, res) {
     //         res.jsonp(resdata);
     //     }
     // });
+
+    // function getLoginDetails(user){
+    //     console.log("user.user_Id", user.user_Id);
+    // }
 }
