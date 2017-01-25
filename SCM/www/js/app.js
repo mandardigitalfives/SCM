@@ -248,16 +248,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 controller: 'managerListCtrl'
             }
         }
-
-        }).state('app.browse_trucklist', {
-            url: '/managerList/:Id/:Name/:UserId/:Company_name/:profile_image',
-            cache: false,
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/browse_trucklist.html',
-                    controller: 'TrucklistCtrl'
-                }
+    }).state('app.browse_trucklist', {
+        url: '/managerList/:Id/:Name/:UserId/:Company_name/:profile_image',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/browse_trucklist.html',
+                controller: 'TrucklistCtrl'
             }
+        }
     }).state('app.truck-list', {
         url: '/truck-list',
         views: {
@@ -282,14 +281,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 controller: ''
             }
         }
-    }).state('app.browse_joblist', {
-        url: '/browse_joblist',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/browse_joblist.html',
-                controller: 'AgencyCtrl'
-            }
-        }
     }).state('app.truckDetails', {
         url: '/truckDetails/:Id',
         views: {
@@ -312,22 +303,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
             'menuContent': {
                 templateUrl: 'templates/take_photo.html',
                 controller: 'takePhoto'
-            }
-        }
-    }).state('app.agency_location', {
-        url: '/agency_location',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/agency_location.html',
-                controller: 'agency_location'
-            }
-        }
-    }).state('app.agencyDetails', {
-        url: '/agencyDetails/:Id',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/agencyDetails.html',
-                controller: 'agencyDetailsCrl'
             }
         }
     }).state('app.profile', {
