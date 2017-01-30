@@ -292,11 +292,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 controller: 'Trucklist_managerCtrl'
             }
         }
-    }).state('app.manager_Joblist.available_truck', {
-        url: '/available_truck',
+    }).state('app.manager_Joblist.created_job', {
+        url: '/created_job',
         views: {
-            'app-manager_Joblist-available_truck': {
-                templateUrl: 'templates/available_truck.html',
+            'app-manager_Joblist-created_job': {
+                templateUrl: 'templates/created_job.html',
                 controller: ''
             }
         }
