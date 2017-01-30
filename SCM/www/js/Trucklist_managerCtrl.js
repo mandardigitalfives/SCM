@@ -37,4 +37,9 @@ angular.module('starter.controllers').controller('Trucklist_managerCtrl', functi
    $scope.closeLogin = function() {
        $scope.modal.hide();
    };
+
+    $scope.showVehicleDetails = function(Id,Name){
+      console.log(Id);
+      $state.go('app.manager_jobDetails',{Id : Id, Name: Name});
+  }
 })

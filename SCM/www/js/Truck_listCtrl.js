@@ -11,7 +11,9 @@ angular.module('starter.controllers').controller('TrucklistCtrl', function($scop
             profile_image: $stateParams.profile_image,
             type: "truck",
         }
+        $scope.vehicleDetails=ItemI;
         $scope.ManagerDetails=ItemI;
+        console.log( $scope.vehicleDetails);
          $scope.getTrucklist(ItemI);
     }
 

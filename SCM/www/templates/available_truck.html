@@ -1,21 +1,22 @@
-<ion-view view-title="Manager's login ">
+<ion-view ng-init="init()">
     <ion-content>
-        <div class="item card-item" ng-click="showTruckList(manager.Uid)">
+         <div class="item card-item" ng-repeat="truck in TruckList" ng-click="showVehicleDetails(truck.Uid,truck.Name)">
             <div class="card stable-bg ink ink-dark">
-                <div class="item item-avatar item-text-wrap">
-                    <span class="avatar" style="background-image: url('img/jon-snow.jpg');"></span>
-                    <strong class="appback text-left" >Jon Snow</strong> knows nothing.
-                    <div class="card-footer text-right">
-                        <i class="icon ion-chatbubbles positive"></i> 6
-                        <i class="icon ion-heart assertive"></i> 23
-                        <!-- <div class="pull-left">
-                            <i class="icon ion-clock"></i> just now
-                        </div> -->
-                    </div>
-                </div>
+                 <div class="item  item-text-wrap ">
+                      <!-- <div class="avatar" style="background-image: url('{{ProfileImage}}{{ManagerDetails.profile_image}}');"></div> -->
+                      <div class="row">
+                        <div class="col">
+                         <h2 class="appback">Driver&nbsp;:&nbsp;&nbsp;{{truck.Name}}</h2>
+                         <h3 class="positive">Phone&nbsp;:&nbsp;&nbsp;{{truck.mobile}}</h3>
+                         <h3>Vehicle  Number&nbsp;:&nbsp;&nbsp;{{truck.vehicle_number}}</h3>
+                         <h3>Vehicle  Type&nbsp;:&nbsp;&nbsp;{{truck.vehicle_type}}</h3>
+                         <h3>Vehicle  Capacity&nbsp;:&nbsp;&nbsp;{{truck.vehicle_capacity}}</h>
+                         </div>
+                       </div>
+                  </div>
             </div>
         </div>
-        <div class="list card">
+       <!--  <div class="list card">
             <div class="item item-avatar">
                 <img ng-src="img/jon-snow.jpg">
                 <h2><strong class="appback">Jon Snow</strong></h2>
@@ -31,6 +32,6 @@
                     <a href="#" class="subdued"><strong class="appback">5 Comments</strong></a>
                 </p>
             </div>
-        </div>
+        </div> -->
     </ion-content>
 </ion-view>

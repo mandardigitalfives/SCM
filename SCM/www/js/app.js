@@ -249,7 +249,31 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
             }
         }
 
-        }).state('app.browse_trucklist', {
+        }).state('app.manager_Joblist', {
+        url: '/manager_Joblist',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/manager_Joblist.html',
+                controller: 'Trucklist_managerCtrl'
+            }
+        }
+
+        })
+
+        .state('app.manager_jobDetails', {
+        url: '/manager_jobDetails/:Id/:Name',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/manager_jobDetails.html',
+                controller: 'TrucklistCtrl'
+            }
+        }
+
+        })
+
+    .state('app.browse_trucklist', {
             url: '/managerList/:Id/:Name/:UserId/:Company_name/:profile_image',
             cache: false,
             views: {
@@ -266,10 +290,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 controller: 'Trucklist_managerCtrl'
             }
         }
-    }).state('app.truck-list.available_truck', {
+    }).state('app.manager_Joblist.available_truck', {
         url: '/available_truck',
         views: {
-            'app-truck-list-available_truck': {
+            'app-manager_Joblist-available_truck': {
                 templateUrl: 'templates/available_truck.html',
                 controller: ''
             }

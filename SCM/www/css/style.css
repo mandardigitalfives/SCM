@@ -254,7 +254,7 @@
 
 .tabs-top > .tabs,
 .tabs.tabs-top {
-    top: 8px !important;
+    top: 0px !important;
 }
 
 .stripedTabs .has-tabs-top {
@@ -282,4 +282,11 @@
 
 #managerList h4{
     display: inline;
+}
+
+.bar{
+    z-index: 2;
+    font-size: 1.3em;
+    width: 100%;
+    box-shadow: none !important;
 }

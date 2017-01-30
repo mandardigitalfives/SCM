@@ -54,10 +54,10 @@ angular.module('starter.controllers', ['ionic-toast'])
     $scope.user = {
         // email: "owner@owner.com",
         // password: "owner123"
-         email: "JakobTobiassen@rhyta.com",
-         password: "mac123"
-       /* email :"KennethAGarrison@armyspy.com",
-        password : "mac123"*/
+        /* email: "JakobTobiassen@rhyta.com",
+         password: "jakob123"*/
+       email :"KennethAGarrison@armyspy.com",
+        password : "mac123"
 
     }
 
@@ -84,7 +84,7 @@ angular.module('starter.controllers', ['ionic-toast'])
                 $ionicLoading.hide();
 
                 if (store.get('userdata').type == 'manager') {
-                    $state.go('app.truck-list');
+                    $state.go('app.manager_Joblist');
                 } else if (store.get('userdata').type == 'truck') {
                     $state.go('app.browse_joblist');
                 } else if (store.get('userdata').type == 'Owner') {
