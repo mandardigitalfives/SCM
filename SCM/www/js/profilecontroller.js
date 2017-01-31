@@ -1,15 +1,17 @@
-angular.module('starter.controllers').controller('profileCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout, $rootScope, store, $ionicLoading, $ionicPopup,$ionicModal) {
+angular.module('starter.controllers').controller('profileCtrl', function($scope, $stateParams, $http, $state, $ionicLoading, $timeout, $rootScope, store, $ionicLoading, $ionicPopup, $ionicModal) {
 
     $scope.init = function() {
         $rootScope.Loadingshow();
         $scope.userdata = store.get('userdata') || false;
+        console.log($scope.userdata);
         var userdata = {
-            Uid: $scope.userdata.user_id
+            Uid: $scope.userdata.user_id,
+            user_type: $scope.userdata.type
         }
 
         $http.post(baseURL + "getProfile", userdata).success(function(response, request) {
             $scope.profiledetails = response.record;
-            
+            console.log($scope.profiledetails);
             $timeout(function() {
                 $ionicLoading.hide();
             }, 300);
@@ -77,7 +79,8 @@ angular.module('starter.controllers').controller('profileCtrl', function($scope,
         var data = {
             firstname: firstname,
             lastname: lastname,
-            Uid: $scope.userdata.user_id
+            Uid: $scope.userdata.user_id,
+            user_type: $scope.userdata.type
         }
 
         $http.post(baseURL + "updateProfile", data).success(function(response, request) {
@@ -100,5 +103,15 @@ angular.module('starter.controllers').controller('profileCtrl', function($scope,
                 template: 'Please check your credentials!'
             });
         });
+    }
+
+    $scope.gohome = function() {
+        if (store.get('userdata').type == 'manager') {
+            $state.go('app.manager_Joblist');
+        } else if (store.get('userdata').type == 'truck') {
+            $state.go('app.browse_joblist');
+        } else if (store.get('userdata').type == 'owner') {
+            $state.go('app.managerList');
+        };
     }
 })

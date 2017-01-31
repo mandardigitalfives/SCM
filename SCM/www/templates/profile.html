@@ -1,11 +1,15 @@
-<ion-view view-title="Profile" class="title-center" ng-init="init()">
+<ion-view view-title="Profile" ng-init="init()">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-home" ng-click="gohome()">
+        </button>
+    </ion-nav-buttons>
     <ion-content has-header="true" scroll="false">
         <div id="profile-bg"></div>
         <div id="content" ng-if="profiledetails">
             <div id="profile-info">
-                <img  id="profile-image" ng-src="{{ProfileImage}}{{islogin.profile_image}}">
+                <img id="profile-image" ng-src="{{ProfileImage}}{{islogin.profile_image}}">
                 <i id="selectpicture" class="icon ion-camera"></i>
-                <h3 id="profile-name">{{profiledetails.UserId}}</h3>
+                <h3 id="profile-name">{{profiledetails.user_Email}}</h3>
             </div>
         </div>
         <tab-slide-box class="customScroll" ng-if="profiledetails">
@@ -23,12 +27,12 @@
                 <ion-slide>
                     <div class="card-wrapper">
                         <div class="card custom-card">
-                            <form name="profileForm" data-ng-submit="profileForm.$valid && editProfile(profiledetails.Name,profiledetails.last_name)" novalidate>
+                            <form name="profileForm" data-ng-submit="profileForm.$valid && editProfile(profiledetails.user_FirstName,profiledetails.user_LastName)" novalidate>
                                 <ion-scroll>
                                     <div class="list padding-top">
                                         <label class="item item-input item-stacked-label">
                                             <span class="input-label">First Name</span>
-                                            <input type="text" name="username" placeholder="" ng-model="profiledetails.Name" required="true" />
+                                            <input type="text" name="username" placeholder="" ng-model="profiledetails.user_FirstName" required="true" />
                                             <span>
                                                 <div data-ng-messages="profileForm.$submitted && profileForm.username.$error" role="alert" class="assertive errmsg">
                                                     <div data-ng-message="required">
@@ -39,7 +43,7 @@
                                         </label>
                                         <label class="item item-input item-stacked-label">
                                             <span class="input-label">Last Name</span>
-                                            <input name="lastname" type="text" placeholder="" ng-model="profiledetails.last_name" required="true">
+                                            <input name="lastname" type="text" placeholder="" ng-model="profiledetails.user_LastName" required="true">
                                             <span>
                                                 <div data-ng-messages="profileForm.$submitted && profileForm.lastname.$error" role="alert" class="assertive errmsg">
                                                     <div data-ng-message="required">
@@ -50,7 +54,7 @@
                                         </label>
                                         <label class="item item-input item-stacked-label">
                                             <span class="input-label">Email</span>
-                                            <input type="text" ng-disabled="true" placeholder="" ng-model="profiledetails.UserId">
+                                            <input type="text" ng-disabled="true" placeholder="" ng-model="profiledetails.user_Email">
                                         </label>
                                         <label class="padding">
                                             <div class="text-center appback">
