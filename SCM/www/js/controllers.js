@@ -57,12 +57,12 @@ angular.module('starter.controllers', ['ionic-toast'])
 
          // email: "JakobTobiassen@rhyta.com",
          // password: "mac123"
-        // email :"KennethAGarrison@armyspy.com",
-        // password : "dell123"
+        email :"KennethAGarrison@armyspy.com",
+         password : "dell123"
 
-        email : "mac@digitalfives.com",
+        /*email : "mac@digitalfives.com",
         password : "driver123"
-
+*/
     }
 
     $scope.login = function(user) {

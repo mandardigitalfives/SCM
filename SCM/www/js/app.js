@@ -307,7 +307,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
         views: {
             'menuContent': {
                 templateUrl: 'templates/createdjob_form.html',
-                controller: ''
+                controller: 'createdjobCtrl'
             }
         }
     })
