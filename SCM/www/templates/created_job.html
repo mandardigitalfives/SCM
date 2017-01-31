@@ -1,6 +1,6 @@
 <ion-view ng-init="init()">
     <ion-content>
-        <div class="item card-item" ng-click="showVehicleDetails(truck.Uid,truck.Name)">
+        <div class="item card-item" ng-repeat="truck in TruckList" ng-click="showVehicleDetails(truck.Uid,truck.Name)">
             <div class="card stable-bg ink ink-dark">
                 <div class="item  item-text-wrap ">
                     <div class="row">
