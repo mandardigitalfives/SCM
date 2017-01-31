@@ -29,14 +29,8 @@
                 <ion-item menu-close href="#/login" ng-if="!islogin">
                     <dt> Login </dt>
                 </ion-item>
-                <ion-item menu-close href="#/app/browse_trucklist">
-                    <dt>Browse TruckList </dt>
-                </ion-item>
-                <ion-item menu-close href="#/app/browse_joblist">
-                    <DT>Browse Agency</DT>
-                </ion-item>
-                <ion-item menu-close href="#/app/take_photo">
-                    <dt>Take Photo</dt>
+                <ion-item menu-close ui-sref="app.manager_Joblist" ng-if="islogin.type=='manager'">
+                    <DT>Job List</DT>
                 </ion-item>
                 <ion-item menu-close ng-click="logout()" ng-if="islogin">
                     <dt>Logout</dt>
