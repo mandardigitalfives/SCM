@@ -7,6 +7,8 @@ var common_API = {
 
     getUserDetails: function(user, callback) {
 
+        console.log("user", user);
+
         if (user.user_Type == 'owner') {
             var tableName = "owners";
         } else if (user.user_Type == "driver") {
@@ -16,6 +18,8 @@ var common_API = {
         }
 
         var query = "SELECT * FROM " + tableName + " WHERE user_Id = " + user.user_Id + "";
+
+        console.log(query);
 
         connection.query(query, function(error, userdetails) {
             console.log("error", error);

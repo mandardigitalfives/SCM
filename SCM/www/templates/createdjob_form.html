@@ -5,7 +5,7 @@
     </ion-nav-buttons>
     <ion-content>
         <form name="jobform" novalidate data-ng-submit="jobform.$valid && Submit(details,jobform.$valid)">
-            <div class="list">
+            <div class="list padding-top">
                 <label class="item item-input item-floating-label" ng-class="{ 'has-error' : jobform.$submitted && jobform.job_title.$error, 'no-error' : jobform.job_title.$valid}">
                     <span class="input-label appback">Title</span>
                     <input type="text" placeholder="Title" highlight-color="balanced" ng-model="details.job_title" type="text" name="job_title" required>

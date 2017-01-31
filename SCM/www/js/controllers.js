@@ -57,8 +57,11 @@ angular.module('starter.controllers', ['ionic-toast'])
 
          // email: "JakobTobiassen@rhyta.com",
          // password: "mac123"
-        email :"KennethAGarrison@armyspy.com",
-        password : "dell123"
+        // email :"KennethAGarrison@armyspy.com",
+        // password : "dell123"
+
+        email : "mac@digitalfives.com",
+        password : "driver123"
 
     }
 
@@ -86,7 +89,7 @@ angular.module('starter.controllers', ['ionic-toast'])
 
                 if (store.get('userdata').type == 'manager') {
                     $state.go('app.manager_Joblist');
-                } else if (store.get('userdata').type == 'truck') {
+                } else if (store.get('userdata').type == 'driver') {
                     $state.go('app.browse_joblist');
                 } else if (store.get('userdata').type == 'owner') {
                     $state.go('app.managerList');
