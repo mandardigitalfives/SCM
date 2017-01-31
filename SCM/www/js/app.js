@@ -300,7 +300,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
                 controller: ''
             }
         }
-    }).state('app.manager_Joblist.ongoing_truck', {
+    })
+      .state('app.createdjob_form', {
+        url: '/createdjob_form',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/createdjob_form.html',
+                controller: ''
+            }
+        }
+    })
+    .state('app.manager_Joblist.ongoing_truck', {
         url: '/ongoing_truck',
         views: {
             'app-manager_Joblist-ongoing_truck': {
