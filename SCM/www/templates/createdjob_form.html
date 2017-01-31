@@ -1,62 +1,61 @@
-<ion-view view-title=" Create Job">
-
-  <ion-content>
-   <form name="jobform" novalidate data-ng-submit="jobform.$valid && Submit(details,jobform.$valid)">
-      <div class="list">
-         <label class="item item-input item-floating-label">
-          <span class="input-label appback">Job Title</span>
-          <input type="text" placeholder="* Job Title" highlight-color="balanced" ng-model="details.job_title" type="text" name="job_title" required>
-
-              <span>
-                    <div data-ng-messages="jobform.$submitted && jobform.job_title.$error" role="alert" class="assertive errmsg">
+<ion-view view-title="Create Job">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-home" ui-sref="app.manager_Joblist">
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+        <form name="jobform" novalidate data-ng-submit="jobform.$valid && Submit(details,jobform.$valid)">
+            <div class="list">
+                <label class="item item-input item-floating-label" ng-class="{ 'has-error' : jobform.$submitted && jobform.job_title.$error, 'no-error' : jobform.job_title.$valid}">
+                    <span class="input-label appback">Job Title</span>
+                    <input type="text" placeholder="* Job Title" highlight-color="balanced" ng-model="details.job_title" type="text" name="job_title" required>
+                </label>
+                <span>
+                    <div data-ng-messages="jobform.$submitted && jobform.job_title.$error" role="alert" class="assertive errmsg ngmsgPosition">
                         <div data-ng-message="required">
                             Enter Job Title
                         </div>
                     </div>
                 </span>
-        </label>
-        <label class="item item-input item-floating-label">
-          <span class="input-label appback">Job Description</span>
-          <input type="text" placeholder="Job Description" highlight-color="balanced" ng-model="details.job_descp" type="text" name="job_descp" required>
+                <label class="item item-input item-floating-label" ng-class="{ 'has-error' : jobform.$submitted && jobform.job_descp.$error, 'no-error' : jobform.job_descp.$valid}">
+                    <span class="input-label appback">Job Description</span>
+                    <input type="text" placeholder="Job Description" highlight-color="balanced" ng-model="details.job_descp" type="text" name="job_descp" required>
+                </label>
                 <span>  
-                    <div data-ng-messages="jobform.$submitted && jobform.job_descp.$error" role="alert" class="assertive errmsg">
+                    <div data-ng-messages="jobform.$submitted && jobform.job_descp.$error" role="alert" class="assertive errmsg ngmsgPosition">
                         <div data-ng-message="required">
                             Enter Job Description
                         </div>
                     </div>
                 </span>
-         </label>
-        <label class="item item-input item-floating-label">
-           <span class="input-label appback">Job CreatedBy</span>
-           <input type="text" placeholder="Job CreatedBy" highlight-color="balanced" ng-model="details.job_createdBy" type="text" name="job_createdBy" required>
+                <label class="item item-input item-floating-label" ng-class="{ 'has-error' : jobform.$submitted && jobform.job_createdBy.$error, 'no-error' : jobform.job_createdBy.$valid}">
+                    <span class="input-label appback">Job CreatedBy</span>
+                    <input type="text" placeholder="Job CreatedBy" highlight-color="balanced" ng-model="details.job_createdBy" type="text" name="job_createdBy" required>
+                </label>
                 <span>
-                    <div data-ng-messages="jobform.$submitted && jobform.job_createdBy.$error" role="alert" class="assertive errmsg">
+                    <div data-ng-messages="jobform.$submitted && jobform.job_createdBy.$error" role="alert" class="assertive errmsg ngmsgPosition">
                         <div data-ng-message="required">
                             Enter Job CreatedBy
                         </div>
                     </div>
                 </span>
-        </label>
-
-         <label class="item item-input item-floating-label">
-           <span class="input-label appback">Job AssignedTo</span>
-           <input type="text" placeholder="Job AssignedTo" highlight-color="balanced" ng-model="details.job_assignTo" type="text" name="job_assignTo" required>
-                  <span>
-                    <div data-ng-messages="jobform.$submitted && jobform.job_assignTo.$error" role="alert" class="assertive errmsg">
+                <label class="item item-input item-floating-label" ng-class="{ 'has-error' : jobform.$submitted && jobform.job_assignTo.$error, 'no-error' : jobform.job_assignTo.$valid}">
+                    <span class="input-label appback">Job AssignedTo</span>
+                    <input type="text" placeholder="Job AssignedTo" highlight-color="balanced" ng-model="details.job_assignTo" type="text" name="job_assignTo" required>
+                </label>
+                <span>
+                    <div data-ng-messages="jobform.$submitted && jobform.job_assignTo.$error" role="alert" class="assertive errmsg ngmsgPosition">
                         <div data-ng-message="required">
                             Enter Job AssignedTo
                         </div>
                     </div>
                 </span>
-        </label>
-
-       
-     </div> 
-     <div class="text-center">  
-        <button class="button button-outline button-calm" >
-          Submit
-       </button> 
-    </div>
- </form>
-  </ion-content>
+            </div>
+            <div class="text-center">
+                <button class="button button-outline button-calm">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </ion-content>
 </ion-view>

@@ -260,6 +260,7 @@
 .stripedTabs .has-tabs-top {
     top: 40px !important;
 }
+
 .button-small {
     background-color: #c4eff3 !important;
     margin-top: 40px !important;
@@ -280,17 +281,27 @@
     vertical-align: middle;
 }
 
-#managerList h4{
+#managerList h4 {
     display: inline;
 }
 
-.bar{
+.bar {
     z-index: 2;
     font-size: 1.3em;
     width: 100%;
     box-shadow: none !important;
 }
-.bar .button.button-fab.button-fab-bottom-right, .button.button-fab.button-fab-bottom-right {
+
+.bar .button.button-fab.button-fab-bottom-right,
+.button.button-fab.button-fab-bottom-right {
     right: 5% !important;
     bottom: 5% !important;
+}
+
+.has-error {
+    border-bottom: solid 1px #f70000 !important;
+}
+
+.no-error {
+    border-bottom: solid 1px #00acc1 !important;
 }
