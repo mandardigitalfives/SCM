@@ -1,4 +1,4 @@
-<ion-view view-title="Create Job">
+<ion-view view-title="Create Job" ng-init="init()">
     <ion-nav-buttons side="right">
         <button class="button button-icon button-clear ion-home" ui-sref="app.manager_Joblist">
         </button>
@@ -51,6 +51,9 @@
                     </div>
                 </span> -->
             </div>
+                <div role="alert" class="assertive errmsg">
+                    {{errorMsg}}safdfasd
+                </div>
             <div class="text-center">
                 <button class="button button-outline button-calm">
                     Submit

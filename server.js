@@ -30,7 +30,9 @@ var trucklist =require('./api/trucklist.js');
 var todos = require('./api/todos.js');
 var device_register = require('./api/device_register.js');
 var sendpushnotification = require('./api/sendpushnotification.js');
-var profile = require('./api/profile.js')
+var profile = require('./api/profile.js');
+var jobs = require('./api/jobsapi.js');
+
 
 app.all('*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -51,6 +53,7 @@ app.post('/api/getManager',owner.getManager);
 app.post('/api/getTrucklist',trucklist.getTrucklist);
 app.post('/api/getProfile',profile.getProfile);
 app.post('/api/updateProfile',profile.updateProfile);
+app.post('/api/addjob', jobs.addjob);
 
 
 http.listen( 9999, function(){
