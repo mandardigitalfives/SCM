@@ -263,12 +263,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
         })
 
         .state('app.manager_jobDetails', {
-        url: '/manager_jobDetails/:Id/:Name',
+        url: '/manager_jobDetails/:job_Title/:job_Description/:job_DeliveryAddress',
         cache: false,
         views: {
             'menuContent': {
                 templateUrl: 'templates/manager_jobDetails.html',
-                controller: 'TrucklistCtrl'
+                controller: 'jobdetailsCtrl'
             }
         }
 
@@ -297,7 +297,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-storage', 'n
         views: {
             'app-manager_Joblist-created_job': {
                 templateUrl: 'templates/created_job.html',
-                controller: ''
+                controller: 'createdjobCtrl'
             }
         }
     })

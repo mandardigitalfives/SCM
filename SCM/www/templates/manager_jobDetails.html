@@ -1,20 +1,17 @@
-<ion-view view-title="Job Details">
+<ion-view view-title="Job Details" ng-init="init()">
     <ion-content>
-        <div class="list card">
-
-          <div class="item item-body">
-           <h3> Driver Name &nbsp;:&nbsp;&nbsp;{{vehicleDetails.Name}}</h3>
-           <h3 class="positive">Phone&nbsp;:&nbsp;&nbsp;{{vehicleDetails.mobile}}</h3>
-           <h3>Vehicle  Number&nbsp;:&nbsp;&nbsp;{{vehicleDetails.vehicle_number}}</h3>
-           <h3>Vehicle  Type&nbsp;:&nbsp;&nbsp;{{vehicleDetails.vehicle_type}}</h3>
-           <h3>Vehicle  Capacity&nbsp;:&nbsp;&nbsp;{{vehicleDetails.vehicle_capacity}}</h>
-          </div>
-
+      
+      <div class="">
+        <div class="row">
+           <div class="col">
+             <h5> Job Title  &nbsp;:&nbsp;&nbsp;{{jobdetais.job_Title}}</h5>
+             <h5 class="positive">Description&nbsp;:&nbsp;&nbsp;{{jobdetais.job_Description}}</h5>
+             <h5> Delivery Address&nbsp;:&nbsp;&nbsp;{{jobdetais.job_DeliveryAddress}}</h5>
+           </div>
+         </div>
         </div>
-            
+        <div class="padding">
+          <button class="button button-full button-appback ink">Assign Task</button>
+        </div>
     </ion-content>
-             <div class="bar bar-footer bar-balanced">
-              <div class="title">Assign Task</div>
-            </div> 
-
 </ion-view>

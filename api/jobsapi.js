@@ -32,3 +32,40 @@ exports.addjob = function(req, res) {
         }
     });
 }
+
+
+exports.getJob = function(req, res) {
+    console.log(req.body);
+       var user_Id = req.body.user_Id;
+
+    var query = "SELECT * FROM jobs WHERE job_CreatedBy = "+user_Id+"";
+    console.log(query);
+
+    connection.query(query, function(error, result, fields) {
+        if (error == null) {
+            if (result.length > 0) {
+                console.log(result);
+                var resdata = {
+                        status : true,
+                        record : result,
+                        message : 'Successfully welcome'
+                    }
+                    res.jsonp(resdata); 
+            } else {
+                var resdata = {
+                    record: '',
+                    status: false,
+                    message: 'Wrong user name or password.'
+                };
+                res.jsonp(resdata);
+            }
+        } else {
+            var resdata = {
+                record: '',
+                status: false,
+                message: 'Server not responding.'
+            };
+            res.jsonp(resdata);
+        }
+    });
+}

@@ -1,15 +1,13 @@
-<ion-view ng-init="init()">
+<ion-view ng-init="init(); getJob();">
     <ion-content>
-        <div class="item card-item" ng-repeat="truck in TruckList" ng-click="showVehicleDetails(truck.Uid,truck.Name)">
+        <div class="item card-item" ng-repeat="job in jobList" ng-click="showJobDetails(job.job_Title,job.job_Description,job.job_DeliveryAddress)">
             <div class="card stable-bg ink ink-dark">
                 <div class="item  item-text-wrap ">
                     <div class="row">
                         <div class="col">
-                            <h2 class="appback">Driver&nbsp;:&nbsp;&nbsp;{{truck.Name}}</h2>
-                            <h3 class="positive">Phone&nbsp;:&nbsp;&nbsp;{{truck.mobile}}</h3>
-                            <h3>Vehicle  Number&nbsp;:&nbsp;&nbsp;{{truck.vehicle_number}}</h3>
-                            <h3>Vehicle  Type&nbsp;:&nbsp;&nbsp;{{truck.vehicle_type}}</h3>
-                            <h3>Vehicle  Capacity&nbsp;:&nbsp;&nbsp;{{truck.vehicle_capacity}}</h>
+                            <h2 class="appback">Job Title&nbsp;:&nbsp;&nbsp;{{job.job_Title}}</h2>
+                            <h3 class="positive">Job Description&nbsp;:&nbsp;&nbsp;{{job.job_Description}}</h3>
+                            <h3>Delivery Address&nbsp;:&nbsp;&nbsp;{{job.job_DeliveryAddress}}</h3>
                          </div>
                        </div>
                   </div>

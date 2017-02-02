@@ -1,6 +1,8 @@
-angular.module('starter.controllers').controller('createdjobCtrl', function($scope, $stateParams, $http, $rootScope, store,$ionicLoading,$ionicPopup) {
+angular.module('starter.controllers').controller('createdjobCtrl', function($scope, $stateParams, $http, $rootScope, store,$ionicLoading,$ionicPopup,$state) {
     $scope.init = function() {
         $rootScope.userDetails = store.get('userdata') || false;
+
+
     }
     $scope.Submit = function(details) {
         console.log(details);
@@ -30,4 +32,25 @@ angular.module('starter.controllers').controller('createdjobCtrl', function($sco
             });
         });
     }
+
+
+    $scope.getJob = function(){
+            var jobdata = {
+                  type: "manager",
+                  user_Id: $rootScope.islogin.user_id
+                 
+            }
+        $http.post(baseURL + 'getJob',jobdata).success(function(response, request) {
+            console.log(response);
+            $scope.jobList = response.record;
+            console.log( $scope.jobList);
+        }).error(function(err) {
+            console.log('Internet Connection Is Not Available.');
+        })
+    };
+
+    $scope.showJobDetails = function(job_Title,job_Description,job_DeliveryAddress){
+      console.log(job_Title);
+      $state.go('app.manager_jobDetails',{job_Title: job_Title, job_Description: job_Description, job_DeliveryAddress:job_DeliveryAddress});
+  }
 });

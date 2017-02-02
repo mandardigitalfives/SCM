@@ -5,9 +5,11 @@ angular.module('starter.controllers').controller('Trucklist_managerCtrl', functi
         console.log($scope.userDetails);
         var data = {
             managerId: $scope.userDetails.user_id,
-            type: "truck"
+            type: "truck" 
+           
         }
-        console.log(data);
+        $scope.jobdetais = data;
+        console.log( $scope.jobdetais);
         $scope.getTrucklist(data);
     }
 
@@ -38,8 +40,5 @@ angular.module('starter.controllers').controller('Trucklist_managerCtrl', functi
        $scope.modal.hide();
    };
 
-    $scope.showVehicleDetails = function(Id,Name){
-      console.log(Id);
-      $state.go('app.manager_jobDetails',{Id : Id, Name: Name});
-  }
+    
 })

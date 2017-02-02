@@ -1,9 +1,9 @@
-<ion-view view-title="Track Truck" ng-init="$rootScope.Loadingshow();">
+<ion-view view-title="Track vehicle" ng-init="$rootScope.Loadingshow();">
     <ion-content>
         <div class="card">
-            <button class="button button-block button-positive" ui-sref="app.take_photo">
+            <!-- <button class="button button-block button-positive" ui-sref="app.take_photo">
                 Navigate To Address
-            </button>
+            </button> -->
             <div class="mapWrap" data-tap-disabled="true">
                 <map center="{{lat}},{{lng}}" zoom="15">
                     <marker ng-repeat="pos in positions" position="{{lat}},{{lng}}"></marker>

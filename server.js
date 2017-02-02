@@ -54,6 +54,7 @@ app.post('/api/getTrucklist',trucklist.getTrucklist);
 app.post('/api/getProfile',profile.getProfile);
 app.post('/api/updateProfile',profile.updateProfile);
 app.post('/api/addjob', jobs.addjob);
+app.post('/api/getJob',jobs.getJob);
 
 
 http.listen( 9999, function(){
